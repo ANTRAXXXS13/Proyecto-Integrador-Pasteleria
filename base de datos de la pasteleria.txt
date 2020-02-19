@@ -45,7 +45,9 @@ alter table empresa add foreign key(id_sucursal) references sucursal(id);
 ---------------Indices -------------------------
 ------------------------------------------------
 start transaction
-
+alter table ingredientes ADD UNIQUE cod_ingrediente (codigo);
+alter table factura_maestra ADD UNIQUE idx_folio (folio);
+alter table kardex_almacen ADD UNIQUE idx_referencia (referencia);
 
 
 commit;
@@ -53,8 +55,12 @@ commit;
 ---------------Vistas  -------------------------
 ------------------------------------------------
 start transaction
-
-
+create view nombre_asc as select * from cliente order by nombre; 
+create view nombre_des as select * from cliente order by nombre desc; 
+create view nombre_sucursa_asc as select * from cliente order by nombre; 
+create view nombre_sucursa_des as select * from cliente order by nombre desc; 
+create view contartotalclientes as SELECT COUNT(*) FROM cliente;
+create view contartotalblacklist as SELECT COUNT(*) FROM black_list;
 
 commit;
 
@@ -77,6 +83,7 @@ commit;
 ------------------------------------------------
 start transaction
 delimiter //
+
 
 
 end;
