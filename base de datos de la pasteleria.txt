@@ -1,54 +1,8 @@
 create database proyectointegrador;
 use proyectointegrador;
-
-CREATE TABLE black_list(id int auto_increment primary key, id_cliente int);
-
-CREATE TABLE ingredientes(id int auto_increment primary key, nombre varchar(20), codigo varchar(10), descripcion varchar(100));
-
-CREATE TABLE cliente(id int auto_increment primary key, id_tipo_cliente int, id_status_cliente int, nombre varchar(20), a_paterno varchar(15), a_materno varchar(15),
-rfc CHAR(13), correo varchar(20), passwd varchar(15), celular char(15), calle varchar(20), colonia varchar(20), num_casa CHAR(6), foreign key(id_tipo_cliente) references tipo_cliente(id), foreign key(id_status_cliente) references status_cliente(id));
-
-CREATE TABLE kardex_almacen(id int auto_increment primary key, id_tipomovimiento int, id_producto int, id_personalizado int, id_empresa int, fecha_movimiento datetime, referencia varchar(20),
-entrada int, salida int, costo float, debe float, haber float, foreign key(id_tipomovimiento) references tipo_movimiento(id),foreign key(id_producto) references producto(id), foreign key(id_personalizado) references personalizado(id),
-foreign key(id_empresa) references empresa(id));
-
-CREATE TABLE sucursal(id int auto_increment primary key, nombre varchar(20), calle varchar(20), colonia varchar(20), num_casa char(10), tel char(12), rfc char(20), correo varchar(15));
-
-CREATE TABLE tipo_descuento(id int auto_increment primary key, tipo_descuento varchar(20), desripcion varchar(100));
-
-CREATE TABLE fac_maestra_fac_det(id int auto_increment primary key, id_fac_maestra int, id_fac_detalle int, foreign key(id_fac_maestro) references fac_maestra(id), foreign key(id_fac_detalle) references fac_detalle(id));
-
-CREATE TABLE factura_maestra(id int auto_increment primary key, id_cliente int, folio varchar(20), subtotal float, iva float, total float, foreign key(id_cliente) references cliente(id));
-
-CREATE TABLE personalizado(id int auto_increment primary key, id_kdx int, codigo_semana varchar(20), produccion int, venta int, probabilidad varchar(20), foreign key(id_kdx) references kardex_almacen(id));
-
-CREATE TABLE status_cliente(id int auto_increment primary key, status varchar(20));
-
-CREATE TABLE tipo_movimiento (id int auto_increment primary key, tipo varchar(20), descripcion varchar(100));
-
-CREATE TABLE pedido_futuro(id int auto_increment primary key, id_status int, id_kardex int, id_empre int, id_tipo_alerta int, fecha_entrega datetime, foreign key(id_status) references ped_status(id), foreign key(id_kardex) references kardex_almacen(id),
-foreign key(id_empre) references empresa(id), foreign key(id_tipo_alerta) references tipo_alerta(id));
-
-CREATE TABLE categoria(id int auto_increment primary key, nombre varchar(20), cat_descri varchar(100));
-
-CREATE TABLE tipo_cliente(id int auto_increment primary key, nombre varchar(20), descri varchar(100));
-
-CREATE TABLE producto(id int auto_increment primary key, id_cat int, id_ingredientes int, id_tipo_descuento int, id_personalizado int, nombre varchar(20), descripcion varchar(100), foreign key(id_cat) references categoria(id), foreign key(id_ingredientes) references ingredientes(id), 
-foreign key(id_personalizado) references personalizado(id), foreign key(id_tipo_descuento) references tipo_descuento(id));
-
-CREATE TABLE factura_detalle(id int auto_increment primary key, id_producto int, cantidad int, precio float, importe float, foreign key(id_producto) references producto(id));
-
-CREATE TABLE ped_status(id int auto_increment primary key, status varchar(20), descripcion varchar(100));
-
-CREATE TABLE tipo_alerta(id int auto_increment primary key, alerta varchar(20), descripcion varchar(100));
-
-CREATE TABLE kardex_ingrediente(id int auto_increment primary key, id_kardex int, id_ingredientes int, foreign key(id_kardex) references kardex_almacen(id), foreign key(id_ingredientes) references ingredientes(id));
-
-CREATE TABLE empresa(id int auto_increment primary key, id_sucursal int, nombre varchar(20), foreign key(id_sucursal) references sucursal(id));
-
-
-
-
+--------------------------------------------------
+--------Creacion de tablas------------------------
+--------------------------------------------------
 
 CREATE TABLE ingredientes(id int auto_increment primary key, nombre varchar(20), codigo varchar(10), descripcion varchar(100));
 CREATE TABLE black_list(id int auto_increment primary key, id_cliente int);
@@ -59,20 +13,22 @@ CREATE TABLE tipo_cliente(id int auto_increment primary key, nombre varchar(20),
 CREATE TABLE ped_status(id int auto_increment primary key, status varchar(20), descripcion varchar(100));
 CREATE TABLE tipo_descuento(id int auto_increment primary key, tipo_descuento varchar(20), desripcion varchar(100));
 CREATE TABLE tipo_alerta(id int auto_increment primary key, alerta varchar(20), descripcion varchar(100));
-CREATE TABLE sucursal(id int auto_increment primary key, nombre varchar(20), calle varchar(20), colonia varchar(20), num_casa char(10), tel char(12), rfc char(20), correo varchar(15));
+CREATE TABLE sucursal(id int auto_increment primary key, nombre varchar(30), calle varchar(20), colonia varchar(20), num_casa char(10), telefono char(12), rfc char(20), correo varchar(15));
 CREATE TABLE kardex_almacen(id int auto_increment primary key, id_tipo_movimiento int, id_producto int, id_personalizado int, id_empresa int, fecha_movimiento datetime, referencia varchar(20), entrada int, salida int, costo float, debe float, haber float);
 CREATE TABLE personalizado(id int auto_increment primary key, id_kdx int, codigo_semana varchar(20), produccion int, venta int, probabilidad varchar(20));
 CREATE TABLE pedido_futuro(id int auto_increment primary key, id_status int, id_kardex int, id_empre int, id_tipo_alerta int, fecha_entrega datetime);
-CREATE TABLE producto(id int auto_increment primary key, id_cat int, id_ingredientes int, id_tipo_descuento int, id_personalizado int, nombre varchar(20), descripcion varchar(100));
+CREATE TABLE producto(id int auto_increment primary key, id_cat int, id_ingredientes int, id_tipo_descuento int, id_personalizado int, nombre varchar(30), descripcion varchar(100));
 CREATE TABLE factura_detalle(id int auto_increment primary key, id_producto int, cantidad int, precio float, importe float);
 CREATE TABLE fac_maestra_fac_det(id int auto_increment primary key, id_fac_maestra int, id_fac_detalle int);
 CREATE TABLE kardex_ingrediente(id int auto_increment primary key, id_kardex int, id_ingredientes int);
-CREATE TABLE cliente(id int auto_increment primary key, id_tipo_cliente int, id_status_cliente int, nombre varchar(20), a_paterno varchar(15), a_materno varchar(15), rfc CHAR(13), correo varchar(20), passwd varchar(15), celular char(15), calle varchar(20), colonia varchar(20), num_casa CHAR(6));
+CREATE TABLE cliente(id int auto_increment primary key, id_tipo_cliente int, id_status_cliente int, nombre varchar(30), a_paterno varchar(30), a_materno varchar(30), dia_nac int, mes_nac int, año_nac int, rfc CHAR(13), correo varchar(50), passwd varchar(25), celular char(15), calle varchar(20), colonia varchar(20), num_casa CHAR(6));
 CREATE TABLE factura_maestra(id int auto_increment primary key, id_cliente int, folio varchar(20), subtotal float, iva float, total float);
-CREATE TABLE empresa(id int auto_increment primary key, id_sucursal int, nombre varchar(20));
+CREATE TABLE empresa(id int auto_increment primary key, id_sucursal int, nombre varchar(30));
 
 
-
+---------------------------------------------------
+--------------Creacion de llaves foraneas ---------
+---------------------------------------------------
 alter table kardex_almacen add foreign key(id_tipo_movimiento) references tipo_movimiento(id), add foreign key(id_producto) references producto(id), add foreign key(id_personalizado) references personalizado(id), add foreign key(id_empresa) references empresa(id);
 alter table personalizado add foreign key(id_kdx) references kardex_almacen(id);
 alter table pedido_futuro add foreign key(id_status) references ped_status(id), add foreign key(id_kardex) references kardex_almacen(id), add foreign key(id_empre) references empresa(id), add foreign key(id_tipo_alerta) references tipo_alerta(id);
@@ -84,6 +40,60 @@ alter table cliente add foreign key(id_tipo_cliente) references tipo_cliente(id)
 alter table factura_maestra add foreign key(id_cliente) references cliente(id);
 alter table empresa add foreign key(id_sucursal) references sucursal(id);
 
+
+------------------------------------------------
+---------------Indices -------------------------
+------------------------------------------------
+start transaction
+
+
+
+commit;
+------------------------------------------------
+---------------Vistas  -------------------------
+------------------------------------------------
+start transaction
+
+
+
+commit;
+
+------------------------------------------------
+---------------Triggers-------------------------
+------------------------------------------------
+start transaction
+delimiter //
+
+
+end;
+//
+
+
+
+commit;
+
+------------------------------------------------
+------------Procedimientos almacenados   -------
+------------------------------------------------
+start transaction
+delimiter //
+
+
+end;
+//
+
+
+
+commit;
+----------------------------------------------
+---------------Transacciones -----------------
+----------------------------------------------
+start transaction
+
+
+
+rollback;
+commit;
 
 
 

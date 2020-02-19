@@ -31,10 +31,10 @@ C:\integradora>cd c:/integradora/databases
 C:\integradora>git init
 C:\integradora>git config user.name "ERICK ARTURO HERNANDEZ AGUILAR"
 C:\integradora>git config user.email "erick_13_27@outlook.com"
-C:\integradora> git remote add origin https://github.com/ANTRAXXXS13/integradora.git
+C:\integradora> git remote add origin https://github.com/ANTRAXXXS13/Proyecto-Integrador-Pasteleria.git
 c:\integradora>git add .
 c:\integradora>git commit -m "Se agrega archivo de respaldo de la base de datos"
-c:\integradora>git push origin origin master https://github.com/ANTRAXXXS13/integradora.git
+****************** git push -u origin master *********** por si sale error
 c:\integradora>git push origin master
 c:\integradora\databases>mysqldump -u root -p -R --no-data classicmodels > classicmodels.sql
 
