@@ -48,8 +48,10 @@ start transaction
 alter table ingredientes ADD UNIQUE cod_ingrediente (codigo);
 alter table factura_maestra ADD UNIQUE idx_folio (folio);
 alter table kardex_almacen ADD UNIQUE idx_referencia (referencia);
-
-
+alter table cliente ADD UNIQUE idx_rfc (rfc);
+alter table cliente ADD UNIQUE idx_correo (correo);
+alter table cliente ADD UNIQUE idx_celular (celular);
+alter table sucursal ADD UNIQUE idx_telefono (telefono);
 commit;
 ------------------------------------------------
 ---------------Vistas  -------------------------
