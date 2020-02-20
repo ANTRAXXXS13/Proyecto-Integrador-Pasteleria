@@ -85,13 +85,64 @@ commit;
 ------------------------------------------------
 start transaction
 delimiter //
-
-
-
+create procedure sele_dafor_id (p_id int)
+begin
+select * from cliente where id = p_id;
 end;
 //
 
+delimiter //
+create procedure sele_daforid_empresa (p_id int)
+begin
+select * from empresa where id = p_id;
+end;
+//
 
+delimiter //
+create procedure insert_cliente (in _nombre varchar(30), in _a_paterno varchar(30), in _a_materno varchar(30), in _dia_nac int, in _mes_nac int, in _año_nac int, in _rfc CHAR(13), in _correo varchar(50), in _passwd varchar(25), in _celular char(15), in _calle varchar(20),in _colonia varchar(20), in _num_casa CHAR(6))
+begin
+insert into cliente(nombre, a_paterno, a_materno, dia_nac, mes_nac, año_nac, rfc, correo, passwd, celular, calle, colonia, num_casa)
+values(_nombre, _a_paterno, _a_materno, _dia_nac, _mes_nac, _año_nac, _rfc, _correo, _passwd, _celular, _calle, _colonia, _num_casa);
+end;
+// 
+
+delimiter //
+create procedure insert_sucursal (in _nombre varchar(30), in _calle varchar(20), in _colonia varchar(20), in _num_casa char(10), in _telefono char(12), in _rfc char(20), in _correo varchar(15))
+begin
+insert into sucursal(nombre, calle, colonia, num_casa, telefono, rfc, correo)
+values(_nombre, _calle, _colonia, _num_casa, _telefono, _rfc, _correo);
+end;
+// 
+
+delimiter //
+create procedure update_sucursal (_id int, in _nombre varchar(30), in _calle varchar(20), in _colonia varchar(20), in _num_casa char(10), in _telefono char(12), in _rfc char(20), in _correo varchar(15))
+begin
+update  sucursal set nombre = _nombre , calle = _calle, colonia = _colonia, num_casa = _num_casa, telefono = _telefono, rfc = _rfc, correo = _correo
+where id = _id;
+end;
+// 
+
+delimiter //
+create procedure update_cliente (_id int, in _nombre varchar(30), in _a_paterno varchar(30), in _a_materno varchar(30), in _dia_nac int, in _mes_nac int, in _año_nac int, in _rfc CHAR(13), in _correo varchar(50), in _passwd varchar(25), in _celular char(15), in _calle varchar(20),in _colonia varchar(20), in _num_casa CHAR(6))
+begin
+update cliente set nombre = _nombre, a_paterno = _a_paterno, a_materno = _a_materno, dia_nac = _dia_nac, mes_nac = _mes_nac, año_nac = _año_nac, rfc = _rfc, correo = _correo, passwd = _passwd, celular = _celular, calle = _calle, colonia = _colonia, num_casa = _num_casa
+where id = _id;
+end;
+//
+
+delimiter //
+create procedure delete_sucursal (in _id int)
+begin
+delete from sucursal where id = _id;
+end;
+// 
+
+delimiter //
+create procedure delete_cliente (in _id int)
+begin
+delete from cliente where id = _id;
+end;
+//   
 
 commit;
 ----------------------------------------------
