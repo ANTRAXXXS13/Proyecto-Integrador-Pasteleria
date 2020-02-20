@@ -87,6 +87,9 @@ CREATE TABLE `cliente` (
   `colonia` varchar(20) DEFAULT NULL,
   `num_casa` char(6) DEFAULT NULL,
   PRIMARY KEY (`id`),
+  UNIQUE KEY `idx_rfc` (`rfc`),
+  UNIQUE KEY `idx_correo` (`correo`),
+  UNIQUE KEY `idx_celular` (`celular`),
   KEY `id_tipo_cliente` (`id_tipo_cliente`),
   KEY `id_status_cliente` (`id_status_cliente`),
   CONSTRAINT `cliente_ibfk_1` FOREIGN KEY (`id_tipo_cliente`) REFERENCES `tipo_cliente` (`id`),
@@ -102,6 +105,30 @@ LOCK TABLES `cliente` WRITE;
 /*!40000 ALTER TABLE `cliente` DISABLE KEYS */;
 /*!40000 ALTER TABLE `cliente` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Temporary view structure for view `contartotalblacklist`
+--
+
+DROP TABLE IF EXISTS `contartotalblacklist`;
+/*!50001 DROP VIEW IF EXISTS `contartotalblacklist`*/;
+SET @saved_cs_client     = @@character_set_client;
+/*!50503 SET character_set_client = utf8mb4 */;
+/*!50001 CREATE VIEW `contartotalblacklist` AS SELECT 
+ 1 AS `COUNT(*)`*/;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Temporary view structure for view `contartotalclientes`
+--
+
+DROP TABLE IF EXISTS `contartotalclientes`;
+/*!50001 DROP VIEW IF EXISTS `contartotalclientes`*/;
+SET @saved_cs_client     = @@character_set_client;
+/*!50503 SET character_set_client = utf8mb4 */;
+/*!50001 CREATE VIEW `contartotalclientes` AS SELECT 
+ 1 AS `COUNT(*)`*/;
+SET character_set_client = @saved_cs_client;
 
 --
 -- Table structure for table `empresa`
@@ -200,6 +227,7 @@ CREATE TABLE `factura_maestra` (
   `iva` float DEFAULT NULL,
   `total` float DEFAULT NULL,
   PRIMARY KEY (`id`),
+  UNIQUE KEY `idx_folio` (`folio`),
   KEY `id_cliente` (`id_cliente`),
   CONSTRAINT `factura_maestra_ibfk_1` FOREIGN KEY (`id_cliente`) REFERENCES `cliente` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -226,7 +254,8 @@ CREATE TABLE `ingredientes` (
   `nombre` varchar(20) DEFAULT NULL,
   `codigo` varchar(10) DEFAULT NULL,
   `descripcion` varchar(100) DEFAULT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `cod_ingrediente` (`codigo`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -260,6 +289,7 @@ CREATE TABLE `kardex_almacen` (
   `debe` float DEFAULT NULL,
   `haber` float DEFAULT NULL,
   PRIMARY KEY (`id`),
+  UNIQUE KEY `idx_referencia` (`referencia`),
   KEY `id_tipo_movimiento` (`id_tipo_movimiento`),
   KEY `id_producto` (`id_producto`),
   KEY `id_personalizado` (`id_personalizado`),
@@ -307,6 +337,114 @@ LOCK TABLES `kardex_ingrediente` WRITE;
 /*!40000 ALTER TABLE `kardex_ingrediente` DISABLE KEYS */;
 /*!40000 ALTER TABLE `kardex_ingrediente` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Temporary view structure for view `nombre_asc`
+--
+
+DROP TABLE IF EXISTS `nombre_asc`;
+/*!50001 DROP VIEW IF EXISTS `nombre_asc`*/;
+SET @saved_cs_client     = @@character_set_client;
+/*!50503 SET character_set_client = utf8mb4 */;
+/*!50001 CREATE VIEW `nombre_asc` AS SELECT 
+ 1 AS `id`,
+ 1 AS `id_tipo_cliente`,
+ 1 AS `id_status_cliente`,
+ 1 AS `nombre`,
+ 1 AS `a_paterno`,
+ 1 AS `a_materno`,
+ 1 AS `dia_nac`,
+ 1 AS `mes_nac`,
+ 1 AS `año_nac`,
+ 1 AS `rfc`,
+ 1 AS `correo`,
+ 1 AS `passwd`,
+ 1 AS `celular`,
+ 1 AS `calle`,
+ 1 AS `colonia`,
+ 1 AS `num_casa`*/;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Temporary view structure for view `nombre_des`
+--
+
+DROP TABLE IF EXISTS `nombre_des`;
+/*!50001 DROP VIEW IF EXISTS `nombre_des`*/;
+SET @saved_cs_client     = @@character_set_client;
+/*!50503 SET character_set_client = utf8mb4 */;
+/*!50001 CREATE VIEW `nombre_des` AS SELECT 
+ 1 AS `id`,
+ 1 AS `id_tipo_cliente`,
+ 1 AS `id_status_cliente`,
+ 1 AS `nombre`,
+ 1 AS `a_paterno`,
+ 1 AS `a_materno`,
+ 1 AS `dia_nac`,
+ 1 AS `mes_nac`,
+ 1 AS `año_nac`,
+ 1 AS `rfc`,
+ 1 AS `correo`,
+ 1 AS `passwd`,
+ 1 AS `celular`,
+ 1 AS `calle`,
+ 1 AS `colonia`,
+ 1 AS `num_casa`*/;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Temporary view structure for view `nombre_sucursa_asc`
+--
+
+DROP TABLE IF EXISTS `nombre_sucursa_asc`;
+/*!50001 DROP VIEW IF EXISTS `nombre_sucursa_asc`*/;
+SET @saved_cs_client     = @@character_set_client;
+/*!50503 SET character_set_client = utf8mb4 */;
+/*!50001 CREATE VIEW `nombre_sucursa_asc` AS SELECT 
+ 1 AS `id`,
+ 1 AS `id_tipo_cliente`,
+ 1 AS `id_status_cliente`,
+ 1 AS `nombre`,
+ 1 AS `a_paterno`,
+ 1 AS `a_materno`,
+ 1 AS `dia_nac`,
+ 1 AS `mes_nac`,
+ 1 AS `año_nac`,
+ 1 AS `rfc`,
+ 1 AS `correo`,
+ 1 AS `passwd`,
+ 1 AS `celular`,
+ 1 AS `calle`,
+ 1 AS `colonia`,
+ 1 AS `num_casa`*/;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Temporary view structure for view `nombre_sucursa_des`
+--
+
+DROP TABLE IF EXISTS `nombre_sucursa_des`;
+/*!50001 DROP VIEW IF EXISTS `nombre_sucursa_des`*/;
+SET @saved_cs_client     = @@character_set_client;
+/*!50503 SET character_set_client = utf8mb4 */;
+/*!50001 CREATE VIEW `nombre_sucursa_des` AS SELECT 
+ 1 AS `id`,
+ 1 AS `id_tipo_cliente`,
+ 1 AS `id_status_cliente`,
+ 1 AS `nombre`,
+ 1 AS `a_paterno`,
+ 1 AS `a_materno`,
+ 1 AS `dia_nac`,
+ 1 AS `mes_nac`,
+ 1 AS `año_nac`,
+ 1 AS `rfc`,
+ 1 AS `correo`,
+ 1 AS `passwd`,
+ 1 AS `celular`,
+ 1 AS `calle`,
+ 1 AS `colonia`,
+ 1 AS `num_casa`*/;
+SET character_set_client = @saved_cs_client;
 
 --
 -- Table structure for table `ped_status`
@@ -471,7 +609,8 @@ CREATE TABLE `sucursal` (
   `telefono` char(12) DEFAULT NULL,
   `rfc` char(20) DEFAULT NULL,
   `correo` varchar(15) DEFAULT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `idx_telefono` (`telefono`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -583,6 +722,114 @@ UNLOCK TABLES;
 --
 -- Dumping routines for database 'proyectointegrador'
 --
+
+--
+-- Final view structure for view `contartotalblacklist`
+--
+
+/*!50001 DROP VIEW IF EXISTS `contartotalblacklist`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8mb4 */;
+/*!50001 SET character_set_results     = utf8mb4 */;
+/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `contartotalblacklist` AS select count(0) AS `COUNT(*)` from `black_list` */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
+-- Final view structure for view `contartotalclientes`
+--
+
+/*!50001 DROP VIEW IF EXISTS `contartotalclientes`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8mb4 */;
+/*!50001 SET character_set_results     = utf8mb4 */;
+/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `contartotalclientes` AS select count(0) AS `COUNT(*)` from `cliente` */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
+-- Final view structure for view `nombre_asc`
+--
+
+/*!50001 DROP VIEW IF EXISTS `nombre_asc`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8mb4 */;
+/*!50001 SET character_set_results     = utf8mb4 */;
+/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `nombre_asc` AS select `cliente`.`id` AS `id`,`cliente`.`id_tipo_cliente` AS `id_tipo_cliente`,`cliente`.`id_status_cliente` AS `id_status_cliente`,`cliente`.`nombre` AS `nombre`,`cliente`.`a_paterno` AS `a_paterno`,`cliente`.`a_materno` AS `a_materno`,`cliente`.`dia_nac` AS `dia_nac`,`cliente`.`mes_nac` AS `mes_nac`,`cliente`.`año_nac` AS `año_nac`,`cliente`.`rfc` AS `rfc`,`cliente`.`correo` AS `correo`,`cliente`.`passwd` AS `passwd`,`cliente`.`celular` AS `celular`,`cliente`.`calle` AS `calle`,`cliente`.`colonia` AS `colonia`,`cliente`.`num_casa` AS `num_casa` from `cliente` order by `cliente`.`nombre` */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
+-- Final view structure for view `nombre_des`
+--
+
+/*!50001 DROP VIEW IF EXISTS `nombre_des`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8mb4 */;
+/*!50001 SET character_set_results     = utf8mb4 */;
+/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `nombre_des` AS select `cliente`.`id` AS `id`,`cliente`.`id_tipo_cliente` AS `id_tipo_cliente`,`cliente`.`id_status_cliente` AS `id_status_cliente`,`cliente`.`nombre` AS `nombre`,`cliente`.`a_paterno` AS `a_paterno`,`cliente`.`a_materno` AS `a_materno`,`cliente`.`dia_nac` AS `dia_nac`,`cliente`.`mes_nac` AS `mes_nac`,`cliente`.`año_nac` AS `año_nac`,`cliente`.`rfc` AS `rfc`,`cliente`.`correo` AS `correo`,`cliente`.`passwd` AS `passwd`,`cliente`.`celular` AS `celular`,`cliente`.`calle` AS `calle`,`cliente`.`colonia` AS `colonia`,`cliente`.`num_casa` AS `num_casa` from `cliente` order by `cliente`.`nombre` desc */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
+-- Final view structure for view `nombre_sucursa_asc`
+--
+
+/*!50001 DROP VIEW IF EXISTS `nombre_sucursa_asc`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8mb4 */;
+/*!50001 SET character_set_results     = utf8mb4 */;
+/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `nombre_sucursa_asc` AS select `cliente`.`id` AS `id`,`cliente`.`id_tipo_cliente` AS `id_tipo_cliente`,`cliente`.`id_status_cliente` AS `id_status_cliente`,`cliente`.`nombre` AS `nombre`,`cliente`.`a_paterno` AS `a_paterno`,`cliente`.`a_materno` AS `a_materno`,`cliente`.`dia_nac` AS `dia_nac`,`cliente`.`mes_nac` AS `mes_nac`,`cliente`.`año_nac` AS `año_nac`,`cliente`.`rfc` AS `rfc`,`cliente`.`correo` AS `correo`,`cliente`.`passwd` AS `passwd`,`cliente`.`celular` AS `celular`,`cliente`.`calle` AS `calle`,`cliente`.`colonia` AS `colonia`,`cliente`.`num_casa` AS `num_casa` from `cliente` order by `cliente`.`nombre` */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
+-- Final view structure for view `nombre_sucursa_des`
+--
+
+/*!50001 DROP VIEW IF EXISTS `nombre_sucursa_des`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8mb4 */;
+/*!50001 SET character_set_results     = utf8mb4 */;
+/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `nombre_sucursa_des` AS select `cliente`.`id` AS `id`,`cliente`.`id_tipo_cliente` AS `id_tipo_cliente`,`cliente`.`id_status_cliente` AS `id_status_cliente`,`cliente`.`nombre` AS `nombre`,`cliente`.`a_paterno` AS `a_paterno`,`cliente`.`a_materno` AS `a_materno`,`cliente`.`dia_nac` AS `dia_nac`,`cliente`.`mes_nac` AS `mes_nac`,`cliente`.`año_nac` AS `año_nac`,`cliente`.`rfc` AS `rfc`,`cliente`.`correo` AS `correo`,`cliente`.`passwd` AS `passwd`,`cliente`.`celular` AS `celular`,`cliente`.`calle` AS `calle`,`cliente`.`colonia` AS `colonia`,`cliente`.`num_casa` AS `num_casa` from `cliente` order by `cliente`.`nombre` desc */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -593,4 +840,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-02-19 11:07:08
+-- Dump completed on 2020-02-20  8:52:58
