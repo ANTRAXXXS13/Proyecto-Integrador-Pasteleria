@@ -21,10 +21,34 @@ CREATE TABLE producto(id int auto_increment primary key, id_cat int, id_ingredie
 CREATE TABLE factura_detalle(id int auto_increment primary key, id_producto int, cantidad int, precio float, importe float);
 CREATE TABLE fac_maestra_fac_det(id int auto_increment primary key, id_fac_maestra int, id_fac_detalle int);
 CREATE TABLE kardex_ingrediente(id int auto_increment primary key, id_kardex int, id_ingredientes int);
-CREATE TABLE cliente(id int auto_increment primary key, id_tipo_cliente int, id_status_cliente int, nombre varchar(30), a_paterno varchar(30), a_materno varchar(30), dia_nac int, mes_nac int, año_nac int, rfc CHAR(13), correo varchar(50), passwd varchar(25), celular char(15), calle varchar(20), colonia varchar(20), num_casa CHAR(6));
+CREATE TABLE cliente(id int auto_increment primary key, id_tipo_cliente int, id_status_cliente int, nombre varchar(30), a_paterno varchar(30), a_materno varchar(30), fecha_nacimiento date, rfc CHAR(13), correo varchar(50), passwd varchar(25), celular char(15), calle varchar(20), colonia varchar(20), num_casa CHAR(6));
 CREATE TABLE factura_maestra(id int auto_increment primary key, id_cliente int, folio varchar(20), subtotal float, iva float, total float);
 CREATE TABLE empresa(id int auto_increment primary key, id_sucursal int, nombre varchar(30));
 
+
+--------------------------------------------------
+---------- CREACION DE TABLAS DE REGISTRO --------
+--------------------------------------------------
+CREATE TABLE registro_black_list(id int auto_increment primary key, usuario varchar(20), fecha_hora datetime, movimiento varchar(20));
+CREATE TABLE registro_categoria(id int auto_increment primary key, usuario varchar(20), fecha_hora datetime, movimiento varchar(20));
+CREATE TABLE registro_cliente(id int auto_increment primary key, usuario varchar(20), fecha_hora datetime, movimiento varchar(20));
+CREATE TABLE registro_empresa(id int auto_increment primary key, usuario varchar(20), fecha_hora datetime, movimiento varchar(20));
+CREATE TABLE registro_fac_maestra_fac_det(id int auto_increment primary key, usuario varchar(20), fecha_hora datetime, movimiento varchar(20));
+CREATE TABLE registro_factura_detalle(id int auto_increment primary key, usuario varchar(20), fecha_hora datetime, movimiento varchar(20));
+CREATE TABLE registro_factura_maestra(id int auto_increment primary key, usuario varchar(20), fecha_hora datetime, movimiento varchar(20));
+CREATE TABLE registro_ingredientes(id int auto_increment primary key, usuario varchar(20), fecha_hora datetime, movimiento varchar(20));
+CREATE TABLE registro_kardex_almacen(id int auto_increment primary key, usuario varchar(20), fecha_hora datetime, movimiento varchar(20));
+CREATE TABLE registro_kardex_ingrediente(id int auto_increment primary key, usuario varchar(20), fecha_hora datetime, movimiento varchar(20));
+CREATE TABLE registro_ped_status(id int auto_increment primary key, usuario varchar(20), fecha_hora datetime, movimiento varchar(20));
+CREATE TABLE registro_pedido_futuro(id int auto_increment primary key, usuario varchar(20), fecha_hora datetime, movimiento varchar(20));
+CREATE TABLE registro_personalizado(id int auto_increment primary key, usuario varchar(20), fecha_hora datetime, movimiento varchar(20));
+CREATE TABLE registro_producto(id int auto_increment primary key, usuario varchar(20), fecha_hora datetime, movimiento varchar(20));
+CREATE TABLE registro_status_cliente(id int auto_increment primary key, usuario varchar(20), fecha_hora datetime, movimiento varchar(20));
+CREATE TABLE registro_sucursal(id int auto_increment primary key, usuario varchar(20), fecha_hora datetime, movimiento varchar(20));
+CREATE TABLE registro_tipo_alerta(id int auto_increment primary key, usuario varchar(20), fecha_hora datetime, movimiento varchar(20));
+CREATE TABLE registro_tipo_cliente(id int auto_increment primary key, usuario varchar(20), fecha_hora datetime, movimiento varchar(20));
+CREATE TABLE registro_tipo_descuento(id int auto_increment primary key, usuario varchar(20), fecha_hora datetime, movimiento varchar(20));
+CREATE TABLE registro_tipo_movimiento(id int auto_increment primary key, usuario varchar(20), fecha_hora datetime, movimiento varchar(20));
 
 ---------------------------------------------------
 --------------Creacion de llaves foraneas ---------
@@ -56,7 +80,7 @@ commit;
 ------------------------------------------------
 ---------------Vistas  -------------------------
 ------------------------------------------------
-start transaction
+start transaction;
 create view nombre_asc as select * from cliente order by nombre; 
 create view nombre_des as select * from cliente order by nombre desc; 
 create view nombre_sucursa_asc as select * from cliente order by nombre; 
@@ -66,23 +90,475 @@ create view contartotalblacklist as SELECT COUNT(*) FROM black_list;
 
 commit;
 
-------------------------------------------------
----------------Triggers-------------------------
-------------------------------------------------
-start transaction
-delimiter //
+--------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------
+---------------Triggers---------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------
 
+-- -------------------------------------------------
+-- --- black_list -----
+-- -------------------------------------------------
+delimiter //
+CREATE trigger insert_black_list after insert on black_list for each row
+begin 
+	INSERT INTO registro_black_list values(null, user(), now(), 'insert');
+end;
+//
+delimiter //
+CREATE trigger update_black_list after insert on black_list for each row
+begin 
+	INSERT INTO registro_black_list values(null, user(), now(), 'update');
+end;
+//
+delimiter //
+CREATE trigger delete_black_list after insert on black_list for each row
+begin 
+	INSERT INTO registro_black_list values(null, user(), now(), 'delete');
+end;
+//
+
+-- -------------------------------------------------
+-- --- caegoria------
+-- ------------------------------------------
+delimiter //
+CREATE trigger insert_categoria after insert on categoria for each row
+begin 
+	INSERT INTO registro_categoria values(null, user(), now(), 'insert');
+end;
+//
+delimiter //
+CREATE trigger update_categoria after insert on categoria for each row
+begin 
+	INSERT INTO registro_categoria values(null, user(), now(), 'update');
+end;
+//
+delimiter //
+CREATE trigger delete_categoria after insert on categoria for each row
+begin 
+	INSERT INTO registro_categoria values(null, user(), now(), 'delete');
+end;
+//
+
+-- -------------------------------------------------
+-- --- cliente
+-- -------------------------------------------------
+delimiter //
+CREATE trigger insert_cliente after insert on cliente for each row
+begin 
+	INSERT INTO registro_cliente values(null, user(), now(), 'insert');
+end;
+//
+delimiter //
+CREATE trigger update_cliente after insert on cliente for each row
+begin 
+	INSERT INTO registro_cliente values(null, user(), now(), 'update');
+end;
+//
+delimiter //
+CREATE trigger delete_cliente after insert on cliente for each row
+begin 
+	INSERT INTO registro_cliente values(null, user(), now(), 'delete');
+end;
+//
+
+-- -------------------------------------------------
+-- --- empresa
+-- -------------------------------------------------
+delimiter //
+CREATE trigger insert_empresa after insert on empresa for each row
+begin 
+	INSERT INTO registro_empresa values(null, user(), now(), 'insert');
+end;
+//
+
+delimiter //
+CREATE trigger update_empresa after insert on empresa for each row
+begin 
+	INSERT INTO registro_empresa values(null, user(), now(), 'update');
 
 end;
 //
 
+delimiter //
+CREATE trigger delete_empresa after insert on cliente for each row
+begin 
+	INSERT INTO registro_cliente values(null, user(), now(), 'delete');
+
+end;
+//
+
+-- -------------------------------------------------
+-- --- fac_maestra_fac_det
+-- -------------------------------------------------
+delimiter //
+CREATE trigger insert_fac_maestra_fac_det after insert on fac_maestra_fac_det for each row
+begin 
+	INSERT INTO registro_fac_maestra_fac_det values(null, user(), now(), 'insert');
+end;
+//
+
+delimiter //
+CREATE trigger update_fac_maestra_fac_det after insert on fac_maestra_fac_det for each row
+begin 
+	INSERT INTO registro_fac_maestra_fac_det values(null, user(), now(), 'update');
+
+end;
+//
+
+delimiter //
+CREATE trigger delete_fac_maestra_fac_det after insert on fac_maestra_fac_det for each row
+begin 
+	INSERT INTO registro_fac_maestra_fac_det values(null, user(), now(), 'delete');
+
+end;
+//
+
+-- -------------------------------------------------
+-- --- factura_detalle
+-- -------------------------------------------------
+delimiter //
+CREATE trigger insert_factura_detalle after insert on factura_detalle for each row
+begin 
+	INSERT INTO registro_factura_detalle values(null, user(), now(), 'insert');
+end;
+//
+
+delimiter //
+CREATE trigger update_factura_detalle after insert on factura_detalle for each row
+begin 
+	INSERT INTO registro_factura_detalle values(null, user(), now(), 'update');
+
+end;
+//
+
+delimiter //
+CREATE trigger delete_factura_detalle after insert on factura_detalle for each row
+begin 
+	INSERT INTO registro_factura_detalle values(null, user(), now(), 'delete');
+
+end;
+//
+
+-- -------------------------------------------------
+-- --- factura_maestra
+-- -------------------------------------------------
+delimiter //
+CREATE trigger insert_factura_maestra after insert on factura_maestra for each row
+begin 
+	INSERT INTO registro_factura_maestra values(null, user(), now(), 'insert');
+end;
+//
+
+delimiter //
+CREATE trigger update_factura_maestra after insert on factura_maestra for each row
+begin 
+	INSERT INTO registro_factura_maestra values(null, user(), now(), 'update');
+
+end;
+//
+
+delimiter //
+CREATE trigger delete_factura_maestra after insert on factura_maestra for each row
+begin 
+	INSERT INTO registro_factura_maestra values(null, user(), now(), 'delete');
+
+end;
+//
+
+-- -------------------------------------------------
+-- --- ingredientes
+-- -------------------------------------------------
+delimiter //
+CREATE trigger insert_ingredientes after insert on ingredientes for each row
+begin 
+	INSERT INTO registro_factura_maestra values(null, user(), now(), 'insert');
+end;
+//
+delimiter //
+CREATE trigger update_ingredientes after insert on ingredientes for each row
+begin 
+	INSERT INTO registro_factura_maestra values(null, user(), now(), 'update');
+end;
+//
+delimiter //
+CREATE trigger delete_ingredientes after insert on ingredientes for each row
+begin 
+	INSERT INTO registro_factura_maestra values(null, user(), now(), 'delete');
+end;
+//
+
+-- -------------------------------------------------
+-- --- kardex_almacen
+-- -------------------------------------------------
+delimiter //
+CREATE trigger insert_kardex_almacen after insert on kardex_almacen for each row
+begin 
+	INSERT INTO registro_kardex_almacen values(null, user(), now(), 'insert');
+end;
+//
+delimiter //
+CREATE trigger update_kardex_almacen after insert on kardex_almacen for each row
+begin 
+	INSERT INTO registro_kardex_almacen values(null, user(), now(), 'update');
+end;
+//
+delimiter //
+CREATE trigger delete_kardex_almacen after insert on kardex_almacen for each row
+begin 
+	INSERT INTO registro_kardex_almacen values(null, user(), now(), 'delete');
+end;
+//
+
+-- -------------------------------------------------
+-- --- kardex_ingrediente
+-- -------------------------------------------------
+delimiter //
+CREATE trigger insert_kardex_ingrediente after insert on kardex_ingrediente for each row
+begin 
+	INSERT INTO registro_kardex_ingrediente values(null, user(), now(), 'insert');
+end;
+//
+delimiter //
+CREATE trigger update_kardex_ingrediente after insert on kardex_ingrediente for each row
+begin 
+	INSERT INTO registro_kardex_ingrediente values(null, user(), now(), 'update');
+end;
+//
+delimiter //
+CREATE trigger delete_kardex_ingrediente after insert on kardex_ingrediente for each row
+begin 
+	INSERT INTO registro_kardex_ingrediente values(null, user(), now(), 'delete');
+end;
+//
+
+-- -------------------------------------------------
+-- --- ped_status
+-- -------------------------------------------------
+delimiter //
+CREATE trigger insert_ped_status after insert on ped_status for each row
+begin 
+	INSERT INTO registro_ped_status values(null, user(), now(), 'insert');
+end;
+//
+delimiter //
+CREATE trigger update_ped_status after insert on ped_status for each row
+begin 
+	INSERT INTO registro_ped_status values(null, user(), now(), 'update');
+end;
+//
+delimiter //
+CREATE trigger delete_ped_status after insert on ped_status for each row
+begin 
+	INSERT INTO registro_ped_status values(null, user(), now(), 'delete');
+end;
+//
+
+-- -------------------------------------------------
+-- --- pedido_futuro
+-- -------------------------------------------------
+delimiter //
+CREATE trigger insert_pedido_futuro after insert on pedido_futuro for each row
+begin 
+	INSERT INTO registro_pedido_futuro values(null, user(), now(), 'insert');
+end;
+//
+delimiter //
+CREATE trigger update_pedido_futuro after insert on pedido_futuro for each row
+begin 
+	INSERT INTO registro_pedido_futuro values(null, user(), now(), 'update');
+end;
+//
+delimiter //
+CREATE trigger delete_pedido_futuro after insert on pedido_futuro for each row
+begin 
+	INSERT INTO registro_pedido_futuro values(null, user(), now(), 'delete');
+end;
+//
+
+-- -------------------------------------------------
+-- --- personalizado
+-- -------------------------------------------------
+delimiter //
+CREATE trigger insert_personalizado after insert on personalizado for each row
+begin 
+	INSERT INTO registro_personalizado values(null, user(), now(), 'insert');
+end;
+//
+delimiter //
+CREATE trigger update_personalizado after insert on personalizado for each row
+begin 
+	INSERT INTO registro_personalizado values(null, user(), now(), 'update');
+end;
+//
+delimiter //
+CREATE trigger delete_personalizado after insert on personalizado for each row
+begin 
+	INSERT INTO registro_personalizado values(null, user(), now(), 'delete');
+end;
+//
+
+-- -------------------------------------------------
+-- --- producto
+-- -------------------------------------------------
+delimiter //
+CREATE trigger insert_producto after insert on producto for each row
+begin 
+	INSERT INTO registro_producto values(null, user(), now(), 'insert');
+end;
+//
+delimiter //
+CREATE trigger update_producto after insert on producto for each row
+begin 
+	INSERT INTO registro_producto values(null, user(), now(), 'update');
+end;
+//
+delimiter //
+CREATE trigger delete_producto after insert on producto for each row
+begin 
+	INSERT INTO registro_producto values(null, user(), now(), 'delete');
+end;
+//
+
+-- -------------------------------------------------
+-- --- status_cliente
+-- -------------------------------------------------
+delimiter //
+CREATE trigger insert_status_cliente after insert on status_cliente for each row
+begin 
+	INSERT INTO registro_status_cliente values(null, user(), now(), 'insert');
+end;
+//
+delimiter //
+CREATE trigger update_status_cliente after insert on status_cliente for each row
+begin 
+	INSERT INTO registro_status_cliente values(null, user(), now(), 'update');
+end;
+//
+delimiter //
+CREATE trigger delete_status_cliente after insert on status_cliente for each row
+begin 
+	INSERT INTO registro_status_cliente values(null, user(), now(), 'delete');
+end;
+//
+
+-- -------------------------------------------------
+-- --- sucursal
+-- -------------------------------------------------
+delimiter //
+CREATE trigger insert_sucursal after insert on sucursal for each row
+begin 
+	INSERT INTO registro_sucursal values(null, user(), now(), 'insert');
+end;
+//
+delimiter //
+CREATE trigger update_sucursal after insert on sucursal for each row
+begin 
+	INSERT INTO registro_sucursal values(null, user(), now(), 'update');
+end;
+//
+delimiter //
+CREATE trigger delete_sucursal after insert on sucursal for each row
+begin 
+	INSERT INTO registro_sucursal values(null, user(), now(), 'delete');
+end;
+//
+
+-- -------------------------------------------------
+-- --- tipo_alerta
+-- -------------------------------------------------
+delimiter //
+CREATE trigger insert_tipo_alerta after insert on tipo_alerta for each row
+begin 
+	INSERT INTO registro_tipo_alerta values(null, user(), now(), 'insert');
+end;
+//
+delimiter //
+CREATE trigger update_tipo_alerta after insert on tipo_alerta for each row
+begin 
+	INSERT INTO registro_tipo_alerta values(null, user(), now(), 'update');
+end;
+//
+delimiter //
+CREATE trigger delete_tipo_alerta after insert on tipo_alerta for each row
+begin 
+	INSERT INTO registro_tipo_alerta values(null, user(), now(), 'delete');
+end;
+//
+
+-- -------------------------------------------------
+-- --- tipo_cliente
+-- -------------------------------------------------
+delimiter //
+CREATE trigger insert_tipo_cliente after insert on tipo_cliente for each row
+begin 
+	INSERT INTO registro_tipo_cliente values(null, user(), now(), 'insert');
+end;
+//
+delimiter //
+CREATE trigger update_tipo_cliente after insert on tipo_cliente for each row
+begin 
+	INSERT INTO registro_tipo_cliente values(null, user(), now(), 'update');
+end;
+//
+delimiter //
+CREATE trigger delete_tipo_cliente after insert on tipo_cliente for each row
+begin 
+	INSERT INTO registro_tipo_cliente values(null, user(), now(), 'delete');
+end;
+//
 
 
-commit;
+-- -------------------------------------------------
+-- --- tipo_descuento
+-- -------------------------------------------------
+delimiter //
+CREATE trigger insert_tipo_descuento after insert on tipo_descuento for each row
+begin 
+	INSERT INTO registro_tipo_descuento values(null, user(), now(), 'insert');
+end;
+//
+delimiter //
+CREATE trigger update_tipo_descuento after insert on tipo_descuento for each row
+begin 
+	INSERT INTO registro_tipo_descuento values(null, user(), now(), 'update');
+end;
+//
+delimiter //
+CREATE trigger delete_tipo_descuento after insert on tipo_descuento for each row
+begin 
+	INSERT INTO registro_tipo_descuento values(null, user(), now(), 'delete');
+end;
+//
 
-------------------------------------------------
-------------Procedimientos almacenados   -------
-------------------------------------------------
+-- -------------------------------------------------
+-- --- tipo_movimiento
+-- -------------------------------------------------
+delimiter //
+CREATE trigger insert_tipo_movimiento after insert on tipo_movimiento for each row
+begin 
+	INSERT INTO registro_tipo_movimiento values(null, user(), now(), 'insert');
+end;
+//
+delimiter //
+CREATE trigger update_tipo_movimiento after insert on tipo_movimiento for each row
+begin 
+	INSERT INTO registro_tipo_movimiento values(null, user(), now(), 'update');
+end;
+//
+delimiter //
+CREATE trigger delete_tipo_movimiento after insert on tipo_movimiento for each row
+begin 
+	INSERT INTO registro_tipo_movimiento values(null, user(), now(), 'delete');
+end;
+//
+
+--------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------
+------------Procedimientos almacenados   ---------------------------------------------
+--------------------------------------------------------------------------------------
 start transaction
 delimiter //
 create procedure sele_dafor_id (p_id int)
