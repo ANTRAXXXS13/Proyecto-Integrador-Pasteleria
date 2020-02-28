@@ -1,4 +1,4 @@
-para iniciar sesion MYSql : mysql -u root -p
+﻿para iniciar sesion MYSql : mysql -u root -p
 Listar bases de datos: show databases
 Utilizar base de datos: use mysql
 Mostrar tabla de base de datos: show tables;
@@ -188,4 +188,4 @@ postgres=#
 
 serial: indica que es int es auto_incrementable
 unique: es unallave unica, no puedes hacer referencia a otra tabla
-===============================================================================================
+===============================================================================================000
