@@ -1,4 +1,4 @@
-para iniciar sesion MYSql : mysql -u root -p
+﻿para iniciar sesion MYSql : mysql -u root -p
 Listar bases de datos: show databases
 Utilizar base de datos: use mysql
 Mostrar tabla de base de datos: show tables;
@@ -27,16 +27,19 @@ mysqldump -u root -p --routines utch2020 --verbose< utch.sql : crear un respaldo
 =========================== GIT===================================================
 ==================================================================================
 
-C:\integradora>cd c:/integradora/databases
-C:\integradora>git init
-C:\integradora>git config user.name "ERICK ARTURO HERNANDEZ AGUILAR"
-C:\integradora>git config user.email "erick_13_27@outlook.com"
-C:\integradora> git remote add origin https://github.com/ANTRAXXXS13/Proyecto-Integrador-Pasteleria.git
-c:\integradora>git add .
-c:\integradora>git commit -m "Se agrega archivo de respaldo de la base de datos"
+C:/home\integradora>cd c:/integradora/databases
+C:/home\integradora>git clone  https://github.com/ANTRAXXXS13/Proyecto-Integrador-Pasteleria.git
+C:/home/integradora>git remote set-url origin  https://github.com/ANTRAXXXS13/Proyecto-Integrador-Pasteleria.git
+C:/home\integradora>git config user.name "ERICK ARTURO HERNANDEZ AGUILAR"
+C:/home\integradora>git config user.email "erick_13_27@outlook.com"
+C:/home\integradora> git remote add origin https://github.com/ANTRAXXXS13/Proyecto-Integrador-Pasteleria.git
+c:/home\integradora>git add .
+git checkout master
+c:/home\integradora>git commit -m "Se agrega archivo de respaldo de la base de datos"
 ****************** git push -u origin master *********** por si sale error
-c:\integradora>git push origin master
+c:/home\integradora>git push origin master
 c:\integradora\databases>mysqldump -u root -p -R --no-data classicmodels > classicmodels.sql
+
 
 ============================================================================================================
 =========================  EXPRESIONES REGULARES        ====================================================
@@ -188,4 +191,4 @@ postgres=#
 
 serial: indica que es int es auto_incrementable
 unique: es unallave unica, no puedes hacer referencia a otra tabla
-===============================================================================================
+===============================================================================================000
