@@ -40,6 +40,13 @@ c:/home\integradora>git commit -m "Se agrega archivo de respaldo de la base de d
 c:/home\integradora>git push origin master
 c:\integradora\databases>mysqldump -u root -p -R --no-data classicmodels > classicmodels.sql
 
+git checkout -d nombre:eliminar una rama
+git checkout -b nombre:crear una rama
+git checkout nombre: cambiar de rama
+git status: ver el estatus de tu rama
+git branch -a: ver todas la ramas que tenemos
+git merge nombre: clonar lo que hay en una rama ala actual
+
 
 ============================================================================================================
 =========================  EXPRESIONES REGULARES        ====================================================
