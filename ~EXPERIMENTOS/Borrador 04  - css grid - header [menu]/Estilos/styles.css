@@ -27,13 +27,13 @@ body {
 header {
 	
 	grid-area: hd;
-	/*background-image: url('../img/banner-tienda.png');
+	background-image: url('../img/banner-tienda.png');
   	background-repeat: no-repeat;
 	background-size: cover;
 	
 	
 	/* Background image is centered vertically and horizontally at all times */
-	/*background-position: center center;*/
+	background-position: center center;
 	
   
 
@@ -74,7 +74,7 @@ nav {
 	width: 50%;
 }
 
-/*LINKS DE NAVEGACION: FORMATO LINKS LISTA*/\z
+/*LINKS DE NAVEGACION: FORMATO LINKS LISTA*/
 .nav-links li {
 	list-style: none;
 }
