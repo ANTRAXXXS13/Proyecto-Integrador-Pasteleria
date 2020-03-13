@@ -1,5 +1,50 @@
-body
+/*body
 {
-	background-image: url(../Banners/tienda.png);
+	background-image: url(../imagenes/tienda.png);
 	background-repeat: no-repeat;
 }
+
+
+/*#desplegable #
+{
+	background-color: rgba(250, 87, 111, 0.5);
+	color: #FEFDFE;
+	display: none;
+}
+
+/*.desplegable a:hover
+{
+
+}
+
+/* 
+#9d6079 - DEEP LAVANDER
+#FA5770 - BUBBLEGUM PINK
+#FFA5B9 - COTTON CANDY PINK
+#F0D9EA - LIGHT LAVENDER
+#FEFDFE - CLOUD WHITE
+
+*/
+
+/*TODO*/
+ /*{
+	margin: 0px;
+	padding: 0px;
+	box-sizing: border-box;
+}
+
+body
+{
+	display: grid;
+	grid-template-columns: 20% auto;
+	grid-template-rows: 200px auto 60px;
+	grid-template-areas: "hd hd"
+						"sidebar main"
+						"footer footer";
+}
+
+/*header
+{
+	grid-area: hd;
+
+}*/
