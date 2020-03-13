@@ -218,3 +218,23 @@ a, li
 	text-align: center;
 }
 */
+.Buscador input
+{
+
+	margin: 0 auto;
+	width: 150px;
+}
+
+.Buscador form
+{
+	margin: 0 auto;
+	width: 220px;
+	padding: 2em;
+	border: 1px rgba(255, 255, 255, 0.7);
+	border-radius: 1em;
+	font-family: sans-serif;
+	background-color: rgba(250, 87, 111, 0.5);
+	color: #fefded;
+}
+
+
