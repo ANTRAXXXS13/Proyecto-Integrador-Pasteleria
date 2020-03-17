@@ -1,0 +1,52 @@
+body
+{
+	background-image: url(../imagenes/Banners/login.jpg);
+}
+
+form
+{
+	margin: 0 auto;
+	width: 400px;
+	padding: 2em;
+
+	border: 1px rgba(255, 255, 255, 0.7);
+	border-radius: 1em;
+	font-family: Arial;
+	background-color: rgba(250, 87, 111, 0.5);
+	color: #fefded;
+}
+
+input
+{
+	font:1em calibri;
+	width: 250px;
+	height: 20px;
+	box-sizing: border-box;
+	border: 2px #999;
+	margin: 3px;
+	
+}
+
+input:focus
+{
+	border-color: white;
+
+}
+
+label 
+{
+	display: inline-block;
+	width: 70px;
+	text-align: left;
+	color: rgba(255, 255, 255, 0.5);
+}
+
+ul
+{
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+
+
