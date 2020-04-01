@@ -3,9 +3,7 @@
 
 
 :root {
-    --light-gray: #2b3032a1;
-    --border: #2b303218;
-    --text-color: #ff686b;
+    
     --roboto: "Roboto", sans-serif;
     --gugi: "Gugi", cursive;
     --sofia: "Sofia", cursive;
@@ -79,7 +77,9 @@ header .logo {
     padding: 0em 1.3em;
 }
 
-
+.form .fas {
+    color: var(--info);
+}
 
 /*On hover*/
 #dropdown-menu {
@@ -102,6 +102,9 @@ v.dropdown>.dropdown-menu {
     /*Without this, clicking will make it sticky*/
       pointer-events: none;
   }
+
+
+
 
 /*HOVER MENU MOVIL*/
 

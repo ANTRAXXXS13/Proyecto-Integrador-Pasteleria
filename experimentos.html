@@ -17,13 +17,15 @@
 	<!-- Font Awesome CDN -->
 	<script src="https://kit.fontawesome.com/839392f4bf.js" crossorigin="anonymous"></script>
 
-	<!-- Slick/Carrusel-->
-	<!-- <link rel="stylesheet" type="text/css" href="slick/slick.css"/> -->
+	
 
 	<!--Custom Stylesheet-->
 	 <link rel="stylesheet" href="./css/custom.css" /> 
 
 	
+
+	<!--css Date Picker-->
+	<link rel="stylesheet" href="css/bootstrap-datepicker.standalone.css" />
 
 </head>
 
@@ -35,10 +37,7 @@
 	<!--Content-->
 		<div class="modal-content">
 
-		<!--POR SI QUEREMOS QUE SE CIERRE ARRIBA X-->
-		<!-- <div class="modal-header">
-			<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-		</div> -->
+		
 
 			<!--Modal cascading tabs-->
 			<div class="modal-c-tabs">
@@ -63,21 +62,30 @@
 						<!--Body-->
 						<div class="modal-body mb-1">
 
-							<div class="md-form form-sm mb-1">
-								<i class="fas fa-envelope prefix"></i>
-								<input type="email" id="modalLRInputLogCorreo" class="form-control form-control-sm validate" placeholder="correo electrónico">
-								<label data-error="wrong" data-success="right" for="modalLRInputLogCorreo"></label>
+							<div class="form-row">
+								<div class="form-group input-group col-md">
+									<div class="input-group-prepend">
+										<span class="input-group-text bg-light"> <i class="far fa-envelope text-info"></i></span>
+									</div>
+
+									<input type="email" id="modalLoginCorreo" name="modalLoginCorreo" class="form-control validate" id="modalRegisUser" placeholder="correo electrónico" required>
+
+									<!--<label data-error="wrong" data-success="right" for="modalLoginCorreo"></label>-->
+									<div class="invalid-feedback">*Es necesario completar este campo</div>
+								</div>
 							</div>
 
-							<hr>
-							<h6 class="card-title text-center text-info mb-1 mt-1">O</h6>
-							<hr>
-							
-	
-							<div class="md-form form-sm mb-4">
-								<i class="fas fa-lock prefix"></i>
-								<input type="password" id="modalLRInputLogContra" class="form-control form-control-sm validate" placeholder="contraseña">
-								<label data-error="wrong" data-success="right" for="modalLRInputLogContra"></label>
+							<div class="form-row">
+								<div class="form-group input-group col-md">
+									<div class="input-group-prepend">
+										<span class="input-group-text bg-light"> <i class="fas fa-key text-info"></i></span>
+									</div>
+
+									<input type="password" id="modalLoginPass" name="modalLoginPass" class="form-control validate"  placeholder="contraseña" required>
+
+									<!--<label data-error="wrong" data-success="right" for="modalLoginCorreo"></label>-->
+									<div class="invalid-feedback">*Es necesario completar este campo</div>
+								</div>
 							</div>
 
 							<div class="text-center mt-2">
@@ -92,7 +100,7 @@
 								<p>¿Aún no tienes cuenta? <a href="#">Regístrate</a></p>
 								<p>Olvidé mi <a href="#">Contraseña</a></p>
 							</div>
-							<button type="button" class="btn btn-outline-info ml-auto" data-dismiss="modal">Cerrar</button>
+							<button type="button" id="modalLoginButton" name="modalLoginButton" class="btn btn-outline-info ml-auto" data-dismiss="modal">Cerrar</button>
 						</div>
 					
 					</div>
@@ -103,62 +111,228 @@
 	
 						<!--Body-->
 						<div class="modal-body">
-							<h6 class="card-title text-left text-info mb-2 mt-1">DATOS PERSONALES</h6>
-							<hr>
+							
+							<h6 class="card-title text-left text-info mb-1 mt-2">DATOS PERSONALES</h6>
+							
+							<hr>		
 
 						<!---->	
 
-						<div class="row">
+						<div class="needs-validation" novalidate>
+							<div class="form-row">
 
-							<div class="col-xs-6 col-sm-6 col-md-6">
-								<div class="form-group">
-									<input type="text" name="first_name" id="first_name" class="form-control input-sm" placeholder="First Name">
+								<div class="form-group col-md">
+
+									<!--<label for="modalRegisNom">Nombre(s)
+									</label>-->
+									<input type="text" class="form-control" id="modalRegisNom" placeholder="Nombre(s)" required>
+									<div class="invalid-feedback">
+										*Es necesario completar este campo
+									</div>
 								</div>
+
 							</div>
-							<div class="col-xs-6 col-sm-6 col-md-6">
-								<div class="form-group">
-									<input type="text" name="last_name" id="last_name" class="form-control input-sm" placeholder="Last Name">
-								</div>
-							</div>
-						</div>
 						
-						<!---->
 
-							<div class="md-form form-sm mb-5">
-								<div class="form-group">
-									<i class="fas fa-user prefix"></i>
-									<input type="nombre" id="modalLRInputRegisNombre" class="form-control form-control-sm validate" placeholder="Nombre(s)">
-									<label data-error="wrong" data-success="right" for="modalLRInputRegisNombre"></label>
+							<div class="form-row">
+
+								<div class="form-group col-md-6">
+
+									<!--<label for="modalRegisNom">Nombre(s)
+									</label>-->
+									<input type="text" class="form-control" id="modalRegisAPat" placeholder="Apellido Paterno" required>
+									<div class="invalid-feedback">
+										*Es necesario completar este campo
+									</div>
 								</div>
 
-								<div class="form-group">
-									<i class="fas fa-user prefix"></i>
-									<input type="nombre" id="modalLRInputRegisNombre" class="form-control form-control-sm validate" placeholder="Nombre(s)">
-									<label data-error="wrong" data-success="right" for="modalLRInputRegisNombre"></label>
+
+								<div class="form-group col-md-6">
+
+									<!--<label for="modalRegisNom">Nombre(s)
+									</label>-->
+									<input type="text" class="form-control" id="modalRegisAMat" placeholder="Apellido Materno" required>
+									<div class="invalid-feedback">
+										*Es necesario completar este campo
+									</div>
 								</div>
-									
+								
 							</div>
+						
+							<div class="form-row">
+
+								<div class="form-group input-group col-md">
+									<div class="input-group-prepend">
+										<span class="input-group-text bg-light"> <i class="fas fa-calendar-alt text-info"></i></span>
+									</div>
+
+									<input type="text"  class="form-control" id="modalRegisFechaNac" placeholder="Fecha de nacimiento" required>
+									<div class="invalid-feedback">*Es necesario completar este campo</div>
+									
+								</div>
+
+							</div>
+
+							<h6 class="card-title text-left text-info mb-1 mt-3">DIRECCIÓN</h6>
+							<hr>
+
+							<div class="form-row">
+
+								<div class="form-group col-md-8">
+
+									<input type="text" class="form-control" id="modalRegisCalle" placeholder="Calle" required>
+									
+									<div class="invalid-feedback">
+										*Es necesario completar este campo
+									</div>
+
+								</div>
+
+								<div class="form-group col-md-4">
+
+									<input type="text" class="form-control" id="modalRegisNumExt" placeholder="Num. Ext" required>
+									
+									<div class="invalid-feedback">
+										*Es necesario completar este campo
+									</div>
+
+								</div>
+
+							</div>
+
+							<div class="form-row">
+
+								<div class="form-group col-md-2">
+
+									<input type="text" class="form-control" id="modalRegisInt" placeholder="Int">
+									
+								</div>
+
+								<div class="form-group col-md-6">
+
+									<!--<label for="modalRegisNom">Nombre(s)
+									</label>-->
+									<input type="text" class="form-control" id="modalRegisCol" placeholder="Colonia" required>
+									<div class="invalid-feedback">
+										*Es necesario completar este campo
+									</div>
+								</div>	
+
+								<div class="form-group col-md-4">
+
+									<!--<label for="modalRegisNom">Nombre(s)
+									</label>-->
+									<input type="text" class="form-control" id="modalRegisCP" placeholder="Código Postal" required>
+									<div class="invalid-feedback">
+										*Es necesario completar este campo
+									</div>
+								</div>
+
+							</div>
+
+							<h6 class="card-title text-left text-info mb-1 mt-3">USUARIO</h6>
+							<hr>
+							
+							<div class="form-row">
+								<div class="form-group input-group col-md">
+									<div class="input-group-prepend">
+										<span class="input-group-text bg-light"> <i class="far fa-envelope text-info"></i></span>
+									</div>
+
+									<input type="email"  class="form-control" id="modalRegisUser" placeholder="correo electrónico" required>
+									<div class="invalid-feedback">*Es necesario completar este campo</div>
+								</div>
+							</div>
+
+							<div class="form-row">
+
+								<div class="form-group col-md">
+
+									
+									<input type="password" class="form-control" id="modalRegisPass1" placeholder="Contraseña" required>
+									<div class="invalid-feedback">
+										*Es necesario completar este campo
+									</div>
+								</div>
+
+
+
+
+															<h1>Create new account</h1>
+							<form action="/newaccount" method=post
+								oninput='up2.setCustomValidity(up2.value != up.value ? "Passwords do not match." : "")'>
+							<p>
+							<label for="username">E-mail address:</label>
+							<input id="username" type=email required name=un>
+							<p>
+							<label for="password1">Password:</label>
+							<input id="password1" type=password required name=up>
+							<p>
+							<label for="password2">Confirm password:</label>
+							<input id="password2" type=password name=up2>
+							<p>
+							<input type=submit value="Create account">
+							</form>
+
+							</div>
+
+							<div class="form-row">
+
+								<div class="form-group input-group col-md-8">
+									<div class="input-group-prepend">
+										<span class="input-group-text bg-light"> <i class="fas fa-user-circle text-info"></i></span>
+									</div>
+
+									<input type="text"  class="form-control" id="modalRegisPass" placeholder="Contraseña" required>
+									<div class="invalid-feedback">*Es necesario completar este campo</div>
+									
+								</div>
+
+							</div>
+
+
+						</div>
+
+
+						<!--<div class="container">
+							<div class="form-row">
+							  <div class="col-md-">
+								<div class="input-group">
+								  <span class="input-group-addon">
+									<input type="checkbox">
+								  </span>
+								 
+								  <input type="text" id="tbox" class="form-control">
+								</div>
+							  </div>
+							</div>
+						  </div>
+
+
+
+						<div class="form-row">
+							<div class="form-group col-md-3">
+								
+								<div class="btn-group" data-toggle="buttons" id="modalLRInputRegisNumInt">
+									<label class="btn btn-default">
+									  <input type="checkbox">
+									</label>
+								</div>
+								  
+								<input type="text" disabled="disabled" class="form-control" id="modalLRInputRegisNumInt" placeholder="Num. Int">
+							
+							</div>	
+						</div> -->
+
+						
+						
+						
 
 							
 
-							<div class="md-form form-sm mb-5">
-								<i class="fas fa-envelope prefix"></i>
-								<input type="email" id="modalLRInputRegisCorreo" class="form-control form-control-sm validate" placeholder="Ingresa tu correo">
-								<label data-error="wrong" data-success="right" for="modalLRInputRegisCorreo"></label>
-							</div>
-	
-							<div class="md-form form-sm mb-5">
-								<i class="fas fa-lock prefix"></i>
-								<input type="password" id="modalLRInputRegisCreaContra" class="form-control form-control-sm validate" placeholder="Crea una contraseña">
-								<label data-error="wrong" data-success="right" for="modalLRInputRegisCreaContra"></label>
-							</div>
+							
 
-							<div class="md-form form-sm mb-4">
-								<i class="fas fa-lock prefix"></i>
-								<input type="password" id="modalLRInputRegisVerifContra" class="form-control form-control-sm validate" placeholder="Verifica tu contraseña">
-								<label data-error="wrong" data-success="right" for="modalLRInputRegisVerifContra"></label>
-							</div>
-	
+							
 							<div class="text-center form-sm mt-2">
 								<button class="btn btn-info">Crear cuenta<i class="fas fa-sign-in ml-1"></i></button>
 							</div>
@@ -187,83 +361,32 @@
 		<a href="#" class="btn btn-outline btn-rounded p-2 mr-sm-2" data-toggle="modal" data-target="#modalLRForm"><i class="fas fa-user"></i></a>
 	</li>
 			
-	<li class="nav-item">
-					
-		<a href="#" class="btn btn-md p-2 mr-sm-2" id="carrito" role="button" aria-pressed="true"><i class="fas fa-shopping-cart"></i>
-		</a>
-	</li>
+	
 </ul>	
 
 <!---->
 
-<form>
-	<h6 class="card-title text-left text-info mb-2 mt-1">DATOS PERSONALES</h6>
-	<hr>
-
-	<div class="form-row">
-
-	  <div class="form-group col-md-3">
-		<label for="modalLRInputRegisNombre"></label>
-		<input type="nombre" class="form-control" id="modalLRInputRegisNombre" placeholder="Nombre(s)">
-	  </div>
-
-	  <div class="form-group col-md-3">
-		<label for="modalLRInputRegisAPaterno"></label>
-		<input type="aPaterno" class="form-control" id="modalLRInputRegisAPaterno" placeholder="Apellido Paterno">
-	  </div>
-
-	  <div class="form-group col-md-3">
-		<label for="modalLRInputRegisAMaterno"></label>
-		<input type="aMaterno" class="form-control" id="modalLRInputRegisAMaterno" placeholder="Apellido Materno">
-	  </div>
-
-	</div>
-	<div class="form-group">
-	  <label for="inputAddress">Address</label>
-	  <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
-	</div>
-	<div class="form-group">
-	  <label for="inputAddress2">Address 2</label>
-	  <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
-	</div>
-	<div class="form-row">
-	  <div class="form-group col-md-6">
-		<label for="inputCity">City</label>
-		<input type="text" class="form-control" id="inputCity">
-	  </div>
-	  <div class="form-group col-md-4">
-		<label for="inputState">State</label>
-		<select id="inputState" class="form-control">
-		  <option selected>Choose...</option>
-		  <option>...</option>
-		</select>
-	  </div>
-	  <div class="form-group col-md-2">
-		<label for="inputZip">Zip</label>
-		<input type="text" class="form-control" id="inputZip">
-	  </div>
-	</div>
-	<div class="form-group">
-	  <div class="form-check">
-		<input class="form-check-input" type="checkbox" id="gridCheck">
-		<label class="form-check-label" for="gridCheck">
-		  Check me out
-		</label>
-	  </div>
-	</div>
-	<button type="submit" class="btn btn-primary">Sign in</button>
-  </form>
-
-<!---->
 
 
 
-</body>
-<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 	
-	<script src="/js/main.js"></script>
+	<!--Obligatorio que la libreria datepicker este en el footer justo despues de los js de bootstrap para no causar conflicto-->
+	
+	<script src="js/bootstrap-datepicker.min.js"> </script>
+	
+	<script src="locales/bootstrap-datepicker.es.min.js"></script>
+	
+	<!-- js para personalizar -->
+	<script src="js/apps.js"></script>
+
+
+
+
+
+
 </body>
 </html>
 	
