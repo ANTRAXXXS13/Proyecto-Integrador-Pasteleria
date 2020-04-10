@@ -102,7 +102,7 @@
 						<div class="form-group col-md-1">
 									</div>
 						<div class="form-group col-md-4">					
-							<h6 class="card-title text-left text-info mb-1 mt-2">DATOS GENERALES DEL PASTEL</h6>				
+							<h6 class="card-title text-left text-info mb-1 mt-2"><b>DATOS GENERALES DEL PASTEL</b></h6>				
 							<hr>		
 							<div class="needs-validation" novalidate>
 								<div class="form-row">
@@ -140,41 +140,41 @@
 									</div>
 						<div class="form-group col-md-4">
 							<hr>
-							<h5><center> Topping</center></h5>
+							<h5><center><b> Topping</b></center></h5>
 							<hr>
 							<div class="form-row">
 								<!-- Fresas -->
 								<div class="form-group col-md-3">
-									<input type="checkbox"  id="fresas" name="fresas" > Fresas
+									<input type="checkbox"  id="fresas" name="fresas" > <label><b> Fresas</b></label>
 								</div>
 
 								<!-- Duraznos -->
 								<div class="form-group col-md-3">
-									<input type="checkbox"  id="duraznos" name="duraznos" > Duraznos
+									<input type="checkbox"  id="duraznos" name="duraznos" > <label><b> Duraznos</b></label>
 								</div>
 								<!-- Cerezas -->
 								<div class="form-group col-md-3">
-									<input type="checkbox"  id="cereza" name="cereza" > Cerezas
+									<input type="checkbox"  id="cereza" name="cereza" > <label><b> Cerezas</b></label>
 								</div>
 
 								<!-- Kiwi -->
 								<div class="form-group col-md-3">
-									<input type="checkbox"  id="kiwi" name="kiwi" > Kiwi
+									<input type="checkbox"  id="kiwi" name="kiwi" > <label><b> Kiwi</b></label>
 								</div>
 							</div>
 							<div class="form-row">
 								<!-- Zarzamora -->
 								<div class="form-group col-md-3">
-									<input type="checkbox"  id="zarzamora" name="zarzamora" >  Zarzamora
+									<input type="checkbox"  id="zarzamora" name="zarzamora" >  <label><b> Zarzamora</b></label>
 								</div>
 
 								<!-- Frambueza -->
 								<div class="form-group col-md-3">
-									<input type="checkbox"  id="frambueza" name="frambueza" > Frambueza
+									<input type="checkbox"  id="frambueza" name="frambueza" > <label><b> Frambueza</b></label>
 								</div>
 								<!-- Estellas de fandant -->
-								<div class="form-group col-md-3">
-									<input type="checkbox"  id="estrellas_fandant" name="estrellas_fandant" > Estrellas de Fandant
+								<div class="form-group col-md-4">
+									<input type="checkbox"  id="estrellas_fandant" name="estrellas_fandant" > <label><b> Estrellas de Fandant</b></label>
 								</div>
 							</div>
 						<!-- Aqui termina Relleno-->
@@ -200,22 +200,22 @@
 						<div class="form-group col-md-1">
 									</div>
 						<div class="form-group col-md-4">
-							<h6 class="card-title text-left text-info mb-1 mt-3">INGREDIENTES</h6>
+							<h6 class="card-title text-left text-info mb-1 mt-3"><b>INGREDIENTES</b></h6>
 							<hr>
 							<hr>
 						<!-- Aqui inicia Masa-->
-							<h5><center> Masa(Sabor)</center></h5>
+							<h5><center><b> Masa(Sabor)</b></center></h5>
 							<hr>
 							<div class="form-row">
 
 								<!-- Chocolate -->
 								<div class="form-group col-md-6">
-									<input type="checkbox"  id="chocolate" name="chocolate" > Chocolate
+									<input type="checkbox"  id="chocolate" name="chocolate" > <label><b> Chocolate</b></label>
 								</div>
 
 								<!-- Vainilla -->
 								<div class="form-group col-md-6">
-									<input type="checkbox"  id="vainilla" name="vainilla" > Vainilla
+									<input type="checkbox"  id="vainilla" name="vainilla" > <label><b> Vainilla</b></label>
 								</div>
 							</div>
 						<!-- Aqui termina Masa-->
@@ -226,23 +226,23 @@
 							<div class="form-row">
 								<!-- Chocolate -->
 								<div class="form-group col-md-6">
-									<input type="checkbox"  id="mermelada_fresa" name="mermelada_fresa" > Mermelada de Fresa
+									<input type="checkbox"  id="mermelada_fresa" name="mermelada_fresa" > <label><b> Mermelada de Fresa</b></label>
 								</div>
 
 								<!-- Vainilla -->
 								<div class="form-group col-md-6">
-									<input type="checkbox"  id="betun_vainilla" name="betun_vainilla" > Batún de Vainilla
+									<input type="checkbox"  id="betun_vainilla" name="betun_vainilla" > <label><b> Batún de Vainilla</b></label>
 								</div>
 							</div>
 							<div class="form-row">
 								<!-- Chocolate -->
 								<div class="form-group col-md-6">
-									<input type="checkbox"  id="mermelada_durazno" name="mermelada_durazno" >  Mermelada de Durazno
+									<input type="checkbox"  id="mermelada_durazno" name="mermelada_durazno" >  <label><b> Mermelada de Durazno</b></label>
 								</div>
 
 								<!-- Vainilla -->
 								<div class="form-group col-md-6">
-									<input type="checkbox"  id="betun_chocolate" name="betun_chocolate" > Betún de Chocolate
+									<input type="checkbox"  id="betun_chocolate" name="betun_chocolate" > <label><b> Betún de Chocolate</b></label>
 								</div>
 							</div>
 						<!-- Aqui termina Relleno-->
@@ -254,12 +254,12 @@
 
 								<!-- Chocolate -->
 								<div class="form-group col-md-6">
-									<input type="checkbox"  id="betun_vainilla2" name="betun_vainilla2" > Betún de Vainilla
+									<input type="checkbox"  id="betun_vainilla2" name="betun_vainilla2" > <label><b> Betún de Vainilla</b></label> 
 								</div>
 
 								<!-- Vainilla -->
 								<div class="form-group col-md-6">
-									<input type="checkbox"  id="betun_chocolate2" name="betun_chocolate2" > Betún de Chocolate
+									<input type="checkbox"  id="betun_chocolate2" name="betun_chocolate2" > <label><b> Betún de Chocolate</b></label>
 								</div>
 							</div>
 						<!-- Aqui termina Betun-->
@@ -277,7 +277,7 @@
 						<div class="form-group col-md-1">
 									</div>
 						<div class="form-group col-md-4">
-							<h6 class="card-title text-left text-info mb-1 mt-3">IMAGEN(OPCIONAL)</h6>
+							<h6 class="card-title text-left text-info mb-1 mt-3"><b>IMÁGEN(OPCIONAL)</b></h6>
 							<hr>			
 							
 							

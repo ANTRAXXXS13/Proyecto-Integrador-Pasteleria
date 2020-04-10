@@ -1,3 +1,14 @@
+<?php
+	include("conexion.php");
+	// si no esta logeado lo manda a la pagina index
+	session_start();
+	if (!isset($_SESSION['sesion_exito']==1)) {
+		header("Location: experimentos.php");
+	}
+	
+?>
+
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -98,7 +109,7 @@
 						<div class="form-group col-md-1">
 									</div>
 						<div class="form-group col-md-4">					
-							<h6 class="card-title text-left text-info mb-1 mt-2">DATOS PERSONALES</h6>				
+							<h6 class="card-title text-left text-info mb-1 mt-2"><b>DATOS PERSONALES</b></h6>				
 							<hr>		
 							<div class="needs-validation" novalidate>
 								<div class="form-row">
@@ -178,7 +189,7 @@
 						<div class="form-group col-md-1">
 									</div>
 						<div class="form-group col-md-4">
-							<h6 class="card-title text-left text-info mb-1 mt-3">CAMBIAR CONTRASEÑA</h6>
+							<h6 class="card-title text-left text-info mb-1 mt-3"><b>CAMBIAR CONTRASEÑA</b></h6>
 							<hr>
 							<!-- Contraseña actual -->
 							<div class="form-row">
@@ -236,7 +247,7 @@
 						<div class="form-group col-md-1">
 									</div>
 						<div class="form-group col-md-4">
-							<h6 class="card-title text-left text-info mb-1 mt-3">DIRECCIÓN</h6>
+							<h6 class="card-title text-left text-info mb-1 mt-3"><b>DIRECCIÓN</b></h6>
 							<hr>
 
 							<div class="form-row">
@@ -306,21 +317,21 @@
 						<div class="form-group col-md-1">
 									</div>
 						<div class="form-group col-md-4">
-							<h6 class="card-title text-left text-info mb-1 mt-3">FORMA DE PAGO</h6>
+							<h6 class="card-title text-left text-info mb-1 mt-3"><b>FORMA DE PAGO</b></h6>
 							<hr>
 
 
 							<div class="form-row">
 								<!-- Forma de pago efectivo-->
 								<div class="form-group col-md-6">
-									<input type="radio"  id="nom_titular" name="" placeholder="Efectivo" required>
-									Efectivo
+									<input type="radio"  id="efectivo" name="efectivo"> <label><b>Efectivo</b></label>
+									
 								</div>
 
 								<!-- Forma de pago tarjeta-->
 								<div class="form-group col-md-6">
-									<input type="radio"  id="tarjeta" name="tarjeta" value="Tarjeta" required>
-									Tarjeta débito
+									<input type="radio"  id="tarjeta" name="tarjeta"> <label><b>Tarjeta débito</b></label>
+									
 								</div>
 							</div>
 

@@ -102,7 +102,7 @@
 						<div class="form-group col-md-1">
 									</div>
 						<div class="form-group col-md-4">					
-							<h6 class="card-title text-left text-info mb-1 mt-2">DATOS DE LA SUCURSAL</h6>				
+							<h6 class="card-title text-left text-info mb-1 mt-2"><b>DATOS DE LA SUCURSAL</b></h6>				
 							<hr>		
 							<div class="needs-validation" novalidate>
 								<div class="form-row">
@@ -147,21 +147,21 @@
 									</div>	
 								</div>
 								<div class="form-row">
-									<div class="form-group col-md-2">
+									<div class="form-group col-md-3">
 
 										<!-- Matriz -->
-										 <label for="fname">¿Es Matriz?:</label>
+										<label ><b>¿Es Matriz?:</b></label>
 							
 									</div>
-									<div class="form-group col-md-2">
+									<div class="form-group col-md-1">
 
 										<!-- Matriz -->
-										<input type="checkbox"  id="si" name="si" required> Si
+										<input type="checkbox"  id="si" name="si" required> <label ><b>Si</b></label> 
 									</div>
 									<div class="form-group col-md-2">
 
 										<!-- Matriz -->
-										<input type="checkbox"  id="no" name="no"  required>No
+										<input type="checkbox"  id="no" name="no"  required> <label ><b>No</b></label>
 									</div>
 
 									<div class="form-group col-md-6">
@@ -187,7 +187,7 @@
 						<div class="form-group col-md-1">
 									</div>
 						<div class="form-group col-md-4">
-							<h6 class="card-title text-left text-info mb-1 mt-3">DIRECCIÓN</h6>
+							<h6 class="card-title text-left text-info mb-1 mt-3"><b>DIRECCIÓN</b></h6>
 							<hr>
 
 							<div class="form-row">
@@ -296,7 +296,7 @@
 									</div>
 						<div class="form-group col-md-4">
 							
-							<h6 class="card-title text-left text-info mb-1 mt-3">CAMBIAR CONTRASEÑA</h6>
+							<h6 class="card-title text-left text-info mb-1 mt-3"><b>CAMBIAR CONTRASEÑA</b></h6>
 							<hr>
 							
 							<!-- Contraseña actual -->
