@@ -2,10 +2,10 @@
 	include("conexion.php");
 	// si no esta logeado lo manda a la pagina index
 	session_start();
-	if (!isset($_SESSION['sesion_exito']==1)) {
+	if (!isset($_SESSION['id_usuario'])) {
 		header("Location: experimentos.php");
 	}
-	
+
 ?>
 
 

@@ -1,31 +1,27 @@
-<?php
-	//se incluye la conexión
-	include("Conexion.php");
-	if (isset($_POST['ingresar'])) {	
-		session_start();
-		ob_start();
-		$_SESSION['sesion_exito']=0;
-		 //datos del formulario...
-		$correo= $_POST['correo'];
-		$contra=$_POST['pass'];
-						 //si vienen vacios
-		if(($correo == "")|| ($contra== "")){
-			echo "¿Te crees gracioso?, Debes escribir los datos";
-		}
-		else{	
-			$_SESSION['sesion_exito']=3;
-			$resultados = mysqli_query($conexion,"SELECT * FROM usuario WHERE correo = '$correo' AND
-			passwd = '$contra'");
+<?php 
+	include("conexion.php");
+	if (isset($_POST["ingresar"])){ 
 
-			while($consulta = mysqli_fetch_array($resultados)){
-				$_SESSION['sesion_exito']=1;
-				header('Location:actualizar_usuario.php');
-							//Inicio Sesion :D
-			}
-			if($_SESSION['sesion_exito']<>1){
-				header('Location:index.php');
-			}
+		$correo = $_POST['correo'];
+		$password = $_POST['pass'];
+		$sql = "SELECT id from usuario 
+			where correo = '$correo' AND passwd = '$password' ";
+		$resultado = $conexion->query($sql);
+		$rows = $resultado->num_rows;
+		// si la consulta trae algo entra en el siguiente if
+		if ($rows > 0) {
+			$row = $resultado->fetch_assoc(); // 
+			$_SESSION['id_usuario'] = $row["id"];
+			header("Location: actualizar_usuario.php"); // esto lo mandara a la pagina ya logeado
+		}else {
+			echo "<script>
+				alert('USUARIO O PASSWORD INCORRECTO');
+				
+			</script>";
+			
 		}
 	}
-			include("Cerrar_Conexion.php");
-?>
+
+
+// window.location = 'experimentos.php';
+ ?>
