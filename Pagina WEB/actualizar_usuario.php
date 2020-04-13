@@ -1,10 +1,15 @@
 <?php
-	include("conexion.php");
+	include("conexion/conexion.php");
 	// si no esta logeado lo manda a la pagina index
 	session_start();
-	if (!isset($_SESSION['id_usuario'])) {
-		header("Location: experimentos.php");
+	/*if (!isset($_SESSION['id_usuario'])) {
+		header("Location: ../index.php");
 	}
+	/*$iduser = $_SESSION['id_usuario'];
+
+	$sql = "select nombre from usuario where id ='$iduser'";
+	/*$resultado = $conexion->query($sql);
+	$row = mysqli_fetch_row($sql);*/
 
 ?>
 
@@ -27,65 +32,10 @@
 <!-- ========================================================================================================-->
 <!-- ============================= aqui comienza el navegador ===============================================-->
 <!-- ========================================================================================================-->
-		<nav class="navbar navbar-expand-sm navbar-dark bg-primary fixed-top" role="navigation">
-			<!--/brand-->	
-			<a class="navbar-brand logo text-white" href="#">Fastcakes</a>
+		<?php 
+		    include_once 'header.php';
+		?>
 
-				<!--boton toggle-->
-			<button class="navbar-toggler"  type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="true" aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
-				<!--/boton toggle-->
-
-				<!--qué es lo que se colapsará-->
-			<div class="collapse navbar-collapse" id="navbarColor01">
-					
-					<!--lista de menu-->
-				<ul class="navbar-nav mx-auto">
-						
-					<li class="nav-item dropdown">
-						<a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">PASTELES</a>
-							
-						<div class="dropdown-menu  mt-3 mr-4 " id="dropdown-menu" aria-labelledby="navbarDropdown">
-						<a class="dropdown-item text-white" href="Enfiestados.php">Express</a>
-						<a class="dropdown-item text-white" href="Personalizados.php">Personalizalo</a>
-						<div class="dropdown-divider"></div>
-							<a class="dropdown-item text-white" href="Descuentos.php">Descuentos</a>
-						</div>
-						</li>
-
-						<li class="nav-item">
-							<a class="nav-link" href="#">TIENDA <span class="sr-only">(current)</span></a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="RastrearPedido.php">RASTREA TU PEDIDO</a>
-					</li>
-				
-				</ul>
-				<!--/lista de menu-->
-
-
-				<!--Aqui comienza búsqueda-->
-				<form class="form-inline">
-					<input class="form-control mr-sm-2" type="search" placeholder="Busca un pastel">
-						<button class="btn btn-secondary btn-sm rounded-circle my-sm-0" type="submit"><i class="fas fa-search"></i>
-						</button>
-				</form>
-				<!-- aqui termina búsqueda-->
-
-				<ul class="navbar-nav">
-
-					<li class="nav-item">
-						<a href="#" class="btn btn-outline btn-rounded p-2 mr-sm-2" data-toggle="modal" data-target="#modalLRForm"><i class="fas fa-user"></i></a>
-					</li>
-								
-					<li class="nav-item">
-										
-						<a href="#" class="btn btn-md p-2 mr-sm-2" id="carrito" role="button" aria-pressed="true"><i class="fas fa-shopping-cart"></i></a>
-					</li>
-				</ul>
-			</div>
-		</nav>
 <!-- ========================================================================================================-->
 <!-- ============================= aqui termina el navegador ================================================-->
 <!-- ========================================================================================================-->
@@ -115,7 +65,7 @@
 								<div class="form-row">
 									<!-- nombre -->
 									<div class="form-group col-md">
-										<input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre(s)" required>
+										<input type="text" class="form-control" id="nombre" name="nombre" placeholder="nombre" required>
 										<div class="invalid-feedback">
 											*Es necesario completar este campo
 										</div>
@@ -149,7 +99,7 @@
 											<span class="input-group-text bg-light"> <i class="fas fa-calendar-alt text-info"></i></span>
 										</div>
 
-										<input type="text"  class="form-control" id="fecha_nacimiento" name="fecha_nacimiento" placeholder="Fecha de nacimiento" required>
+										<input type="date"  class="form-control" id="fecha_nacimiento" name="fecha_nacimiento" placeholder="Fecha de nacimiento" required>
 										<div class="invalid-feedback">*Es necesario completar este campo</div>			
 									</div>							
 								</div>
