@@ -68,11 +68,11 @@
                     }
                     else {
                         //insertar informacion del ususario
-                        $conexion->query("call insert_usuario('$nombre', '$aPat', '$aMat', '$fechNac', '$email', '$pass', '$celular', '$calle', '$colonia','$NumExt', '$numInt', '$codPost');");    
+                        $conexion->query("call insert_usuario('$nombre', '$aPat', '$aMat', '$fechNac', '$email', '$pass', '$celular', '$calle', '$colonia','$numExt', '$numInt', '$codPost');");    
                         $resultadousuario =($conexion);
                         if ($resultadousuario > 0) {
                             echo "<script>
-                                alert('Tu cuenta fue creada!');
+                                alert('Tu cuenta fue creada!, ahora tienes que iniciar sesion');
                                 window.location = '../index.php';
                             </script>";
                             mysqli_close($conexion);

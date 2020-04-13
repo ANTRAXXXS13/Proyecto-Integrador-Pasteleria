@@ -4,8 +4,9 @@
 
 		$correo = $_POST['correo'];
 		$password = $_POST['pass'];
+		$passw_enc = sha1($password);
 		$sql = "SELECT id from usuario 
-			where correo = '$correo' AND passwd = '$password' ";
+			where correo = '$correo' AND passwd = '$passw_enc' ";
 		$resultado = $conexion->query($sql);
 		$rows = $resultado->num_rows;
 		// si la consulta trae algo entra en el siguiente if

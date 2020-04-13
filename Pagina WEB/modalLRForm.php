@@ -72,7 +72,7 @@
                     <div class="modal-footer">
                         <div class="options text-center text-md-right mt-1">
                                 
-                                <p>Olvidé mi <a href="#">Contraseña</a></p>
+                                <p><a href="#">Olvidé mi Contraseña</a></p>
                         </div>
                         
                     </div>
