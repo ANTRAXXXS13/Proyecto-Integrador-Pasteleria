@@ -1,0 +1,199 @@
+create database proyectointegrador;
+use proyectointegrador;
+--------------------------------------------------
+--------Creacion de tablas------------------------
+--------------------------------------------------
+CREATE TABLE pro_ing(id INTEGER AUTO_INCREMENT PRIMARY KEY NOT NULL, id_producto INTEGER, id_ingrediente INTEGER);
+CREATE TABLE tamaño(id INTEGER AUTO_INCREMENT PRIMARY KEY NOT NULL, nombre VARCHAR(25), caracteristicas VARCHAR(100));
+CREATE TABLE categoria(id INTEGER AUTO_INCREMENT PRIMARY KEY NOT NULL, nombre VARCHAR(25), descripcion VARCHAR(100));
+CREATE TABLE forma_pago(id INTEGER AUTO_INCREMENT PRIMARY KEY NOT NULL, nombre VARCHAR(25), descripcion VARCHAR(100));
+CREATE TABLE pedido(id INTEGER AUTO_INCREMENT PRIMARY KEY NOT NULL, id_producto INTEGER, id_usuario INTEGER, id_status_pedido INTEGER, folio VARCHAR(20), fecha_pedido DATE, fecha_entrega DATE, cantidad INTEGER, costo_envio FLOAT, subtotal FLOAT, iva FLOAT, total FLOAT);
+CREATE TABLE usuario(id INTEGER AUTO_INCREMENT PRIMARY KEY NOT NULL, id_forma_pago INTEGER, nombre VARCHAR(30), a_paterno VARCHAR(30), a_materno VARCHAR(30), fecha_naciomiento DATE, correo VARCHAR(50), passwd VARCHAR(25), celular CHAR(15), calle VARCHAR(20), colonia VARCHAR(20), numeracion_casa CHAR(6), status BOOLEAN, blacklist BOOLEAN);
+CREATE TABLE producto_sucursal(id INTEGER AUTO_INCREMENT PRIMARY KEY NOT NULL, id_producto INTEGER, id_sucursal INTEGER);
+CREATE TABLE producto(id INTEGER AUTO_INCREMENT PRIMARY KEY NOT NULL, id_categoria INTEGER, id_tamaño INTEGER, id_forma INTEGER, status_producto BOOLEAN, nombre VARCHAR(25), descripcion VARCHAR(100), costo FLOAT);
+CREATE TABLE ingredientes(id INTEGER AUTO_INCREMENT PRIMARY KEY NOT NULL, id_categoria_ingre INTEGER, nombre VARCHAR(25), codigo VARCHAR(10), descripcion VARCHAR(100));
+CREATE TABLE status_pedido(id INTEGER AUTO_INCREMENT PRIMARY KEY NOT NULL,nombre VARCHAR(25));
+CREATE TABLE categoria_ingre(id INTEGER AUTO_INCREMENT PRIMARY KEY NOT NULL, nombre VARCHAR(25),descripcion VARCHAR(100));
+CREATE TABLE sucursal(id INTEGER AUTO_INCREMENT PRIMARY KEY NOT NULL, nombre VARCHAR(30), calle VARCHAR(20), colonia VARCHAR(20), numeracion_casa CHAR(10), telefono CHAR(12), rfc CHAR(20), correo VARCHAR(15), passwd varchar(25), estado VARCHAR(50), municipio VARCHAR(50), pais VARCHAR(50), matriz BOOLEAN, supervisado_por INTEGER);
+CREATE TABLE comentario(id INTEGER AUTO_INCREMENT PRIMARY KEY NOT NULL, id_usuario INTEGER, comentario VARCHAR(200));
+CREATE TABLE forma(id INTEGER AUTO_INCREMENT PRIMARY KEY NOT NULL, nombre VARCHAR(25));
+---------------------------------------------------
+--------------Creacion de llaves foraneas ---------
+---------------------------------------------------
+ALTER TABLE usuario add foreign key(id_forma_pago) references forma_pago(id);
+ALTER TABLE pedido add foreign key(id_producto) references producto(id), add foreign key(id_usuario) references usuario(id), add foreign key(id_status_pedido) references status_pedido(id);
+ALTER TABLE producto add foreign key(id_categoria) references producto(id), add foreign key(id_tamaño) references tamaño(id);
+ALTER TABLE producto_sucursal add foreign key(id_producto) references producto(id), add foreign key(id_sucursal) references sucursal(id);
+ALTER TABLE pro_ing add foreign key(id_producto) references producto(id), add foreign key(id_ingrediente) references ingredientes(id);
+ALTER TABLE ingredientes add foreign key(id_categoria_ingre) references categoria_ingre(id);
+ALTER TABLE comentario add foreign key(id_usuario) references usuario(id);
+
+------------------------------------------------
+---------------Indices -------------------------
+------------------------------------------------
+alter table ingredientes ADD UNIQUE cod_ingrediente (codigo);
+alter table ingredientes ADD index nom_ingrediente (nombre);
+alter table usuario ADD UNIQUE idx_correo (correo);
+alter table usuario ADD UNIQUE idx_celular (celular);
+alter table sucursal ADD UNIQUE idx_telefonosuc (telefono);
+alter table sucursal ADD UNIQUE idx_correosuc (correo);
+alter table sucursal ADD UNIQUE idx_rfcsuc (rfc);
+
+
+------------------------------------------------
+---------------Vistas  -------------------------
+------------------------------------------------
+create view nombreusuario_asc as select * from usuario order by nombre; 
+create view nombreusuario_des as select * from usuario order by nombre desc; 
+create view nombresuc_asc as select * from usuario order by nombre; 
+create view nombresuc_des as select * from usuario order by nombre desc; 
+create view contartotalusuario as SELECT COUNT(*) FROM usuario;
+create view contartotalpedidos as SELECT COUNT(*) FROM pedido;
+
+
+--------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------
+------------Procedimientos almacenados   ---------------------------------------------
+--------------------------------------------------------------------------------------
+
+delimiter //
+create procedure select_for_id (p_id int)
+begin
+select * from usuario where id = p_id;
+end;
+//
+
+delimiter //
+create procedure selectus_for_correo (p_correo VARCHAR(50))
+begin
+select * from usuario where correo = p_correo;
+end;
+//
+
+
+create procedure selectus_for_nombre (p_nombre VARCHAR(30))
+begin
+select * from usuario where nombre = p_nombre;
+end;
+//
+
+create procedure selectsu_for_nombre (p_nombre VARCHAR(30))
+begin
+select * from sucursal where nombre = p_nombre;
+end;
+//
+
+delimiter //
+create procedure selectsu_for_id (p_id int)
+begin
+select * from empresa where id = p_id;
+end;
+//
+
+
+delimiter //
+create procedure insert_usuario (in _forma_pago integer, _nombre varchar(30), in _a_paterno varchar(30), in _a_materno varchar(30), in _dia_nac int, in _mes_nac int, in _año_nac int, in _rfc CHAR(13), in _correo varchar(50), in _passwd varchar(25), in _celular char(15), in _calle varchar(20),in _colonia varchar(20), in _num_casa CHAR(6))
+begin
+insert into usuario(id_forma_pago,nombre, a_paterno, a_materno, dia_nac, mes_nac, año_nac, rfc, correo, passwd, celular, calle, colonia, num_casa, status, blacklist)
+values(id_forma_pago,_nombre, _a_paterno, _a_materno, _dia_nac, _mes_nac, _año_nac, _rfc, _correo, _passwd, _celular, _calle, _colonia, _num_casa, 1, 0);
+end;
+// 
+
+delimiter //
+create procedure insert_sucursal (in _nombre varchar(30), in _calle varchar(20), in _colonia varchar(20), in _num_casa char(10), in _telefono char(12), in _rfc char(20), in _correo varchar(15))
+begin
+insert into sucursal(nombre, calle, colonia, num_casa, telefono, rfc, correo)
+values(_nombre, _calle, _colonia, _num_casa, _telefono, _rfc, _correo);
+end;
+// 
+
+delimiter //
+create procedure update_sucursal (_id int, in _nombre varchar(30), in _calle varchar(20), in _colonia varchar(20), in _num_casa char(10), in _telefono char(12), in _rfc char(20), in _correo varchar(15))
+begin
+update  sucursal set nombre = _nombre , calle = _calle, colonia = _colonia, num_casa = _num_casa, telefono = _telefono, rfc = _rfc, correo = _correo
+where id = _id;
+end;
+// 
+
+delimiter //
+create procedure update_usuario (_id int, in _nombre varchar(30), in _a_paterno varchar(30), in _a_materno varchar(30), in _dia_nac int, in _mes_nac int, in _año_nac int, in _rfc CHAR(13), in _correo varchar(50), in _passwd varchar(25), in _celular char(15), in _calle varchar(20),in _colonia varchar(20), in _num_casa CHAR(6))
+begin
+update usuario set nombre = _nombre, a_paterno = _a_paterno, a_materno = _a_materno, dia_nac = _dia_nac, mes_nac = _mes_nac, año_nac = _año_nac, rfc = _rfc, correo = _correo, passwd = _passwd, celular = _celular, calle = _calle, colonia = _colonia, num_casa = _num_casa
+where id = _id;
+end;
+//
+
+----------------------------------------------
+---------------Transacciones -----------------
+----------------------------------------------
+start transaction;
+insert into forma_pago(nombre)  values('TARJETA DE DEBITO');
+insert into forma_pago(nombre)  values('EFECTIVO');
+commit;
+
+start transaction;
+insert into status_pedido(nombre)  values('ENTREGADO');
+insert into status_pedido(nombre)  values('PEDIDO');
+insert into status_pedido(nombre)  values('EN PROCESO DE ENTREGA');
+insert into status_pedido(nombre)  values('EN PREPARACION');
+insert into status_pedido(nombre)  values('APARTADO');
+commit;
+
+start transaction;
+insert into forma(nombre) values('PASTEL REDONDO');
+insert into forma(nombre) values('PASTEL RECTANGULAR');
+commit;
+
+start transaction;
+insert into categoria_ingre(nombre, descripcion) values('MASA', 'TIPO DE MASA A UTILIZAR ');
+insert into categoria_ingre(nombre, descripcion) values('RELLENO', 'SABOR DEL PASTEL');
+insert into categoria_ingre(nombre, descripcion) values('BETUN', 'FRUTAS PARA  EL PASTEL');
+insert into categoria_ingre(nombre, descripcion) values('TOPPING', 'DULCES PARA EL PASTEL');
+commit;
+
+start transaction;
+insert into ingredientes(id_categoria_ingre, nombre, codigo) values(1,'CHOCOLATE', 'M1');
+insert into ingredientes(id_categoria_ingre, nombre, codigo) values(1,'VAINILLA', 'M2');
+insert into ingredientes(id_categoria_ingre, nombre, codigo) values(2,'MERMELADA DE FRESA', 'R2');
+insert into ingredientes(id_categoria_ingre, nombre, codigo) values(2,'MERMELADA DE DURAZNO', 'R3');
+insert into ingredientes(id_categoria_ingre, nombre, codigo) values(2,'BETUN DE VAINILLA', 'R4');
+insert into ingredientes(id_categoria_ingre, nombre, codigo) values(2,'BETUN DE CHOCOLATE', 'R5');
+insert into ingredientes(id_categoria_ingre, nombre, codigo) values(3,'BETUN DE VAINILLA', 'B1');
+insert into ingredientes(id_categoria_ingre, nombre, codigo) values(3,'BETUN DE CHOCOLATE', 'B2');
+insert into ingredientes(id_categoria_ingre, nombre, codigo) values(3,'CREMA BATIDA', 'B3');
+insert into ingredientes(id_categoria_ingre, nombre, codigo) values(3,'FONDANT', 'B4');
+insert into ingredientes(id_categoria_ingre, nombre, codigo) values(4,'FRESAS', 'T1');
+insert into ingredientes(id_categoria_ingre, nombre, codigo) values(4,'DURAZNOS', 'T2');
+insert into ingredientes(id_categoria_ingre, nombre, codigo) values(4,'CEREZA', 'T3');
+insert into ingredientes(id_categoria_ingre, nombre, codigo) values(4,'KIWI', 'T4');
+insert into ingredientes(id_categoria_ingre, nombre, codigo) values(4,'ZARZAMORAS', 'T5');
+insert into ingredientes(id_categoria_ingre, nombre, codigo) values(4,'FRAMBUESAS', 'T6');
+insert into ingredientes(id_categoria_ingre, nombre, codigo) values(4,'ESTRELLAS DE FONDANT', 'T7');
+commit;
+
+start transaction;
+insert into categoria(nombre, descripcion) values('ENFIESTADOS', 'PASTELES YA PREPARADOS' );
+insert into categoria(nombre, descripcion) values('EN DESCUENTO', 'MERMA O PASTELES PEDIDOS POR ERORR O BROMA');
+insert into categoria(nombre, descripcion) values('PERSONALIZADOS', 'PASTELES QUE LOS USUARIOS PUEDEN HACER');
+commit;
+
+start transaction;
+insert into tamaño(nombre, caracteristicas) values('15cm DE DIAMETRO', '4-6 PORCIONES');
+insert into tamaño(nombre, caracteristicas) values('20cm DE DIAMETRO', '8-10 PORCIONES');
+insert into tamaño(nombre, caracteristicas) values('25cm DE DIAMETRO', '20-24 PORCIONES');
+insert into tamaño(nombre, caracteristicas) values('18cm x 28cm', '12-15 PORCIONES');
+insert into tamaño(nombre, caracteristicas) values('23cm x 33cm', '20-24 PORCIONES');
+insert into tamaño(nombre, caracteristicas) values('28cm x 38cm ', '35-40 PORCIONES');
+insert into tamaño(nombre, caracteristicas) values('30cm x 46cm', '50-55 PORCIONES');
+commit;
+
+--------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------
+---------------Triggers---------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------
+
+
+

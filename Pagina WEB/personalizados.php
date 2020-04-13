@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Pasteles Personalizados</title>
+		<title>Actualizar Datos del Usuario</title>
 		<meta charset="utf-8">
 
 		<!--Modified Bootstrap-->
@@ -11,72 +11,22 @@
 		<!--Custom Stylesheet-->
 		 <link rel="stylesheet" href="css/custom.css" /> 
 		 <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
-		 
 		 <link rel="stylesheet" type="text/css" href="css/utch.css">
 	</head>
 	<body>
 <!-- ========================================================================================================-->
 <!-- ============================= aqui comienza el navegador ===============================================-->
 <!-- ========================================================================================================-->
-		<nav class="navbar navbar-expand-sm navbar-dark bg-primary fixed-top" role="navigation">
-			<!--/brand-->	
-			<a class="navbar-brand logo text-white" href="#">Fastcakes</a>
+		
+	<section class="scroll" id="tienda">
+	
+		<?php 
+		
+			include_once 'header.php'
 
-				<!--boton toggle-->
-			<button class="navbar-toggler"  type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="true" aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
-				<!--/boton toggle-->
+		?>
 
-				<!--qué es lo que se colapsará-->
-			<div class="collapse navbar-collapse" id="navbarColor01">
-					
-					<!--lista de menu-->
-				<ul class="navbar-nav mx-auto">
-						
-					<li class="nav-item dropdown">
-						<a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">PASTELES</a>
-							
-						<div class="dropdown-menu  mt-3 mr-4 " id="dropdown-menu" aria-labelledby="navbarDropdown">
-						<a class="dropdown-item text-white" href="Enfiestados.php">Express</a>
-						<a class="dropdown-item text-white" href="Personalizados.php">Personalizalo</a>
-						<div class="dropdown-divider"></div>
-							<a class="dropdown-item text-white" href="Descuentos.php">Descuentos</a>
-						</div>
-						</li>
-
-						<li class="nav-item">
-							<a class="nav-link" href="#">TIENDA <span class="sr-only">(current)</span></a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="RastrearPedido.php">RASTREA TU PEDIDO</a>
-					</li>
-				
-				</ul>
-				<!--/lista de menu-->
-
-
-				<!--Aqui comienza búsqueda-->
-				<form class="form-inline">
-					<input class="form-control mr-sm-2" type="search" placeholder="Busca un pastel">
-						<button class="btn btn-secondary btn-sm rounded-circle my-sm-0" type="submit"><i class="fas fa-search"></i>
-						</button>
-				</form>
-				<!-- aqui termina búsqueda-->
-
-				<ul class="navbar-nav">
-
-					<li class="nav-item">
-						<a href="#" class="btn btn-outline btn-rounded p-2 mr-sm-2" data-toggle="modal" data-target="#modalLRForm"><i class="fas fa-user"></i></a>
-					</li>
-								
-					<li class="nav-item">
-										
-						<a href="#" class="btn btn-md p-2 mr-sm-2" id="carrito" role="button" aria-pressed="true"><i class="fas fa-shopping-cart"></i></a>
-					</li>
-				</ul>
-			</div>
-		</nav>
+	</section>
 <!-- ========================================================================================================-->
 <!-- ============================= aqui termina el navegador ================================================-->
 <!-- ========================================================================================================-->
@@ -108,10 +58,16 @@
 								<div class="form-row">
 									<!-- Forma -->
 									<div class="form-group col-md-6">
-										<input type="text" class="form-control" id="forma" name="forma" placeholder="Forma" required>
+										<select class="form-control form-control-sm" placeholder="hola">
+											<option>Cuadrado</option>
+											<option>Redondo</option>
+										</select>
 									</div>
 									<div class="form-group col-md-6">
-										<input type="text" class="form-control" id="tamaño" name="tamaño" placeholder="Tamaño" required>
+										<select class="form-control form-control-sm" placeholder="hola">
+											<option>Cuadrado</option>
+											<option>Redondo</option>
+										</select>
 									</div>
 								</div>
 
