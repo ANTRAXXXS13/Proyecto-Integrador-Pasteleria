@@ -1,4 +1,4 @@
-    var scroll = new SmoothScroll('a[href*="#"]');
+    
     
 
 $("#btnModalLRFormLRForm").on("click", function(){

@@ -10,7 +10,9 @@
         $nombre = mysqli_real_escape_string($conexion, $_POST['nombre']);
         $aPat = mysqli_real_escape_string($conexion, $_POST['aPat']);
         $aMat = mysqli_real_escape_string($conexion, $_POST['aMat']);
-        $fechNac = mysqli_real_escape_string($conexion, $_POST['fechNac']);
+        $fechaz = $_POST["fechNac"];
+        $f = str_replace('/', '-', $fechaz);
+        $fechNac = date('Y-m-d', strtotime($f));
         $calle = mysqli_real_escape_string($conexion, $_POST['calle']);
         $numExt = mysqli_real_escape_string($conexion, $_POST['numExt']);
         $numInt = mysqli_real_escape_string($conexion, $_POST['numInt']);
@@ -19,9 +21,7 @@
         $email = mysqli_real_escape_string($conexion, $_POST['email']);
         $pass = mysqli_real_escape_string($conexion, $_POST['pass']);
         $celular = mysqli_real_escape_string($conexion, $_POST['celular']);
-    
-       
-
+        
         //Check if fields are not empty
         if ( empty($nombre) || empty($aPat) || empty($aMat)|| empty($fechNac)|| empty($calle)|| empty($numExt) || empty($colonia)|| empty($codPost)|| empty($email)|| empty($pass)) {
             echo "<script>

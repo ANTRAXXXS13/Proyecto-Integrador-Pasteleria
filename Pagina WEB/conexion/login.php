@@ -12,6 +12,8 @@
 		// si la consulta trae algo entra en el siguiente if
 		if ($rows > 0) {
 			$row = $resultado->fetch_assoc(); // 
+			session_start();
+			ob_start();
 			$_SESSION['id_usuario'] = $row["id"];
 			header("Location: ../actualizar_usuario.php"); // esto lo mandara a la pagina ya logeado
 		}else {

@@ -72,7 +72,7 @@
                     <div class="modal-footer">
                         <div class="options text-center text-md-right mt-1">
                                 
-                                <p><a href="#">Olvidé mi Contraseña</a></p>
+                                <p><a href="pagsin_hacer.php">Olvidé mi Contraseña</a></p>
                         </div>
                         
                     </div>
@@ -135,7 +135,7 @@
                                         <span class="input-group-text bg-light"> <i class="fas fa-calendar-alt text-info"></i></span>
                                     </div>
 
-                                    <input type="text" class="form-control"  id="fechNac" name="fechNac" placeholder="Fecha de nacimiento" required><!-- data-toggle="datepicker"-->
+                                    <input type="text" class="form-control" data-toggle="datepicker" id="fechNac" name="fechNac" placeholder="Fecha de nacimiento" required><!-- data-toggle="datepicker"-->
                                     
                                     
                                 </div>
@@ -248,8 +248,8 @@
                             <div class="form-row">
                                 <div class="form-group ">
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="invalidCheck">
-                                        <label class="form-check-label text-info" for="invalidCheck" required>
+                                        <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+                                        <label class="form-check-label text-info" for="invalidCheck" >
                                           Acepto los <a href="#">términos y condiciones.</a>
                                         </label>
                                         <div class="invalid-feedback">
