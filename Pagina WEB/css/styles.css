@@ -1,0 +1,140 @@
+/*importando fonts de google fonts*/
+@import url('https://fonts.googleapis.com/css?family=Anton|Gugi|Lato|Roboto|Sofia|Lobster|Cabin|Noto+Sans&display=swap');
+
+
+:root {
+    
+    --roboto: "Roboto", sans-serif;
+    --gugi: "Gugi", cursive;
+    --sofia: "Sofia", cursive;
+    --lobster: "Lobster", cursive;
+    --cabin: "Cabin", sans-serif;
+    --noto-san: "Noto San", sans-serif;
+
+    --blue: #007bff;
+    --indigo: #6610f2;
+    --purple: #6f42c1;
+    --pink: #e83e8c;
+    --red: #dc3545;
+    --orange: #fd7e14;
+    --yellow: #ffc107;
+    --green: #28a745;
+    --teal: #20c997;
+    --cyan: #17a2b8;
+    --white: #fff;
+    --gray: #6c757d;
+    --gray-dark: #343a40;
+    --primary: #fa576f;
+    --secondary: #11b8ab;
+    --success: #28a745;
+    --info: #9d6079;
+    --warning: #ffc107;
+    --danger: #dc3545;
+    --light: #f8f9fa;
+    --dark: #343a40;
+    
+    --font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Cabin", "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; 
+}
+
+/*Mi codigo empieza aqui*/
+
+/*Index*/
+
+/* Not sure if this works yet...*/
+
+body {
+    scroll-snap-type: y mandatory;
+}
+
+section .scroll {
+    scroll-snap-align: center;
+} 
+
+#index-brandname {
+    font-family: var(--lobster); 
+}
+
+.logo {
+    font-family: var(--lobster), sans-serif;
+}
+header .logo {
+    font-size: 1.5em;
+}
+
+.container .dropdown-toggle, 
+.container .dropdown-item {
+    font-size: 0.7em;
+}
+
+
+/*Barra de navegacion*/
+
+.navbar-nav .nav-link{
+    font-size: 0.85em;
+    font-weight: bold;
+    color: white !important;
+    letter-spacing: .15em;
+}
+
+.navbar-nav .nav-item .nav-link{
+    padding: 0em 1.3em;
+}
+
+
+
+/*On hover*/
+#dropdown-menu {
+    border: none;
+    font-size: .8em;
+    min-width: 3em;
+    
+}
+
+
+v.dropdown>.dropdown-menu {
+    top: 200%;
+    transition: 0.3s all ease-in-out;
+    
+}
+.dropdown:hover>.dropdown-menu {
+display: block;
+top: 100%;
+}
+
+.dropdown>.dropdown-toggle:active {
+/*Without this, clicking will make it sticky*/
+    pointer-events: none;
+}
+
+
+
+
+/*HOVER MENU RESPONSIVO*/
+
+@media screen and (min-width: 768px) {
+    .dropdown:hover .dropdown-menu, .btn-group:hover .dropdown-menu{
+        display: block;
+        
+    }
+
+    .dropdown-menu{
+        margin-top: 0;
+    }
+    
+    .dropdown-toggle{
+        margin-bottom: 2px;
+    }
+    .navbar .dropdown-toggle, .nav-tabs .dropdown-toggle{
+        margin-bottom: 0;
+    }
+}
+
+/* Esto es en lo que nos aseguramos de tener las imagenes del mismo tamaño */
+.card-img-top {
+    height: 20vh !important;
+    object-fit: cover;
+}
+
+
+
