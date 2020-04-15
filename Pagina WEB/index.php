@@ -1,13 +1,3 @@
-<?php
-include("conexion/conexion.php");
-// si el usuario trata de escribir manuelmente admin.php 
-// no podra ir porque lo retorna a aesta pagina
-session_start();
-ob_start();
-if (isset($_SESSION['id_usuario'])) {
-	header("Location: actualizar_usuario.php");
-}
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -75,7 +65,7 @@ if (isset($_SESSION['id_usuario'])) {
 	
 		<?php 
 		
-			include_once 'tienda.php'
+			include_once 'tienda.php';
 
 		?>
 

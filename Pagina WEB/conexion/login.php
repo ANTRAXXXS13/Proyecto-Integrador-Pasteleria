@@ -15,7 +15,7 @@
 			session_start();
 			ob_start();
 			$_SESSION['id_usuario'] = $row["id"];
-			header("Location: ../actualizar_usuario.php"); // esto lo mandara a la pagina ya logeado
+			header("Location: ../index.php"); // esto lo mandara a la pagina ya logeado
 		}else {
 			echo "<script>
 				alert('USUARIO O PASSWORD INCORRECTO');

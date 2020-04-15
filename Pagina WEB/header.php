@@ -43,9 +43,7 @@
 						<li class="nav-item">
 							<a class="nav-link active" href="#">TIENDA <span class="sr-only">(current)</span></a>
 						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="#">RASTREA TU PEDIDO</a>
-						</li>
+						
 					
 					</ul>
 					<!--/lista de menu-->

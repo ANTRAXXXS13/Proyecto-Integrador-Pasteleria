@@ -92,14 +92,14 @@ header .logo {
 }
 
 
-v.dropdown>.dropdown-menu {
+.dropdown>#dropdown-menu {
     top: 200%;
     transition: 0.3s all ease-in-out;
     
 }
-.dropdown:hover>.dropdown-menu {
-display: block;
-top: 100%;
+#navbarDropdown:hover > #dropdown-menu{
+    display: block;
+    top: 100%;
 }
 
 .dropdown>.dropdown-toggle:active {
