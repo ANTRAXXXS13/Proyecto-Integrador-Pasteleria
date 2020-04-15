@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 <?php
 include("conexion/conexion.php");
 // si el usuario trata de escribir manualmente admin.php 
@@ -10,7 +8,6 @@ if (isset($_SESSION['id_usuario'])) {
 	header("Location: actualizar_usuario.php");
 }
 ?>
->>>>>>> c241f21812236ff3e4deb7f13ba2b1b20965940a
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -45,58 +42,19 @@ if (isset($_SESSION['id_usuario'])) {
 
 <body>
 
-	<header></header>
+    <?php 
+        include_once 'header.php';
+    ?>
 
-<<<<<<< HEAD
-	<section class="scroll pt-5 pb-5 mt-0 align-items-center d-flex bg-dark" style="height:100vh; background-size: cover; background-image: url(img/index_webcake03.jpg);">
-=======
-	<section id="index" class= "pt-5 pb-5 mt-0 align-items-center d-flex bg-dark" style="height:100vh; background-size: cover; background-image: url(img/index_webcake03.jpg);">
->>>>>>> c241f21812236ff3e4deb7f13ba2b1b20965940a
+    <div class="container">
+        <h1 class="display-1 text-primary text-center">RASTREA TU PEDIDO</h1>
+        <hr>
+    </div>
+
+    <?php 
+        include_once 'footer.php';
+    ?>
 	
-		<div class="container-fluid">
-
-			<div class="row justify-content-center align-items-center d-flex text-center h-100">
-				<div class="col-md-8 ">
-					
-					<h1 class="display-1 logo text-light py-0 my-3"><strong>Fastcakes</strong> </h1>
-					
-					<div class=" btn-container-wrapper p-relative d-block  zindex-1">
-						<div>
-							
-							<a class="btn btn-sm mt-4 scroll align-self-center" data-scroll href="#tienda" >
-								<h3 class="text-light">ORDENA AHORA</h3>
-								<i class="fa fa-angle-down fa-4x text-light"></i>
-							</a>  
-						</div>	 
-					</div>   
-				</div>
-				
-			</div>
-		</div>
-	</section>
-
-<<<<<<< HEAD
-	<!--<div id="bazinga">Bazinga!</div>-->
-
-
-=======
->>>>>>> c241f21812236ff3e4deb7f13ba2b1b20965940a
-	<section class="scroll" id="tienda">
-	
-		<?php 
-		
-<<<<<<< HEAD
-			include_once 'tienda.php';
-=======
-			include_once 'tienda.php'
->>>>>>> c241f21812236ff3e4deb7f13ba2b1b20965940a
-
-		?>
-
-	</section>
-	
-
-
 
 	<!--Bootstrap js-->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
@@ -104,35 +62,18 @@ if (isset($_SESSION['id_usuario'])) {
 	<!-- Smooth Scroll-->
 	<script src="js/smooth-scroll.js"></script>
 
-<<<<<<< HEAD
-=======
 	<!-- Smooth Scroll Polyfills-->
 	<script src="js/smooth-scroll.polyfills.min.js"></script>
 
->>>>>>> c241f21812236ff3e4deb7f13ba2b1b20965940a
 	<!--Ajax Popper-->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 
 	<!-- js para personalizar -->
 	<script src="js/main.js"></script>
 
-<<<<<<< HEAD
-	<script>
-		var scroll = new SmoothScroll('a[href*="#"]');
-	</script>
-
-
-
-
-    
-
-=======
     <script>
 	var scroll = new SmoothScroll('a[href*="#"]');
 	</script>
 
->>>>>>> c241f21812236ff3e4deb7f13ba2b1b20965940a
 </body>
 </html>
-
-

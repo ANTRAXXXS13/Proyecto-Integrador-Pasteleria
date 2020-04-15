@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?php
 	include("conexion/conexion.php");
 	// si el usuario trata de escribir manuelmente admin.php 
@@ -12,6 +13,12 @@
 ?>
 
 
+=======
+<?php 
+    include_once 'header.php';
+?>
+
+>>>>>>> c241f21812236ff3e4deb7f13ba2b1b20965940a
 <html>
 <body >
 

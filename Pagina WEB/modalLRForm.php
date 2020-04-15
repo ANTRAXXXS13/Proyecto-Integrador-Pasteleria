@@ -88,16 +88,27 @@
 
                     <!--Body-->
                     <div class="modal-body">
+<<<<<<< HEAD
                         <form class="signup-form" action="conexion/registro.php" method="POST">
+=======
+                    <!--<form action="/newaccount" method=post oninput='up2.setCustomValidity(up2.value != up.value ? "Passwords do not match." : "")'>-->
+                        <form class="signup-form" action="conexion/registro.php" method="POST" oninput='pass1.setCustomValidity(pass1.value != pass.value ? "¡Las contraseñas no concuerdan!." : "")'>
+
+>>>>>>> c241f21812236ff3e4deb7f13ba2b1b20965940a
                             <h6 class="text-info"><small>DATOS PERSONALES</small></h6>
                                     
                             <hr>		
 
+<<<<<<< HEAD
                             <div class="needs-validation" novalidate>
+=======
+                            
+>>>>>>> c241f21812236ff3e4deb7f13ba2b1b20965940a
                                 
                             <!--Registro: Nombre-->
                             <div class="form-row">
 
+<<<<<<< HEAD
                                     <div class="form-group input-group-sm col-md">
 
                                         <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre(s)" >
@@ -105,6 +116,15 @@
                                     </div>
 
                                 </div>
+=======
+                                <div class="form-group input-group-sm col-md">
+
+                                    <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre(s)" required oninvalid="this.setCustomValidity('Favor de llenar el campo')" oninput="setCustomValidity('')"/>
+                                    
+                                </div>
+
+                               
+>>>>>>> c241f21812236ff3e4deb7f13ba2b1b20965940a
                             </div>
 
                             <!--Registro: Apellidos-->
@@ -113,15 +133,24 @@
                                 <!--Apellido Paterno-->
                                 <div class="form-group input-group-sm col-md-6">
 
+<<<<<<< HEAD
                                     <input type="text" class="form-control" id="aPat" name="aPat" placeholder="Apellido Paterno" required>
+=======
+                                <input type="text" class="form-control" id="aPat" name="aPat" placeholder="Apellido Paterno" required oninvalid="this.setCustomValidity('Favor de llenar el campo')" oninput="setCustomValidity('')"/>
+
+>>>>>>> c241f21812236ff3e4deb7f13ba2b1b20965940a
                                     
                                 </div>
 
                                 <!--Apellido Materno-->
                                 <div class="form-group input-group-sm col-md-6">
 
+<<<<<<< HEAD
                                     <input type="text" class="form-control" id="aMat" name="aMat" placeholder="Apellido Materno" required>
                                     
+=======
+                                    <input type="text" class="form-control" id="aMat" name="aMat" placeholder="Apellido Materno" required oninvalid="this.setCustomValidity('Favor de llenar el campo')" oninput="setCustomValidity('')"/>
+>>>>>>> c241f21812236ff3e4deb7f13ba2b1b20965940a
                                 </div>
                                         
                             </div>
@@ -129,12 +158,17 @@
                             <!--Registro: Fecha de nacimiento-->
                             <div class="form-row">
 
+<<<<<<< HEAD
                                 <div class="form-group input-group input-group-sm date col-md">
+=======
+                                <div class="form-group input-group input-group-sm date col-md-6">
+>>>>>>> c241f21812236ff3e4deb7f13ba2b1b20965940a
                                     
                                     <div class="input-group-prepend">
                                         <span class="input-group-text bg-light"> <i class="fas fa-calendar-alt text-info"></i></span>
                                     </div>
 
+<<<<<<< HEAD
                                     <input type="text" class="form-control" data-toggle="datepicker" id="fechNac" name="fechNac" placeholder="Fecha de nacimiento" required><!-- data-toggle="datepicker"-->
                                     
                                     
@@ -147,6 +181,24 @@
                                     <input type="text" class="form-control"  id="celular" name="celular" placeholder="Celular" required>
                                 </div>
                             </div>
+=======
+                                    <input type="text" class="form-control" data-toggle="datepicker" id="fechNac" name="fechNac" placeholder="Fecha de nacimiento" required oninvalid="this.setCustomValidity('Favor de llenar el campo')" oninput="setCustomValidity('')"/><!-- data-toggle="datepicker"-->
+
+                                </div>
+
+                                <!--CELULAR-->
+                                <div class="form-group input-group input-group-sm col-md-6">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text bg-light"> <i class="fa fa-phone text-info"></i> </span>
+                                    </div>
+                                    <input type="text" class="form-control" id="celular" name="celular"  placeholder="Número de teléfono" required oninvalid="this.setCustomValidity('Favor de llenar el campo')" oninput="setCustomValidity('')"/>
+                                </div>
+                            </div>
+                            
+                            
+
+                            
+>>>>>>> c241f21812236ff3e4deb7f13ba2b1b20965940a
 
                             <h6 class="text-info"><small>DIRECCIÓN</small></h6>
                             <hr>
@@ -157,7 +209,11 @@
                                 <!--Calle-->
                                 <div class="form-group input-group-sm col-md-8">
 
+<<<<<<< HEAD
                                     <input type="text" class="form-control" id="calle" name="calle"  placeholder="Calle" required>
+=======
+                                    <input type="text" class="form-control" id="calle" name="calle"  placeholder="Calle" required oninvalid="this.setCustomValidity('Favor de llenar el campo')" oninput="setCustomValidity('')"/>
+>>>>>>> c241f21812236ff3e4deb7f13ba2b1b20965940a
                                     
                                     
 
@@ -166,7 +222,11 @@
                                 <!--Numero Exterior-->
                                 <div class="form-group input-group-sm col-md-4">
 
+<<<<<<< HEAD
                                     <input type="text" class="form-control" id="numExt" name="numExt" placeholder="Num. Ext" required>
+=======
+                                    <input type="text" class="form-control" id="numExt" name="numExt" placeholder="Num. Ext" required oninvalid="this.setCustomValidity('Favor de llenar el campo')" oninput="setCustomValidity('')"/>
+>>>>>>> c241f21812236ff3e4deb7f13ba2b1b20965940a
                                     
 
                                 </div>
@@ -186,14 +246,22 @@
                                 <!--Colonia-->
                                 <div class="form-group input-group-sm col-md-6">
 
+<<<<<<< HEAD
                                     <input type="text" class="form-control" id="colonia" name="colonia" placeholder="Colonia" required >
+=======
+                                    <input type="text" class="form-control" id="colonia" name="colonia" placeholder="Colonia" required oninvalid="this.setCustomValidity('Favor de llenar el campo')" oninput="setCustomValidity('')"/>
+>>>>>>> c241f21812236ff3e4deb7f13ba2b1b20965940a
                                     
                                 </div>	
 
                                 <!--Código Postal-->
                                 <div class="form-group input-group-sm col-md-4">
 
+<<<<<<< HEAD
                                     <input type="text" class="form-control" id="codPost" name="codPost" placeholder="Código Postal" required>
+=======
+                                    <input type="text" class="form-control" id="codPost" name="codPost" placeholder="Código Postal" required oninvalid="this.setCustomValidity('Favor de llenar el campo')" oninput="setCustomValidity('')"/>
+>>>>>>> c241f21812236ff3e4deb7f13ba2b1b20965940a
                                     
                                 </div>
 
@@ -225,7 +293,11 @@
                                         <span class="input-group-text bg-light"> <i class="fas fa-key text-info"></i></span>
                                     </div>
 
+<<<<<<< HEAD
                                     <input type="password" class="form-control validate" id="pass" name="pass" placeholder="Contraseña" required >
+=======
+                                    <input type="password" class="form-control validate" id="pass" name="pass" placeholder="Contraseña" required oninvalid="this.setCustomValidity('Favor de llenar el campo')" oninput="setCustomValidity('')"/>
+>>>>>>> c241f21812236ff3e4deb7f13ba2b1b20965940a
                                     
                                 </div>
                             </div>
@@ -245,6 +317,7 @@
 
                             <hr>
 
+<<<<<<< HEAD
                             <div class="form-row">
                                 <div class="form-group ">
                                     <div class="form-check">
@@ -255,6 +328,16 @@
                                         <div class="invalid-feedback">
                                             Se requiere aceptar los términos y condiciones
                                         </div>
+=======
+                            <div class="form-row text-center">
+                                <div class="form-group ">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required required oninvalid="this.setCustomValidity('Debes aceptar los términos y condiciones')" oninput="setCustomValidity('')"/>
+                                        <label class="form-check-label text-info" for="invalidCheck" >
+                                          Acepto los <a href="#">términos y condiciones.</a>
+                                        </label>
+                                        
+>>>>>>> c241f21812236ff3e4deb7f13ba2b1b20965940a
                                     </div>
                                 </div>
                             </div>
