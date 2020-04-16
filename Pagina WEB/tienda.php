@@ -12,10 +12,24 @@
 	$query2=mysqli_query($conexion,"select id, nombre, costo, descripcion from producto;");
 ?>
 
+<<<<<<< HEAD
+=======
+
+<<<<<<< HEAD
+=======
+>>>>>>> 2291d649c8e1bed62adaa794f6432bb85aee02b3
 <?php 
     include_once 'header.php';
 ?>
 
+<<<<<<< HEAD
+=======
+>>>>>>> c241f21812236ff3e4deb7f13ba2b1b20965940a
+=======
+
+
+>>>>>>> cecc4a0... Primera prueba de tienda dinamica y agregar imagenes
+>>>>>>> 2291d649c8e1bed62adaa794f6432bb85aee02b3
 <html>
 <body >
 
@@ -85,6 +99,7 @@
 
 
 
+<<<<<<< HEAD
 		</div>
 		<!-- /.row -->
 
@@ -121,6 +136,8 @@
 					</div>
 				</div>
 			</div>
+=======
+>>>>>>> 2291d649c8e1bed62adaa794f6432bb85aee02b3
 		</div>
 
 
