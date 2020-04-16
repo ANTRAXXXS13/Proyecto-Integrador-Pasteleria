@@ -12,6 +12,9 @@
 	$query2=mysqli_query($conexion,"select id, nombre, costo, descripcion from producto;");
 ?>
 
+<?php 
+    include_once 'header.php';
+?>
 
 <html>
 <body >
@@ -88,6 +91,38 @@
 
 	</div>
 	<!-- /.container -->
+<!-------------------------------------------------------------------------------------------------------------->	
+<!---------------------------------------POPVER----------------------------------------------------------------->
+<!-------------------------------------------------------------------------------------------------------------->		
+	<div class="container">
+			<h2>Example: Load Dynamic Content in Bootstrap Popover with Ajax, PHP & MySQL</h2>
+			<div class="row">
+				<div class="col-md-6 well">
+					<div class="table-responsive">
+						<table class="table table-bordered">
+						<tr>
+						<th width="20%">PASTEL</th>
+						<th width="40%">COSTO</th>
+						</tr>
+						
+						<?php
+						$sql = "SELECT id, id_categoria_prod, id_tamaño, id_forma, status_producto, nombre, descripcion, costo FROM producto";
+						$resultset = mysqli_query($conexion, $sql) or die("database error:". mysqli_error($conexion));
+						while( $pastel = mysqli_fetch_assoc($resultset) ) {
+						?>
+						<tr>
+						<td><?php echo $pastel["nombre"]; ?></td>
+						<td><a href="#" class="hover" id="<?php echo $pastel["nombre"]; ?>"><?php echo $pastel["costo"]; ?></a></td>
+						</tr>
+						<?php
+						}
+						?>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+
 
 <?php 
     include_once 'footer.php';

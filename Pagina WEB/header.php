@@ -1,3 +1,15 @@
+<?php
+	include("conexion/conexion.php");
+	// si el usuario trata de escribir manualmente admin.php 
+	// no podra ir porque lo retorna a aesta pagina
+	session_start();
+	ob_start();
+	if (isset($_SESSION['id_usuario'])) {
+		include_once 'header_log.php';	
+	}else{
+		include_once 'header.php';
+	}
+?>
 
 
 <body>
