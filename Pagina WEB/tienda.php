@@ -10,15 +10,21 @@
 	}else{
 		include_once 'header.php';
 	}
+	$query2=mysqli_query($conexion,"select id, nombre, costo, descripcion from producto;");
 ?>
 
 
+<<<<<<< HEAD
 =======
 <?php 
     include_once 'header.php';
 ?>
 
 >>>>>>> c241f21812236ff3e4deb7f13ba2b1b20965940a
+=======
+
+
+>>>>>>> cecc4a0... Primera prueba de tienda dinamica y agregar imagenes
 <html>
 <body >
 
@@ -51,295 +57,40 @@
 			
 		</div>
 		<div class="row">
+			<?php 
+					while ($datos = mysqli_fetch_array($query2)) {?>
 			<div class="col-sm-6 col-md-3">
-				<div class="card shadow p-0 mb-5 bg-white rounded">
-					<!-- set a width on the image otherwise it will expand to full width       -->
-					<img class="card-img-top img-fluid" src="img/01.jpg" alt="ejemplo 01">
-					<hr>
+				
+						<div class="card shadow p-0 mb-5 bg-white rounded">
+							<img class="card-img-top img-fluid" src="img/foto_<?php echo $datos['id'];?>.jpg" >
+							<hr>
 
-					<div class="card-body">
-						<h4 class="card-title">Pastel de Chocolate</h4>
-						<p class="card-text">
-							<small>Descripción:</small>
-							<br>
-							Pastel de chocolate que seguramente sabe delicioso...
-						</p>
+							<div class="card-body">
+									
+								<h4 class="card-title"><?php echo $datos['nombre'];?> </h4>
+								<p class="card-text">
+									<small>Descripción:</small>
+									<br>
+									<?php echo $datos['descripcion'];?> 
+								</p>
+								<br>
 
-						<div class="text-right">
-								<a href="#" class="btn btn-sm btn-info"> Más Detalles</a>
-						</div>
-						<br>
+								<select class="form-control form-control-sm">
+									<option><?php echo $datos['costo'];?></option>
+								</select>
+								
+								<br>
 
-						<select class="form-control form-control-sm">
-							<option>Chico - $120</option>
-							<option>Mediano - $250</option>
-							<option>Grande - $350</option>
-						</select>
-						
-						<br>
-
-						<div class="text-center">
-							<button class="btn btn-primary my-cart-btn" data-id="1" data-name="product 1" data-summary="summary 1" data-price="120" data-quantity="1" data-image="img/01.jpg">Agregar al carrito
-							</button>
-						</div>
-					</div>
-				</div>
+								<div class="text-center">
+									<button class="btn btn-primary my-cart-btn" data-id="1" data-name="product 1" data-summary="summary 1" data-price="120" data-quantity="1" data-image="img/01.jpg">Agregar al carrito
+									</button>
+								</div>
+							</div>
+						</div>					
 				<!-- /.card -->
 			</div>
+			<?php } ?>	
 			
-			<div class="col-sm-6 col-md-3">
-				<div class="card shadow p-0 mb-5 bg-white rounded">
-					<!-- set a width on the image otherwise it will expand to full width       -->
-					<img class="card-img-top img-fluid" src="img/02.jpg" alt="ejemplo 01">
-					<hr>
-
-					<div class="card-body">
-						<h4 class="card-title">Pastel de Chocolate</h4>
-						<p class="card-text">
-							<small>Descripción:</small>
-							<br>
-							Pastel de chocolate que seguramente sabe delicioso...
-						</p>
-
-						<div class="text-right">
-								<a href="#" class="btn btn-sm btn-info"> Más Detalles</a>
-						</div>
-						<br>
-
-						<select class="form-control form-control-sm">
-							<option>Chico - $120</option>
-							<option>Mediano - $250</option>
-							<option>Grande - $350</option>
-						</select>
-						
-						<br>
-
-						<div class="text-center">
-							<button class="btn btn-primary my-cart-btn" data-id="1" data-name="product 1" data-summary="summary 1" data-price="120" data-quantity="1" data-image="img/02.jpg">Agregar al carrito
-							</button>
-						</div>
-					</div>
-				</div>
-				<!-- /.card -->
-			</div>
-
-
-			<div class="col-sm-6 col-md-3">
-				<div class="card shadow p-0 mb-5 bg-white rounded">
-					<!-- set a width on the image otherwise it will expand to full width       -->
-					<img class="card-img-top img-fluid" src="img/03.jpg" alt="ejemplo 01">
-					<hr>
-
-					<div class="card-body">
-						<h4 class="card-title">Pastel de Chocolate</h4>
-						<p class="card-text">
-							<small>Descripción:</small>
-							<br>
-							Pastel de chocolate que seguramente sabe delicioso...
-						</p>
-
-						<div class="text-right">
-								<a href="#" class="btn btn-sm btn-info"> Más Detalles</a>
-						</div>
-						<br>
-
-						<select class="form-control form-control-sm">
-							<option>Chico - $120</option>
-							<option>Mediano - $250</option>
-							<option>Grande - $350</option>
-						</select>
-						
-						<br>
-
-						<div class="text-center">
-							<button class="btn btn-primary my-cart-btn" data-id="1" data-name="product 1" data-summary="summary 1" data-price="120" data-quantity="1" data-image="img/01.jpg">Agregar al carrito
-							</button>
-						</div>
-					</div>
-				</div>
-				<!-- /.card -->
-			</div>
-			
-			<div class="col-sm-6 col-md-3">
-				<div class="card shadow p-0 mb-5 bg-white rounded">
-					<!-- set a width on the image otherwise it will expand to full width       -->
-					<img class="card-img-top img-fluid" src="img/04.jpg" alt="ejemplo 01">
-					<hr>
-
-					<div class="card-body">
-						<h4 class="card-title">Pastel de Chocolate</h4>
-						<p class="card-text">
-							<small>Descripción:</small>
-							<br>
-							Pastel de chocolate que seguramente sabe delicioso...
-						</p>
-
-						<div class="text-right">
-								<a href="#" class="btn btn-sm btn-info"> Más Detalles</a>
-						</div>
-						<br>
-
-						<select class="form-control form-control-sm">
-							<option>Chico - $120</option>
-							<option>Mediano - $250</option>
-							<option>Grande - $350</option>
-						</select>
-						
-						<br>
-
-						<div class="text-center">
-							<button class="btn btn-primary my-cart-btn" data-id="1" data-name="product 1" data-summary="summary 1" data-price="120" data-quantity="1" data-image="img/04.jpg">Agregar al carrito
-							</button>
-						</div>
-					</div>
-				</div>
-				<!-- /.card -->
-			</div>
-
-			<div class="col-sm-6 col-md-3">
-				<div class="card shadow p-0 mb-5 bg-white rounded">
-					<!-- set a width on the image otherwise it will expand to full width       -->
-					<img class="card-img-top img-fluid" src="img/05.jpg" alt="ejemplo 01">
-					<hr>
-
-					<div class="card-body">
-						<h4 class="card-title">Pastel de Chocolate</h4>
-						<p class="card-text">
-							<small>Descripción:</small>
-							<br>
-							Pastel de chocolate que seguramente sabe delicioso...
-						</p>
-
-						<div class="text-right">
-								<a href="#" class="btn btn-sm btn-info"> Más Detalles</a>
-						</div>
-						<br>
-
-						<select class="form-control form-control-sm">
-							<option>Chico - $120</option>
-							<option>Mediano - $250</option>
-							<option>Grande - $350</option>
-						</select>
-						
-						<br>
-
-						<div class="text-center">
-							<button class="btn btn-primary my-cart-btn" data-id="1" data-name="product 1" data-summary="summary 1" data-price="120" data-quantity="1" data-image="img/05.jpg">Agregar al carrito
-							</button>
-						</div>
-					</div>
-				</div>
-				<!-- /.card -->
-			</div>
-			
-			<div class="col-sm-6 col-md-3">
-				<div class="card shadow p-0 mb-5 bg-white rounded">
-					<!-- set a width on the image otherwise it will expand to full width       -->
-					<img class="card-img-top img-fluid" src="img/06.jpg" alt="ejemplo 01">
-					<hr>
-
-					<div class="card-body">
-						<h4 class="card-title">Pastel de Chocolate</h4>
-						<p class="card-text">
-							<small>Descripción:</small>
-							<br>
-							Pastel de chocolate que seguramente sabe delicioso...
-						</p>
-
-						<div class="text-right">
-								<a href="#" class="btn btn-sm btn-info"> Más Detalles</a>
-						</div>
-						<br>
-
-						<select class="form-control form-control-sm">
-							<option>Chico - $120</option>
-							<option>Mediano - $250</option>
-							<option>Grande - $350</option>
-						</select>
-						
-						<br>
-
-						<div class="text-center">
-							<button class="btn btn-primary my-cart-btn" data-id="1" data-name="product 1" data-summary="summary 1" data-price="120" data-quantity="1" data-image="img/06.jpg">Agregar al carrito
-							</button>
-						</div>
-					</div>
-				</div>
-				<!-- /.card -->
-			</div>
-
-			<div class="col-sm-6 col-md-3">
-				<div class="card shadow p-0 mb-5 bg-white rounded">
-					<!-- set a width on the image otherwise it will expand to full width       -->
-					<img class="card-img-top img-fluid" src="img/07.jpg" alt="ejemplo 01">
-					<hr>
-
-					<div class="card-body">
-						<h4 class="card-title">Pastel de Chocolate</h4>
-						<p class="card-text">
-							<small>Descripción:</small>
-							<br>
-							Pastel de chocolate que seguramente sabe delicioso...
-						</p>
-
-						<div class="text-right">
-								<a href="#" class="btn btn-sm btn-info"> Más Detalles</a>
-						</div>
-						<br>
-
-						<select class="form-control form-control-sm">
-							<option>Chico - $120</option>
-							<option>Mediano - $250</option>
-							<option>Grande - $350</option>
-						</select>
-						
-						<br>
-
-						<div class="text-center">
-							<button class="btn btn-primary my-cart-btn" data-id="1" data-name="product 1" data-summary="summary 1" data-price="120" data-quantity="1" data-image="img/07.jpg">Agregar al carrito
-							</button>
-						</div>
-					</div>
-				</div>
-				<!-- /.card -->
-			</div>
-			
-			<div class="col-sm-6 col-md-3">
-				<div class="card shadow p-0 mb-5 bg-white rounded">
-					<!-- set a width on the image otherwise it will expand to full width       -->
-					<img class="card-img-top img-fluid" src="img/08.jpg" alt="ejemplo 01">
-					<hr>
-
-					<div class="card-body">
-						<h4 class="card-title">Pastel de Chocolate</h4>
-						<p class="card-text">
-							<small>Descripción:</small>
-							<br>
-							Pastel de chocolate que seguramente sabe delicioso...
-						</p>
-
-						<div class="text-right">
-								<a href="#" class="btn btn-sm btn-info"> Más Detalles</a>
-						</div>
-						<br>
-
-						<select class="form-control form-control-sm">
-							<option>Chico - $120</option>
-							<option>Mediano - $250</option>
-							<option>Grande - $350</option>
-						</select>
-						
-						<br>
-
-						<div class="text-center">
-							<button class="btn btn-primary my-cart-btn" data-id="1" data-name="product 1" data-summary="summary 1" data-price="120" data-quantity="1" data-image="img/08.jpg">Agregar al carrito
-							</button>
-						</div>
-					</div>
-				</div>
-				<!-- /.card -->
-			</div>
-
 
 
 

@@ -1,3 +1,9 @@
+<?php 
+		    include("conexion/conexion.php");
+			$query=mysqli_query($conexion,"select id, nombre from forma;");
+			$query2=mysqli_query($conexion,"select id, nombre from tamaño;");
+?>
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -58,15 +64,22 @@
 								<div class="form-row">
 									<!-- Forma -->
 									<div class="form-group col-md-6">
-										<select class="form-control form-control-sm" placeholder="hola">
-											<option>Cuadrado</option>
-											<option>Redondo</option>
+										<select class="form-control form-control-sm" placeholder="forma">
+											<option>FORMA</option>
+											<?php												
+												while ($datos = mysqli_fetch_array($query)) {?>	
+													 <option value="<?php echo $datos['id'];?>"> <?php echo $datos['nombre'];?> </option>
+											<?php } ?>
 										</select>
 									</div>
+									<!--Tamaño -->
 									<div class="form-group col-md-6">
 										<select class="form-control form-control-sm" placeholder="hola">
-											<option>Cuadrado</option>
-											<option>Redondo</option>
+											<option>TAMAÑO</option>
+											<?php 
+												while ($datos = mysqli_fetch_array($query2)) {?>	
+													<option value="<?php echo $datos['id'];?>"> <?php echo $datos['nombre'];?> </option>
+											<?php } ?>		
 										</select>
 									</div>
 								</div>
@@ -76,7 +89,7 @@
 									<!-- Apellido Paterno -->
 									<div class="form-group col-md-12">
 										<input type="text" class="form-control" id="comentarios" name="comentarios"  placeholder="Mensaje en el pastel (o comentarios sobre la compra)" required>
-										<div class="invalid-feedback">
+										<div class="invalid-feedback">-
 											*Es necesario completar este campo
 										</div>
 									</div>
