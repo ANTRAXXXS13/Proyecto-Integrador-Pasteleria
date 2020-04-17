@@ -18,7 +18,7 @@ CREATE TABLE status_pedido(id INTEGER AUTO_INCREMENT PRIMARY KEY NOT NULL,nombre
 
 CREATE TABLE pedido_producto(id INTEGER AUTO_INCREMENT PRIMARY KEY NOT NULL, id_pedido INTEGER, id_producto INTEGER);
 
-CREATE TABLE producto(id INTEGER AUTO_INCREMENT PRIMARY KEY NOT NULL, id_categoria_prod INTEGER, id_tamaño INTEGER, id_forma INTEGER, status_producto BOOLEAN, nombre VARCHAR(25), descripcion VARCHAR(100), costo FLOAT);
+CREATE TABLE producto(id INTEGER AUTO_INCREMENT PRIMARY KEY NOT NULL, id_categoria_prod INTEGER, id_tamaño INTEGER, id_forma INTEGER, status_producto BOOLEAN, nombre VARCHAR(25), descripcion VARCHAR(100), costo FLOAT, imag varchar(100));
 
 CREATE TABLE tamaño(id INTEGER AUTO_INCREMENT PRIMARY KEY NOT NULL, nombre VARCHAR(25), caracteristicas VARCHAR(100));
 

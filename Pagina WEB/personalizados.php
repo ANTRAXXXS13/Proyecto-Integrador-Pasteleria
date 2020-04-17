@@ -254,13 +254,13 @@
 								<div class="filemanager-container" id="yui_3_17_2_1_1586341566687_115">
 					        <div class="fm-content-wrapper">
 						            <div class="fp-content"></div>
-						            <div class="fm-empty-container">
-						                <div class="dndupload-message">Arrastre y suelte los archivos aquí para subirlos<br><div class="dndupload-arrow"></div></div>
-						            </div>
-						            <div class="dndupload-target">Arrastre los archivos a subir aquí<br><div class="dndupload-arrow"></div></div>
-						            <div class="dndupload-progressbars"></div>
-						            <div class="dndupload-uploadinprogress"><img class="icon " alt="Cargando..." title="Cargando..." src="http://virtual.utch.edu.mx/theme/image.php/more/core/1579301964/i/loading_small"></div>
-						        </div>
+										<div class="fm-empty-container">
+											<div class="dndupload-message">Arrastre y suelte los archivos aquí para subirlos<br><div class="dndupload-arrow"></div></div>
+										</div>
+										<div class="dndupload-target">Arrastre los archivos a subir aquí<br><div class="dndupload-arrow"></div></div>
+										<div class="dndupload-progressbars"></div>
+										<div class="dndupload-uploadinprogress"><img class="icon " alt="Cargando..." title="Cargando..." src="http://virtual.utch.edu.mx/theme/image.php/more/core/1579301964/i/loading_small"></div>
+						        	</div>
 						        <div class="filemanager-updating"><img class="icon " alt="Cargando..." title="Cargando..." src="http://virtual.utch.edu.mx/theme/image.php/more/core/1579301964/i/loading_small"></div>
 					    	</div>
 					    	<hr>

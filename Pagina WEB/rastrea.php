@@ -24,6 +24,8 @@ if (isset($_SESSION['id_usuario'])) {
 
 	<!--Modified Bootstrap-->
 	<link rel="stylesheet" href="css/bootstrap.min.css" />
+	<!--Custom Stylesheet-->
+	<link rel="stylesheet" href="css/styles.css">
 
 	<!--jquery-->
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
@@ -35,8 +37,7 @@ if (isset($_SESSION['id_usuario'])) {
 	<!-- Font Awesome CDN -->
 	<script src="https://kit.fontawesome.com/839392f4bf.js" crossorigin="anonymous"></script>
 
-	<!--Custom Stylesheet-->
-	<link rel="stylesheet" href="css/styles.css">
+	
 
 </head>
 
@@ -46,34 +47,77 @@ if (isset($_SESSION['id_usuario'])) {
         include_once 'header.php';
     ?>
 
-    <div class="container">
-        <h1 class="display-1 text-primary text-center">RASTREA TU PEDIDO</h1>
-        <hr>
-    </div>
+<div class="container ">
+<div class="jumbotron m-5 p-3">
+	
+<h4 class="display-4 m-0 text-info text-center">RASTREA TU PEDIDO</h4>
+<hr>
+<div class="row">
+	<div class="col-md ">
+	<h3 class="my-2 text-info text-center">ORDEN NO.: </h3>
+	<input type="text" placeholder="#Orden">
+	</div>
+</div>
 
+<div class="progress">
+  <div class="circle done">
+    <span class="label">1</span>
+    <span class="title">0%</span>
+  </div>
+  <span class="bar bar-half done"></span>
+  <span class="bar bar-half"></span>
+  <div class="circle">
+    <span class="label">2</span>
+    <span class="title">25%</span>
+  </div>
+  <span class="bar"></span>
+  <div class="circle">
+    <span class="label">3</span>
+    <span class="title">50%</span>
+  </div>
+  <span class="bar"></span>
+  <div class="circle">
+    <span class="label">4</span>
+    <span class="title">75%</span>
+  </div>
+  <span class="bar"></span>
+  <div class="circle">
+    <span class="label">5</span>
+    <span class="title">100%</span>
+  </div>
+</div>
+
+
+
+
+
+
+<!--aqui debe venir ya sea el buscador o bien la orden a rastrear-->
+
+<ol class="track-progress m-0 px-5 bg-primary m-5 rounded pill">
+  <li class="done">
+    <em>1</em>
+    <span>Check You Eligibility</span>
+  </li>
+  <li class="done">
+    <em>2</em>
+    <span>Device Information</span>
+  </li>
+  <li class="todo">
+    <em>3</em>
+    <span>Your Information</span>
+  </li>
+  <li class="todo">
+    <em>4</em>
+    <span>Registration Summary</span>
+  </li>
+</ol>	
+</div>
+</div>
     <?php 
         include_once 'footer.php';
     ?>
 	
-
-	<!--Bootstrap js-->
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-	
-	<!-- Smooth Scroll-->
-	<script src="js/smooth-scroll.js"></script>
-
-	<!-- Smooth Scroll Polyfills-->
-	<script src="js/smooth-scroll.polyfills.min.js"></script>
-
-	<!--Ajax Popper-->
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-
-	<!-- js para personalizar -->
-	<script src="js/main.js"></script>
-
-    <script>
-	var scroll = new SmoothScroll('a[href*="#"]');
-	</script>
 
 </body>
 </html>

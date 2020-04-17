@@ -74,7 +74,7 @@
 				<div class="collapse navbar-collapse">
 					<!--lista de menu-->
 					<ul class="navbar-nav mx-auto">
-						<li class="nav-item dropdown"><a class="nav-link" href="#tienda">PASTELES</a>
+						<li class="nav-item dropdown"><a class="nav-link" href="tienda.php">PASTELES</a>
 							<ul class="dropdown-menu mt-2 mr-8 bg-primary" aria-labelledby="navbarDropdown">
 								<li>
 									<a class="dropdown-item text-white"  href="#">Express</a>
@@ -90,7 +90,7 @@
 						</li>
 
 						<li class="nav-item">
-							<a class="nav-link active" href="#">TIENDA <span class="sr-only">(current)</span></a>
+							<a class="nav-link active" href="index.php">TIENDA <span class="sr-only">(current)</span></a>
 						</li>
 						<li class="nav-item">
 							<a class="nav-link" href="historial_pedido.php">RASTREA TU PEDIDO</a>

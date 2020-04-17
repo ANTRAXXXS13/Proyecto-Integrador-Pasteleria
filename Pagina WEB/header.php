@@ -1,11 +1,5 @@
 
 
-
-<<<<<<< HEAD
-<!--<form action="/newaccount" method=post oninput='up2.setCustomValidity(up2.value != up.value ? "Passwords do not match." : "")'>-->
-=======
-
->>>>>>> c241f21812236ff3e4deb7f13ba2b1b20965940a
 <body>
 	<header>
 		
@@ -45,17 +39,11 @@
 						</li>
 
 						<li class="nav-item">
-<<<<<<< HEAD
-							<a class="nav-link active" href="#">TIENDA <span class="sr-only">(current)</span></a>
-						</li>
-						
-=======
 							<a class="nav-link active" href="#tienda">TIENDA <span class="sr-only">(current)</span></a>
 						</li>
 						<li class="nav-item">
 							<a class="nav-link" href=rastrea.php>RASTREA TU PEDIDO</a>
 						</li>
->>>>>>> c241f21812236ff3e4deb7f13ba2b1b20965940a
 					
 					</ul>
 					<!--/lista de menu-->

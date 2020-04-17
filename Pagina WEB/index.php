@@ -1,16 +1,3 @@
-<<<<<<< HEAD
-=======
-<?php
-include("conexion/conexion.php");
-// si el usuario trata de escribir manualmente admin.php 
-// no podra ir porque lo retorna a esta pagina
-session_start();
-ob_start();
-if (isset($_SESSION['id_usuario'])) {
-	header("Location: actualizar_usuario.php");
-}
-?>
->>>>>>> c241f21812236ff3e4deb7f13ba2b1b20965940a
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -47,11 +34,7 @@ if (isset($_SESSION['id_usuario'])) {
 
 	<header></header>
 
-<<<<<<< HEAD
 	<section class="scroll pt-5 pb-5 mt-0 align-items-center d-flex bg-dark" style="height:100vh; background-size: cover; background-image: url(img/index_webcake03.jpg);">
-=======
-	<section id="index" class= "pt-5 pb-5 mt-0 align-items-center d-flex bg-dark" style="height:100vh; background-size: cover; background-image: url(img/index_webcake03.jpg);">
->>>>>>> c241f21812236ff3e4deb7f13ba2b1b20965940a
 	
 		<div class="container-fluid">
 
@@ -75,21 +58,14 @@ if (isset($_SESSION['id_usuario'])) {
 		</div>
 	</section>
 
-<<<<<<< HEAD
 	<!--<div id="bazinga">Bazinga!</div>-->
 
 
-=======
->>>>>>> c241f21812236ff3e4deb7f13ba2b1b20965940a
 	<section class="scroll" id="tienda">
 	
 		<?php 
 		
-<<<<<<< HEAD
 			include_once 'tienda.php';
-=======
-			include_once 'tienda.php'
->>>>>>> c241f21812236ff3e4deb7f13ba2b1b20965940a
 
 		?>
 
@@ -104,19 +80,12 @@ if (isset($_SESSION['id_usuario'])) {
 	<!-- Smooth Scroll-->
 	<script src="js/smooth-scroll.js"></script>
 
-<<<<<<< HEAD
-=======
-	<!-- Smooth Scroll Polyfills-->
-	<script src="js/smooth-scroll.polyfills.min.js"></script>
-
->>>>>>> c241f21812236ff3e4deb7f13ba2b1b20965940a
 	<!--Ajax Popper-->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 
 	<!-- js para personalizar -->
 	<script src="js/main.js"></script>
 
-<<<<<<< HEAD
 	<script>
 		var scroll = new SmoothScroll('a[href*="#"]');
 	</script>
@@ -126,12 +95,6 @@ if (isset($_SESSION['id_usuario'])) {
 
     
 
-=======
-    <script>
-	var scroll = new SmoothScroll('a[href*="#"]');
-	</script>
-
->>>>>>> c241f21812236ff3e4deb7f13ba2b1b20965940a
 </body>
 </html>
 

@@ -46,11 +46,8 @@
 <!-- ============================= aqui comienza el navegador ===============================================-->
 <!-- ========================================================================================================-->
 		<?php 
-<<<<<<< HEAD
+
 		    include_once 'header_log.php';
-=======
-		    include_once 'header.php';
->>>>>>> c241f21812236ff3e4deb7f13ba2b1b20965940a
 		?>
 
 <!-- ========================================================================================================-->
@@ -59,9 +56,7 @@
 		<br>
 		<br>
 		<br>
-		<a href="conexion/salir.php">
-			<i class="ace-icon fa fa-power-off"></i>Salir
-		</a>
+	
 <!-- ========================================================================================================-->
 <!-- ============================= aqui comieza el formulario ===============================================-->
 <!-- ========================================================================================================-->
@@ -329,7 +324,7 @@
 								<!-- Nombre del titular -->
 								<div class="form-group col-md-8">
 
-									<input type="text" class="form-control" id="nom_titular" name="nom_titular" placeholder="Nombre del titular" required>
+									<input type="text" class="form-control" id="nom_titular" name="nom_titular" placeholder="Nombre del titular" >
 														
 									<div class="invalid-feedback">
 										*Es necesario completar este campo
@@ -338,7 +333,7 @@
 
 								<!-- Mes / Año -->
 								<div class="form-group col-md-4">
-									<input type="week" class="form-control" id="mes_año" name="mes_año" placeholder="Mes/Año" required>
+									<input type="week" class="form-control" id="mes_año" name="mes_año" placeholder="Mes/Año" >
 														
 									<div class="invalid-feedback">
 										*Es necesario completar este campo
@@ -350,7 +345,7 @@
 
 								<!-- Numero de tarjeta -->
 								<div class="form-group col-md-8">							
-									<input type="text" class="form-control" id="num_tarjeta" name="num_tarjeta" placeholder="Número de tarjeta" required>
+									<input type="text" class="form-control" id="num_tarjeta" name="num_tarjeta" placeholder="Número de tarjeta" >
 									<div class="invalid-feedback">
 										*Es necesario completar este campo
 									</div>
@@ -358,7 +353,7 @@
 
 								<!-- CVV -->
 								<div class="form-group col-md-4">
-									<input type="text" class="form-control" id="cvv" name="cvv" placeholder="CVV" required>
+									<input type="text" class="form-control" id="cvv" name="cvv" placeholder="CVV" >
 									<div class="invalid-feedback">
 										*Es necesario completar este campo 
 									</div>
@@ -366,11 +361,6 @@
 								<hr>
 								
 								<hr>
-<<<<<<< HEAD
-=======
-
-
->>>>>>> c241f21812236ff3e4deb7f13ba2b1b20965940a
 							</div>
 							<div class="form-row">
 									<div class="form-group col-md-4"></div>

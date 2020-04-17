@@ -24,7 +24,7 @@ delimiter //
 create procedure updusu_datosper (in _id INTEGER, in _nombre varchar(30), in _a_paterno varchar(30), in _a_materno varchar(30), in _fecha_nacimiento date, in _correo VARCHAR(50), in _celular CHAR(15))
 begin
 update usuario set nombre = _nombre, a_paterno = _a_paterno, a_materno = _a_materno, fecha_nacimiento = _fecha_nacimiento, correo = _correo, celular = _celular
-where correo = _correo or id = _id;
+where  id = _id;
 end;
 //
 delimiter //
@@ -38,7 +38,7 @@ delimiter //
 create procedure updusu_contra (in _id INTEGER, _passwd varchar(40))
 begin
 update usuario set passwd = sha1(_passwd) 
-where correo = _correo or id = _id;
+where  id = _id;
 end;
 //
 
@@ -121,15 +121,15 @@ end;
 
 
 -- =======================================================================================================================================================================
--- =================================================================================== TARJETA ===========================================================================
+-- =================================================================================== Productos ===========================================================================
 -- =======================================================================================================================================================================
 
 
 delimiter //
 create procedure insert_tarjeta(in _id_usuario INTEGER, in _num_tarjeta char(16),in _nombre_titular varchar(90), in _fecha_vencimiento date, in _codigo_seguridad char(4))
 begin
-	insert into tarjeta_debito(id_usuario, num_tarjeta, nombre_titular, fecha_vencimiento, codigo_seguridad)
-    values(_id_usuario, _num_tarjeta, _nombre_titular, _fecha_vencimiento, sha1(_codigo_seguridad));
+	insert into producto(id_categoria_prod, id_tamaño, id_forma, status_producto, nombre, descripcion, costo, imag)
+    values('$categoria','$tamaño','$forma', '$status','$nombre','$descripcion','$costo','$imag');
 end;
 //
 
@@ -140,3 +140,7 @@ begin
     where id_usuario = id_usuario;
 end;
 //
+
+
+
+
