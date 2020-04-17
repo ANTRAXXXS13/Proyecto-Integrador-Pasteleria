@@ -6,6 +6,12 @@
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>FASTCAKES</title>
 
+	<!-- Bootstrap CDN-->
+
+	<!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">-->
+	
+	
+
 	<!--Modified Bootstrap-->
 	<link rel="stylesheet" href="css/bootstrap.min.css" />
 
@@ -28,7 +34,7 @@
 
 	<header></header>
 
-	<section id="index" class= "pt-5 pb-5 mt-0 align-items-center d-flex bg-dark" style="height:100vh; background-size: cover; background-image: url(img/index_webcake03.jpg);">
+	<section class="scroll pt-5 pb-5 mt-0 align-items-center d-flex bg-dark" style="height:100vh; background-size: cover; background-image: url(img/index_webcake03.jpg);">
 	
 		<div class="container-fluid">
 
@@ -52,30 +58,44 @@
 		</div>
 	</section>
 
+	<!--<div id="bazinga">Bazinga!</div>-->
+
+
 	<section class="scroll" id="tienda">
 	
 		<?php 
 		
-			include_once 'tienda.php'
+			include_once 'tienda.php';
 
 		?>
 
 	</section>
 	
+
+
+
+	<!--Bootstrap js-->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+	
 	<!-- Smooth Scroll-->
 	<script src="js/smooth-scroll.js"></script>
 
-    <!-- Smooth Scroll Polyfills-->
-    <script src="js/smooth-scroll.polyfills.min.js"></script>
+	<!--Ajax Popper-->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 
+	<!-- js para personalizar -->
+	<script src="js/main.js"></script>
 
-
-    <script>
-	var scroll = new SmoothScroll('a[href*="#"]');
+	<script>
+		var scroll = new SmoothScroll('a[href*="#"]');
 	</script>
+
+
 
 
     
 
 </body>
 </html>
+
+

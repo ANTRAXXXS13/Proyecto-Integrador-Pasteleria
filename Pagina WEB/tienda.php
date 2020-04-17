@@ -12,24 +12,7 @@
 	$query2=mysqli_query($conexion,"select id, nombre, costo, descripcion from producto;");
 ?>
 
-<<<<<<< HEAD
-=======
 
-<<<<<<< HEAD
-=======
->>>>>>> 2291d649c8e1bed62adaa794f6432bb85aee02b3
-<?php 
-    include_once 'header.php';
-?>
-
-<<<<<<< HEAD
-=======
->>>>>>> c241f21812236ff3e4deb7f13ba2b1b20965940a
-=======
-
-
->>>>>>> cecc4a0... Primera prueba de tienda dinamica y agregar imagenes
->>>>>>> 2291d649c8e1bed62adaa794f6432bb85aee02b3
 <html>
 <body >
 
@@ -99,47 +82,12 @@
 
 
 
-<<<<<<< HEAD
 		</div>
 		<!-- /.row -->
 
 
 	</div>
 	<!-- /.container -->
-<!-------------------------------------------------------------------------------------------------------------->	
-<!---------------------------------------POPVER----------------------------------------------------------------->
-<!-------------------------------------------------------------------------------------------------------------->		
-	<div class="container">
-			<h2>Example: Load Dynamic Content in Bootstrap Popover with Ajax, PHP & MySQL</h2>
-			<div class="row">
-				<div class="col-md-6 well">
-					<div class="table-responsive">
-						<table class="table table-bordered">
-						<tr>
-						<th width="20%">PASTEL</th>
-						<th width="40%">COSTO</th>
-						</tr>
-						
-						<?php
-						$sql = "SELECT id, id_categoria_prod, id_tamaño, id_forma, status_producto, nombre, descripcion, costo FROM producto";
-						$resultset = mysqli_query($conexion, $sql) or die("database error:". mysqli_error($conexion));
-						while( $pastel = mysqli_fetch_assoc($resultset) ) {
-						?>
-						<tr>
-						<td><?php echo $pastel["nombre"]; ?></td>
-						<td><a href="#" class="hover" id="<?php echo $pastel["nombre"]; ?>"><?php echo $pastel["costo"]; ?></a></td>
-						</tr>
-						<?php
-						}
-						?>
-						</table>
-					</div>
-				</div>
-			</div>
-=======
->>>>>>> 2291d649c8e1bed62adaa794f6432bb85aee02b3
-		</div>
-
 
 <?php 
     include_once 'footer.php';
