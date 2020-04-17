@@ -345,17 +345,6 @@
 
 <<<<<<< HEAD
                                     <input type="text" class="form-control" id="colonia" name="colonia" placeholder="Colonia" required oninvalid="this.setCustomValidity('Favor de llenar el campo')" oninput="setCustomValidity('')"/>
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-                                    <input type="text" class="form-control" id="colonia" name="colonia" placeholder="Colonia" required >
-=======
-                                    <input type="text" class="form-control" id="colonia" name="colonia" placeholder="Colonia" required oninvalid="this.setCustomValidity('Favor de llenar el campo')" oninput="setCustomValidity('')"/>
->>>>>>> c241f21812236ff3e4deb7f13ba2b1b20965940a
-=======
-                                    <input type="text" class="form-control" id="colonia" name="colonia" placeholder="Colonia" required oninvalid="this.setCustomValidity('Favor de llenar el campo')" oninput="setCustomValidity('')"/>
->>>>>>> cecc4a0... Primera prueba de tienda dinamica y agregar imagenes
->>>>>>> 2291d649c8e1bed62adaa794f6432bb85aee02b3
                                     
                                 </div>	
 
