@@ -9,31 +9,44 @@
 	}else{
 		include_once 'header.php';
 	}
-	$query2=mysqli_query($conexion,"select id, nombre, costo, descripcion from producto;");
+    $query2=mysqli_query($conexion,"select id, nombre, costo, descripcion from producto;");
+  
 ?>
 
+<?php  
+ $connect = mysqli_connect("localhost", "root", "", "loginsystem");  
+ $query = "SELECT * FROM tbl_employee ORDER BY id desc";  
+ $result = mysqli_query($connect, $query);  
+ ?>  
 
-<html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>FASTCAKES</title>
+
+
+	<!--Modified Bootstrap-->
+	<link rel="stylesheet" href="css/bootstrap.min.css" />
+
+	<!--jquery-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script> 
+
+	<!-- Font Awesome CDN -->
+	<script src="https://kit.fontawesome.com/839392f4bf.js" crossorigin="anonymous"></script>
+
+	<!--Custom Stylesheet-->
+	<link rel="stylesheet" href="css/styles.css">
+
+</head>
 <body >
 
 	<div class="container">
 
-		<!--<div class="page-header">
-				<h1>Products
-				<div style="float: right; cursor: pointer;">
-					<span class="glyphicon glyphicon-shopping-cart my-cart-icon"><span class="badge badge-notify my-cart-badge"></span></span>
-				</div>
-				</h1>
-			</div>
-
-			<button type="addNewProduct" name="addNewProduct" id="addNewProduct">Add New Product</button> -->
-
-
-			<!-- HAY QYE CAMBIAR LOS DATOS DE CADA UNO DE LOS PRODUCTOS -->
-			<!-- 
-				<button class="btn btn-primary my-cart-btn" data-id="1" data-name="product 1" data-summary="summary 1" data-price="120" data-quantity="1" data-image="img/02.jpg">
-					Agregar al carrito
-				</button> -->
+		
 				
 		<div class="row m-5">
 			<div class="col-sm-12  text-center">
@@ -58,7 +71,8 @@
 							
 						<h4 class="card-title"><?php echo $datos['nombre'];?> </h4>
 						<p class="card-text">
-							<small>Descripción:</small>
+                            <button type="button" class="btn btn-info btn-sm float-right" data-toggle="popover" data-placement="left" data-trigger="hover"><small>Descripción:</small></button>
+                            
 							<br>
 							<?php echo $datos['descripcion'];?> 
 						</p>

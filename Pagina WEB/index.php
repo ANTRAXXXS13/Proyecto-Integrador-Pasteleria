@@ -18,10 +18,6 @@
 	<!--jquery-->
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 
-	<!--Datepicker Stylesheet-->
-	<link rel="stylesheet" href="css/bootstrap-datepicker.min.css">
-
-
 	<!-- Font Awesome CDN -->
 	<script src="https://kit.fontawesome.com/839392f4bf.js" crossorigin="anonymous"></script>
 
@@ -34,7 +30,7 @@
 
 	<header></header>
 
-	<section class="scroll pt-5 pb-5 mt-0 align-items-center d-flex bg-dark" style="height:100vh; background-size: cover; background-image: url(img/index_webcake03.jpg);">
+	<section class="scroll pt-5 pb-5 mt-0 align-items-center d-flex bg-dark" style="height:100vh; background-size: cover; background-image: url(img/local/front-end_imgs/index_webcake03.jpg);">
 	
 		<div class="container-fluid">
 
