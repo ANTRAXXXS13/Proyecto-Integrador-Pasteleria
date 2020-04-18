@@ -34,7 +34,7 @@
 
 	<header></header>
 
-	<section class="scroll pt-5 pb-5 mt-0 align-items-center d-flex bg-dark" style="height:100vh; background-size: cover; background-image: url(img/index_webcake03.jpg);">
+	<section class="scroll pt-5 pb-5 mt-0 align-items-center d-flex bg-dark" style="height:100vh; background-size: cover; background-image: url(img/local/front-end_imgs/index_webcake03.jpg);">
 	
 		<div class="container-fluid">
 

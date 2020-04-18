@@ -1,3 +1,32 @@
+<?php
+
+	include("../conexion/conexion.php");
+	session_start();
+	ob_start();
+	if (!isset($_SESSION['id_sucursal'])) {
+		header("Location: index.php");
+	}else{
+		$idsuc = $_SESSION['id_sucursal'];
+		$sql = "select nombre, calle, colonia, num_ext, num_int, codigo_postal, telefono, rfc, correo, passwd, matriz from sucursal where id ='$idsuc';";
+		$resultado = $conexion->query($sql);
+		$row = $resultado->fetch_assoc();
+		$nombre = $row['nombre'];
+		$rfc = $row['rfc'];
+		$matriz = $row['matriz'];
+		/*$q_matriz  = $row['supervisado_por'];*/
+		$correo = $row['correo'];
+		$telefono = $row['telefono'];
+		$calle = $row['calle'];
+		$colonia = $row['colonia'];
+		$num_ext = $row['num_ext'];
+		$num_int = $row['num_int'];
+		$codigo_postal = $row['codigo_postal'];
+
+		$query=mysqli_query($conexion,"select id, nombre from sucursal;");
+	}
+	
+
+?>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -5,76 +34,20 @@
 		<meta charset="utf-8">
 
 		<!--Modified Bootstrap-->
-		<link rel="stylesheet" href="css/bootstrap.min.css" />
+		<link rel="stylesheet" href="../css/bootstrap.min.css" />
 		<!-- Font Awesome CDN -->
 		<script src="https://kit.fontawesome.com/839392f4bf.js" crossorigin="anonymous"></script>
 		<!--Custom Stylesheet-->
-		 <link rel="stylesheet" href="css/custom.css" /> 
-		 <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+		 <link rel="stylesheet" href="../css/custom.css" /> 
+		 <link rel="stylesheet" type="text/css" href="../css/bootstrap.css">
 	</head>
 	<body>
 <!-- ========================================================================================================-->
 <!-- ============================= aqui comienza el navegador ===============================================-->
 <!-- ========================================================================================================-->
-		<nav class="navbar navbar-expand-sm navbar-dark bg-primary fixed-top" role="navigation">
-			<!--/brand-->	
-			<a class="navbar-brand logo text-white" href="#">Fastcakes</a>
-
-				<!--boton toggle-->
-			<button class="navbar-toggler"  type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="true" aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
-				<!--/boton toggle-->
-
-				<!--qué es lo que se colapsará-->
-			<div class="collapse navbar-collapse" id="navbarColor01">
-					
-					<!--lista de menu-->
-				<ul class="navbar-nav mx-auto">
-						
-					<li class="nav-item dropdown">
-						<a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">MIS PASTELES</a>
-							
-						<div class="dropdown-menu  mt-3 mr-4 " id="dropdown-menu" aria-labelledby="navbarDropdown">
-						<a class="dropdown-item text-white" href="Enfiestados.php">Express</a>
-						<a class="dropdown-item text-white" href="Personalizados.php">Personalizalo</a>
-						<div class="dropdown-divider"></div>
-							<a class="dropdown-item text-white" href="Descuentos.php">Descuentos</a>
-						</div>
-						</li>
-
-						<li class="nav-item">
-							<a class="nav-link" href="#">AGREGAR PASTELES <span class="sr-only">(current)</span></a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="RastrearPedido.php">ÚLTIMOS PEDIDOS PEDIDOS</a>
-					</li>
-				
-				</ul>
-				<!--/lista de menu-->
-
-
-				<!--Aqui comienza búsqueda-->
-				<form class="form-inline">
-					<input class="form-control mr-sm-2" type="search" placeholder="Busca un pastel">
-						<button class="btn btn-secondary btn-sm rounded-circle my-sm-0" type="submit"><i class="fas fa-search"></i>
-						</button>
-				</form>
-				<!-- aqui termina búsqueda-->
-
-				<ul class="navbar-nav">
-
-					<li class="nav-item">
-						<a href="#" class="btn btn-outline btn-rounded p-2 mr-sm-2" data-toggle="modal" data-target="#modalLRForm"><i class="fas fa-user"></i></a>
-					</li>
-								
-					<li class="nav-item">
-										
-						<a href="#" class="btn btn-md p-2 mr-sm-2" id="carrito" role="button" aria-pressed="true"><i class="fas fa-shopping-cart"></i></a>
-					</li>
-				</ul>
-			</div>
-		</nav>
+		<?php 
+		    include("head_suc.php");
+		?>
 <!-- ========================================================================================================-->
 <!-- ============================= aqui termina el navegador ================================================-->
 <!-- ========================================================================================================-->
@@ -86,7 +59,7 @@
 <!-- ============================= aqui comieza el formulario ===============================================-->
 <!-- ========================================================================================================-->
 		<br>
-		<form method="POST" action="Actusu_con.php">
+		<form method="POST" action="act_suc.php">
 			<div class="tab-pane" role="tabpanel" >
 	
 	
@@ -108,7 +81,7 @@
 								<div class="form-row">
 									<!-- nombre -->
 									<div class="form-group col-md">
-										<input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre" required>
+										<input type="text" class="form-control" id="nombre" name="nombre" value="<?php echo $nombre;?>" placeholder="Nombre" required>
 										<div class="invalid-feedback">
 											*Es necesario completar este campo
 										</div>
@@ -119,7 +92,7 @@
 								<div class="form-row">
 									<!-- Apellido Paterno -->
 									<div class="form-group col-md">
-										<input type="text" class="form-control" id="rfc" name="rfc"  placeholder="RFC" required>
+										<input type="text" class="form-control" id="rfc" name="rfc"  value="<?php echo $rfc;?>"  placeholder="RFC" required>
 										<div class="invalid-feedback">
 											*Es necesario completar este campo
 										</div>
@@ -131,7 +104,7 @@
 									<div class="form-group col-md-6">
 
 										<!-- Correo -->
-										<input type="text" class="form-control" id="correo" name="correo" placeholder="Correo" required>
+										<input type="text" class="form-control" id="correo" name="correo" value="<?php echo $correo;?>" placeholder="Correo" required>
 										<div class="invalid-feedback">
 											*Es necesario completar este campo
 										</div>
@@ -140,40 +113,38 @@
 									<div class="form-group col-md-6">
 
 										<!-- Celular-->
-										<input type="text" class="form-control" id="celular" name="celular" placeholder="Celular" required>
+										<input type="text" class="form-control" id="telefono" name="telefono" value="<?php echo $telefono;?>" placeholder="Teléfono" required>
 										<div class="invalid-feedback">
 											*Es necesario completar este campo
 										</div>
 									</div>	
 								</div>
 								<div class="form-row">
-									<div class="form-group col-md-3">
-
-										<!-- Matriz -->
-										<label ><b>¿Es Matriz?:</b></label>
-							
-									</div>
-									<div class="form-group col-md-1">
-
-										<!-- Matriz -->
-										<input type="checkbox"  id="si" name="si" required> <label ><b>Si</b></label> 
-									</div>
-									<div class="form-group col-md-2">
-
-										<!-- Matriz -->
-										<input type="checkbox"  id="no" name="no"  required> <label ><b>No</b></label>
-									</div>
-
 									<div class="form-group col-md-6">
+                                    <select class="form-control form-control-sm" id="matriz" name="matriz">
+                                        <option>¿ES MATRÍZ?</option>
+                                        <option value="no">NO</option>
+                                         <option value="si">SI</option>                                          
+                                    </select>
+                                </div>
 
-										<!-- Supervisado por: -->
-										<label ><b>Supervisado por:</b></label> 
-										<select class="form-control form-control-sm">
-											<option>CHIHUAHUA</option>
-										</select>
-									</div>	
+									 <div class="form-group col-md-6">
+                                    <select class="form-control form-control-sm" id="q_matriz" name="q_matriz"> 
+                                        <option>¿QUÍEN ES SU MATRÍZ?</option>
+                                        <?php while ($datos = mysqli_fetch_array($query)) {?> 
+                                            <option  value="<?php echo $datos['id'];?>" > <?php echo $datos['nombre'];?> </option>
+                                        <?php } ?>                                          
+                                    </select>
+                                </div>
 								</div>
-							<button class="btn btn-success" name="actualizar1"> Actualizar </button>		
+								<div class="form-row">
+									<div class="form-group col-md-5"></div>
+									<!-- Boton de actualizar -->
+									<div class="form-group col-md-3">							
+									<button class="btn btn-success" name="actualizar1"> Actualizar </button>
+									</div>	
+									<div class="form-group col-md-4"></div>
+								</div>		
 							</div>			
 							<hr>				
 						</div>
@@ -195,7 +166,7 @@
 								<!-- Calle -->
 								<div class="form-group col-md-8">
 
-									<input type="text" class="form-control" id="calle" name="calle" placeholder="Calle" required>
+									<input type="text" class="form-control" id="calle" name="calle" value="<?php echo $calle;?>" placeholder="Calle" required>
 														
 									<div class="invalid-feedback">
 										*Es necesario completar este campo
@@ -204,7 +175,7 @@
 
 										<!-- Numero exterior -->
 								<div class="form-group col-md-4">
-									<input type="text" class="form-control" id="num_ext" name="num_ext" placeholder="Num. Ext" required>
+									<input type="text" class="form-control" id="num_ext" name="num_ext" value="<?php echo $num_ext;?>" placeholder="Num. Ext" required>
 														
 									<div class="invalid-feedback">
 										*Es necesario completar este campo
@@ -218,13 +189,13 @@
 								<!-- Numero interior -->
 								<div class="form-group col-md-2">
 
-									<input type="text" class="form-control" id="num_int" name="num_int" placeholder="Num. Int">
+									<input type="text" class="form-control" id="num_int" name="num_int" value="<?php echo $num_int;?>" placeholder="Num. Int">
 					
 								</div>
 
 								<!-- colonia -->
 								<div class="form-group col-md-6">							
-									<input type="text" class="form-control" id="colonia" name="colonia" placeholder="Colonia" required>
+									<input type="text" class="form-control" id="colonia" name="colonia" value="<?php echo $colonia;?>" placeholder="Colonia" required>
 									<div class="invalid-feedback">
 										*Es necesario completar este campo
 									</div>
@@ -232,7 +203,7 @@
 
 								<!-- codigo postal -->
 								<div class="form-group col-md-4">
-									<input type="text" class="a-button-inner" id="codigo_postal" name="codigo_postal" placeholder="Código Postal" required>
+									<input type="text" class="a-button-inner" id="codigo_postal" name="codigo_postal" value="<?php echo $codigo_postal;?>" placeholder="Código Postal" required>
 									<div class="invalid-feedback">
 										*Es necesario completar este campo 
 									</div>
@@ -240,32 +211,16 @@
 
 							</div>
 
-							<div class="form-row">
-
-								<!--Pais -->
-								<div class="form-group col-md-4">							
-									<select class="form-control form-control-sm">
-									<option>MÉXICO</option>
-									</select>
-								</div>
-
-								<!-- Estado -->
-								<div class="form-group col-md-4">							
-									<select class="form-control form-control-sm">
-									<option>CHIHUAHUA</option>
-									</select>
-								</div>	
-
-								<!-- Municipio -->
-								<div class="form-group col-md-4">
-									<select class="form-control form-control-sm">
-									<option>CHIHUAHUA</option>
-									</select>
-								</div>
-
-							</div>
+							
 							<!-- Boton de actualizar -->
-							<button class="btn btn-success" name="actualizar2"> Actualizar </button>
+							<div class="form-row">
+									<div class="form-group col-md-5"></div>
+									<!-- Boton de actualizar -->
+									<div class="form-group col-md-3">							
+									<button class="btn btn-success" name="actualizar2"> Actualizar </button>
+									</div>	
+									<div class="form-group col-md-4"></div>
+								</div>	
 							<hr>
 	
 						</div>
@@ -336,14 +291,13 @@
 									</div>
 							</div>
 							<div class="form-row">
-								<div class="form-group col-md-4">
-									</div>
-								<div class="form-group col-md-4">					
+									<div class="form-group col-md-5"></div>
+									<!-- Boton de actualizar -->
+									<div class="form-group col-md-3">							
 									<button class="btn btn-success" name="actualizar3"> Actualizar </button>
-								</div>
-								<div class="form-group col-md-4">
-									</div>
-							</div>
+									</div>	
+									<div class="form-group col-md-4"></div>
+								</div>	
 
 							<!-- Boton de actualizar -->
 							
@@ -368,50 +322,6 @@
 <!-- ========================================================================================================-->
 <!-- ============================= aqui termina el formulario ===============================================-->
 <!-- ========================================================================================================-->
-
-		<footer class="navbar navbar-expand-sm navbar-dark bg-primary fixed-top" role="navigation">
-			<!--/brand-->	
-			<a class="navbar-brand logo text-white" href="#">Fastcakes</a>
-
-				<!--boton toggle-->
-			<button class="navbar-toggler"  type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="true" aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
-				<!--/boton toggle-->
-
-				<!--qué es lo que se colapsará-->
-			<div class="collapse navbar-collapse" id="navbarColor01">
-					
-					<!--lista de menu-->
-				<ul class="navbar-nav mx-auto">
-						
-					<li class="nav-item dropdown">
-						<a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">MIS PASTELES</a>
-							
-						<div class="dropdown-menu  mt-3 mr-4 " id="dropdown-menu" aria-labelledby="navbarDropdown">
-						<a class="dropdown-item text-white" href="Enfiestados.php">Express</a>
-						<a class="dropdown-item text-white" href="Personalizados.php">Personalizalo</a>
-						<div class="dropdown-divider"></div>
-							<a class="dropdown-item text-white" href="Descuentos.php">Descuentos</a>
-						</div>
-						</li>
-
-						<li class="nav-item">
-							<a class="nav-link" href="#">AGREGAR PASTELES <span class="sr-only">(current)</span></a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="RastrearPedido.php">ÚLTIMOS PEDIDOS PEDIDOS</a>
-					</li>
-				
-				</ul>
-				<!--/lista de menu-->
-
-
-		
-
-				
-			</div>
-		</footer>
 
 
 	</body>
