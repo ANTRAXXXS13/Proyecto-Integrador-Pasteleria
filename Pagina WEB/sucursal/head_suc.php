@@ -3,10 +3,10 @@
 	
 	ob_start();
 	if (!isset($_SESSION['id_sucursal'])) {
-		header("Location: index.php");
+		header("Location: ../index.php");
 	}else{
 		$idusu = $_SESSION['id_sucursal'];
-		$sql = "select nombre from sucursal where id ='$idusu'";
+		$sql = "select left(nombre,8) as nombre from sucursal where id ='$idusu'";
 		$resultado = $conexion->query($sql);
 		$row = $resultado->fetch_assoc();
 		$nombre = $row['nombre'];
@@ -99,18 +99,9 @@
 				<ul class="navbar-nav mx-auto">
 						
 					<li class="nav-item dropdown">
-						<a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">MIS PASTELES</a>
-							
-						<div class="dropdown-menu  mt-3 mr-4 " id="dropdown-menu" aria-labelledby="navbarDropdown">
-						<a class="dropdown-item text-white" href="Enfiestados.php">Express</a>
-						<a class="dropdown-item text-white" href="Personalizados.php">Personalizalo</a>
-						<div class="dropdown-divider"></div>
-							<a class="dropdown-item text-white" href="Descuentos.php">Descuentos</a>
-						</div>
-						</li>
-
+						<a class="nav-link" href="mis_pasteles.php"  role="button" >MIS PASTELES</a>
 						<li class="nav-item">
-							<a class="nav-link" href="#">AGREGAR PASTELES <span class="sr-only">(current)</span></a>
+							<a class="nav-link" href="agregar_pasteles.php">AGREGAR PASTELES <span class="sr-only">(current)</span></a>
 						</li>
 						<li class="nav-item">
 							<a class="nav-link" href="RastrearPedido.php">ÚLTIMOS PEDIDOS PEDIDOS</a>
@@ -135,16 +126,16 @@
 							<div id="header">
 								<ul class="nav">
 									
-									<li><a href="#">BIENVENIDO </a><a href="#"> <?php echo $nombre;?></a>
+									<li><a href="#"><?php echo $nombre;?>..</a>
 										<ul>
-											<li><a class="dropdown-item text-white" href="actualizar_usuario.php">Perfil</a></li>
-											<li><a href="conexion/salir.php">Salir</a></li>
+											<li><a class="dropdown-item text-white" href="actualizar_sucursal.php">Perfil</a></li>
+											<li><a href="../conexion/salir.php">Salir</a></li>
 										</ul>
 									</li>
 								</ul>
 							</div>
 						</div>
-						<div class="form-group col-md-1"></div>
+						<div class="form-group col-md-2"></div>
 					</div>
 				
 			</div>

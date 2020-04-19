@@ -16,7 +16,7 @@
 		 <link rel="stylesheet" href="../css/custom.css" /> 
 		 <link rel="stylesheet" type="text/css" href="../css/bootstrap.css">
 		 
-		 <link rel="stylesheet" type="text/css" href="../css/utch.css">
+		
 </head>
 <body>
             <div class="form-group col-md">
@@ -24,12 +24,8 @@
                     <div class="form-group input-group-sm col-md-6">
 	                    <form class="signup-form" action="../conexion/registro_suc.php" method="POST" oninput='pass1.setCustomValidity(pass1.value != pass.value ? "¡Las contraseñas no concuerdan!." : "")'>
 
-                            <h6 class="text-info"><small>DATOS DE LA SUCURSAL</small></h6>
-                                    
-                            <hr>        
-
-                            
-                                
+                            <h6 class="text-info"><small>DATOS DE LA SUCURSAL</small></h6>  
+                            <hr>                                  
                             <!--Registro: Nombre-->
                             <div class="form-row">
 
@@ -38,8 +34,6 @@
                                 <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre(s)" autocomplete="off" required oninvalid="this.setCustomValidity('Favor de llenar el campo')" oninput="setCustomValidity('')"/>
                                     
                                 </div>
-
-                               
                             </div>
 
                             <!--Registro: Apellidos-->
@@ -63,25 +57,28 @@
                                     <input type="text" class="form-control" id="telefono" name="telefono"  placeholder="Número de teléfono" required oninvalid="this.setCustomValidity('Favor de llenar el campo')" oninput="setCustomValidity('')"/>
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <select class="form-control form-control-sm" id="matriz" name="matriz">
-                                        <option>¿ES MATRÍZ?</option>
+                                    <select  class="form-control form-control-sm" id="matriz" name="matriz">
+                                        <option value="0">¿ES MATRÍZ?</option>
                                         <option value="no">NO</option>
                                          <option value="si">SI</option>                                          
                                     </select>
                                 </div>
 
                             </div>
-                            <div class="form-row">
-                                <div class="form-group col-md">
-                                    <select class="form-control form-control-sm" id="q_matriz" name="q_matriz"> 
-                                        <option>¿QUÍEN ES SU MATRÍZ?</option>
-                                        <?php while ($datos = mysqli_fetch_array($query)) {?> 
-                                            <option  value="<?php echo $datos['id'];?>" > <?php echo $datos['nombre'];?> </option>
-                                        <?php } ?>                                          
-                                    </select>
-                                </div>
 
-                            </div>
+                            <!--<?php /*
+                            if ("matriz" == "no")*/ {?> -->
+                                <div class="form-row">
+                                    <div class="form-group col-md">
+                                        <select hidden="true" class="form-control form-control-sm" id="q_matriz" name="q_matriz"> 
+                                            <option>¿QUÍEN ES SU MATRÍZ?</option>
+                                            <?php while ($dat = mysqli_fetch_array($query)) {?> 
+                                                <option  value="<?php echo $dat['id'];?>" > <?php echo $dat['nombre'];?> </option>
+                                            <?php } ?>                                          
+                                        </select>
+                                    </div>
+                                </div>
+                          <!--  <?php  } ?>-->
                             <h6 class="text-info"><small>DIRECCIÓN</small></h6>
                             <hr>
 
@@ -117,6 +114,7 @@
 
                                 <!--Colonia-->
                                 <div class="form-group input-group-sm col-md-6">
+
 
                                     <input type="text" class="form-control" id="colonia" name="colonia" placeholder="Colonia" required oninvalid="this.setCustomValidity('Favor de llenar el campo')" oninput="setCustomValidity('')"/>
                                     
@@ -212,7 +210,7 @@
                                         <span class="input-group-text bg-light"> <i class="far fa-envelope text-info"></i></span>
                                     </div>
 
-                                    <input type="email" id="correo" name="correo" class="form-control validate" placeholder="correo electrónico">
+                                    <input type="email" id="correo1" name="correo1" class="form-control validate" placeholder="correo electrónico">
 
                                     
                                 </div>
@@ -226,7 +224,7 @@
                                         <span class="input-group-text bg-light"> <i class="fas fa-key text-info"></i></span>
                                     </div>
 
-                                    <input type="password" class="form-control validate" id="pass" name="pass" placeholder="contraseña" >
+                                    <input type="password" class="form-control validate" id="passwd" name="passwd" placeholder="Contraseña" >
                                     
                                 </div>
                             </div>
@@ -252,6 +250,20 @@
 
                 </div>
                 </div> 
-            </div>   
+            </div> 
+
+<script type="text/javascript">
+    let mat = document.getElementById('matriz');
+mat.addEventListener("change", function(){
+    if (mat.value.toUpperCase() == 'NO') {
+        document.getElementById('q_matriz').hidden = false;
+    }else {
+        
+        document.getElementById('q_matriz').hidden  = true;
+    }
+});
+
+
+</script>  
 </body>
 </html>

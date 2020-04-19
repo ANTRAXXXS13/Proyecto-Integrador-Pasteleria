@@ -42,7 +42,7 @@
                                         <span class="input-group-text bg-light"> <i class="far fa-envelope text-info"></i></span>
                                     </div>
 
-                                    <input type="email" id="correo" name="correo" class="form-control validate" placeholder="correo electrónico">
+                                    <input type="email" id="correo1" name="correo1" class="form-control validate" placeholder="correo electrónico">
 
                                     
                                 </div>
@@ -56,7 +56,7 @@
                                         <span class="input-group-text bg-light"> <i class="fas fa-key text-info"></i></span>
                                     </div>
 
-                                    <input type="password" class="form-control validate" id="pass" name="pass" placeholder="contraseña" >
+                                    <input type="password" class="form-control validate" id="passwd" name="passwd" placeholder="contraseña" >
                                     
                                 </div>
                             </div>
@@ -71,7 +71,6 @@
 
                     <div class="modal-footer">
                         <div class="options text-center text-md-right mt-1">
-                                
                                 <p><a href="pagsin_hacer.php">Olvidé mi Contraseña</a></p>
                         </div>
                         
