@@ -1,12 +1,19 @@
+
 <?php 
 		    include("../conexion/conexion.php");
-			$query=mysqli_query($conexion,"select id, nombre from forma;");
-			$query2=mysqli_query($conexion,"select id, nombre from tamaño;");
-			$query3=mysqli_query($conexion,"select id, nombre from categoria_prod;");
-			$query4=mysqli_query($conexion,"select id, nombre from ingrediente where id_categoria_ingre = 1;");
-			$query5=mysqli_query($conexion,"select id, nombre from ingrediente where id_categoria_ingre = 2;");
-			$query6=mysqli_query($conexion,"select id, nombre from ingrediente where id_categoria_ingre = 3;");
-			$query7=mysqli_query($conexion,"select id, nombre from ingrediente where id_categoria_ingre = 4;");
+		    session_start();
+	ob_start();
+	if (!isset($_SESSION['id_sucursal'])) {
+		header("Location: ../index.php");
+	}else{
+		$query=mysqli_query($conexion,"select id, nombre from forma;");
+		$query2=mysqli_query($conexion,"select id, nombre from tamaño;");
+		$query3=mysqli_query($conexion,"select id, nombre from categoria_prod;");
+		$query4=mysqli_query($conexion,"select id, nombre from ingrediente where id_categoria_ingre = 1;");
+		$query5=mysqli_query($conexion,"select id, nombre from ingrediente where id_categoria_ingre = 2;");
+		$query6=mysqli_query($conexion,"select id, nombre from ingrediente where id_categoria_ingre = 3;");
+		$query7=mysqli_query($conexion,"select id, nombre from ingrediente where id_categoria_ingre = 4;");
+	}	
 ?>
 <!DOCTYPE html>
 <html>
@@ -41,7 +48,7 @@
 <!-- ========================================================================================================-->
 <!-- ============================= aqui comieza el formulario ===============================================-->
 <!-- ========================================================================================================-->
-		<form method="POST" action="Actusu_con.php">
+		<form method="POST" action="../conexion/insertar_pastel.php" enctype="multipart/form-data">
 			<div class="tab-pane" role="tabpanel" >
 				<div class="form-group col-md">
 	<!--**************************************************************************************************** -->
@@ -131,8 +138,8 @@
 							<hr>
 							<div class="form-row">
 								<?php while ($dato = mysqli_fetch_array($query7)) {?>	
-									<div class="form-group col-md-3">										
-											<input type="checkbox"  value="<?php echo $dato['id'];?>"> <label><b> <?php echo $dato['nombre'];?> </b></label>
+									<div  class="form-group col-md-3">										
+											<input name="topping" id="topping" type="checkbox"  value="<?php echo $dato['id'];?>"> <label><b> <?php echo $dato['nombre'];?> </b></label>
 									</div>
 								<?php } ?>		
 							</div>
@@ -169,8 +176,8 @@
 							<div class="form-row">
 
 								<?php while ($dato = mysqli_fetch_array($query4)) {?>	
-									<div class="form-group col-md-4">										
-											<input type="checkbox"  value="<?php echo $dato['id'];?>"> <label><b> <?php echo $dato['nombre'];?> </b></label>
+									<div  class="form-group col-md-4">										
+											<input name="masa" id="masa" type="checkbox"  value="<?php echo $dato['id'];?>"> <label><b> <?php echo $dato['nombre'];?> </b></label>
 									</div>
 								<?php } ?>	
 							</div>
@@ -182,7 +189,7 @@
 							<div class="form-row">
 								<?php while ($dato = mysqli_fetch_array($query5)) {?>	
 									<div class="form-group col-md-3">										
-											<input type="checkbox"  value="<?php echo $dato['id'];?>"><label><b> <?php echo $dato['nombre'];?> </b></label>
+											<input name="relleno" id="relleno" type="checkbox"  value="<?php echo $dato['id'];?>"><label><b> <?php echo $dato['nombre'];?> </b></label>
 									</div>
 								<?php } ?>	
 							</div>
@@ -195,7 +202,7 @@
 
 								<?php while ($dato = mysqli_fetch_array($query6)) {?>	
 									<div class="form-group col-md-3">										
-											<input type="checkbox"  value="<?php echo $dato['id'];?>"> <label><b> <?php echo $dato['nombre'];?> </b></label>
+											<input name="betun" id="betun" type="checkbox"  value="<?php echo $dato['id'];?>"> <label><b> <?php echo $dato['nombre'];?> </b></label>
 									</div>
 								<?php } ?>
 							</div>
@@ -231,7 +238,7 @@
 					    			<div class="form-group col-md-3"></div>
 									<div class="form-group col-md-4">
 										<!-- Boton de cancelar -->
-										<button class="btn btn-danger" name="cancelar"> Cancelar </button>
+										<button  onclick="setTimeout(function(){location.reload();}, 0);" class="btn btn-danger" name="cancelar"> Cancelar </button>
 									</div>
 									<div class="form-group col-md-3">	
 									<!-- Boton de cancelar -->						
@@ -264,6 +271,13 @@
 <!-- ========================================================================================================-->
 		
 
+<script>
+function reload(segs) {
+    setTimeout(function() {
+        location.reload();
+    }, parseInt(segs) * 1000);
+}
+</script>
 
 
 	</body>

@@ -2,8 +2,8 @@
 	include("../conexion/conexion.php");
 	if (isset($_POST["ingresar"])){ 
 
-		$correo = $_POST['correo'];
-		$password = $_POST['pass'];
+		$correo = $_POST['correo1'];
+		$password = $_POST['passwd'];
 		$passw_enc = sha1($password);
 		$sql = "SELECT id from sucursal 
 			where correo = '$correo' AND passwd = '$passw_enc' ";

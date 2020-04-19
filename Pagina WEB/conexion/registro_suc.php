@@ -3,7 +3,7 @@
     //Check if user has clicked the submit button
     if(isset($_POST['registrar'])) {
 
-        //Include database connection
+        //Include database connectiono
        include_once 'conexion.php';
 
         //And we get the data from the signup form
@@ -20,6 +20,7 @@
         $pass = mysqli_real_escape_string($conexion, $_POST['pass']);
         $telefono = mysqli_real_escape_string($conexion, $_POST['telefono']);/*
         */
+
        
         //Check if fields are not empty
         if ( empty($nombre) || empty($rfc) ||empty($telefono) || empty($calle)|| empty($numExt) || empty($colonia)|| empty($codPost)|| empty($email)|| empty($pass)) {
@@ -56,20 +57,14 @@
 
                 }else {
                     //insertar informacion del ususario
-                    if ($matriz == 'no') {                       
-                        $matriz = 0;
-                        $conexion->query("insert into sucursal(nombre, calle, colonia, num_ext, num_int, codigo_postal, telefono, rfc, correo, passwd, matriz) values('$nombre', '$calle', '$colonia', '$numExt', '$numInt', '$codPost', '$telefono', '$rfc', '$email',  sha1('$pass'), '$matriz');");
-                        /*
-                        $sql = "SELECT id from sucursal where correo = '$email';";
-                        $resultado = $conexion->query($sql);
-                        $rows = $resultado->num_rows;
-                        $id_suc=$rows['id'];
-                        $e_matriz =$id_suc;
-                        $conexion->query("call upd_matriz( $id_suc,'$e_matriz');"); */
-                        
-                    }else{
-                        $conexion->query("call insert_sucursal2( '$nombre', '$calle', '$colonia', '$numExt', '$numInt', '$codPost', '$telefono', '$rfc', $email, '$pass', '$matriz', '$q_matriz');"); 
-                    
+                    if ($matriz == 'si') {                       
+                        $matriz = 1;
+
+                        $conexion->query("call insert_sucursal('$nombre', '$calle', '$colonia', '$numExt', '$numInt', '$codPost', '$telefono', '$rfc', '$email',  '$pass', '$matriz');");                        
+                    }
+                    if ($matriz == 'no'){
+                        $matriz= 0;
+                        $conexion->query("call insert_sucursal2('$nombre', '$calle', '$colonia', '$numExt', '$numInt', '$codPost', '$telefono', '$rfc', '$email', '$pass', '$matriz', '$q_matriz');"); 
                     }
                     
                     $sql = "SELECT id from sucursal where correo = '$email';";
@@ -86,7 +81,7 @@
                       
                     }else{
                           echo "<script>
-                        alert('Tu cuenta no fue creada, vuelve a intentarlo.$matriz');
+                        alert('Tu cuenta no fue creada, vuelve a intentarlo');
                         window.location = '../index.php';
                          </script>";
                     mysqli_close($conexion);
