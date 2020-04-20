@@ -66,6 +66,7 @@
 							<a href="#" class="btn btn-outline btn-rounded p-2 mr-sm-2" id="btnModalLRForm" data-toggle="modal" data-target="#modalLRForm"><i class="fas fa-user text-white"></i></a>
 						</li>
 								
+								
 						<li class="nav-item">
 										
 							<a href="#" class="btn btn-md p-2 mr-sm-2"  role="button" aria-pressed="true"><i class="fas fa-shopping-cart text-white"></i>

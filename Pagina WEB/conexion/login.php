@@ -1,5 +1,5 @@
 <?php 
-	include("../conexion/conexion.php");
+	include("conexion.php");
 	if (isset($_POST["ingresar"])){ 
 
 		$correo = $_POST['correo1'];

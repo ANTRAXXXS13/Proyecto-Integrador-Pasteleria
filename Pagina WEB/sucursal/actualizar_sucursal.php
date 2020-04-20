@@ -22,9 +22,8 @@
 		$num_int = $row['num_int'];
 		$codigo_postal = $row['codigo_postal'];
 
-		$query=mysqli_query($conexion,"select id, nombre from sucursal;");
-	}
-	
+		$query=mysqli_query($conexion,"select * from sucursales_matriz;");
+	} 
 
 ?>
 <!DOCTYPE html>
@@ -129,7 +128,7 @@
                                 </div>
 
 									 <div class="form-group col-md-6">
-                                    <select class="form-control form-control-sm" id="q_matriz" name="q_matriz"> 
+                                    <select hidden="true" class="form-control form-control-sm" id="q_matriz" name="q_matriz"> 
                                         <option>¿QUÍEN ES SU MATRÍZ?</option>
                                         <?php while ($datos = mysqli_fetch_array($query)) {?> 
                                             <option  value="<?php echo $datos['id'];?>" > <?php echo $datos['nombre'];?> </option>
@@ -249,7 +248,7 @@
 									<div class="form-group col-md-5"></div>
 									<!-- Boton de actualizar -->
 									<div class="form-group col-md-3">							
-									<button class="btn btn-success" name="actualizar3"> Actualizar </button>
+									<button class="btn btn-success" name="actualizar1"> Actualizar </button>
 									</div>	
 									<div class="form-group col-md-4"></div>
 								</div>	
@@ -272,7 +271,21 @@
 <!-- ========================================================================================================-->
 <!-- ============================= aqui termina el formulario ===============================================-->
 <!-- ========================================================================================================-->
-
+		
+        <div class="options text-center text-md-center mt-1">
+            <p><a href="cambiar_contra.php">Cambiar contraseña</a></p>
+        </div>            
+   	<script type="text/javascript">
+    let mat = document.getElementById('matriz');
+	mat.addEventListener("change", function(){
+	    if (mat.value.toUpperCase() == 'NO') {
+	        document.getElementById('q_matriz').hidden = false;
+	    }else {
+	        
+	        document.getElementById('q_matriz').hidden  = true;
+	    }
+	});
+	</script>
 
 	</body>
 </html>

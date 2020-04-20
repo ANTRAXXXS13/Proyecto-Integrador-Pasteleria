@@ -18,7 +18,7 @@ CREATE TABLE status_pedido(id INTEGER AUTO_INCREMENT PRIMARY KEY NOT NULL,nombre
 
 CREATE TABLE pedido_producto(id INTEGER AUTO_INCREMENT PRIMARY KEY NOT NULL, id_pedido INTEGER, id_producto INTEGER);
 
-CREATE TABLE producto(id INTEGER AUTO_INCREMENT PRIMARY KEY NOT NULL, id_categoria_prod INTEGER, id_tamaño INTEGER, id_forma INTEGER, status_producto BOOLEAN, nombre VARCHAR(25), descripcion VARCHAR(100), costo FLOAT, imag varchar(100));
+CREATE TABLE producto(id INTEGER AUTO_INCREMENT PRIMARY KEY NOT NULL, id_categoria_prod INTEGER, id_tamaño INTEGER, id_forma INTEGER, status_producto BOOLEAN, nombre VARCHAR(30), descripcion VARCHAR(100), costo FLOAT, imag varchar(100));
 
 CREATE TABLE tamaño(id INTEGER AUTO_INCREMENT PRIMARY KEY NOT NULL, nombre VARCHAR(25), caracteristicas VARCHAR(100));
 
@@ -34,7 +34,7 @@ CREATE TABLE categoria_ingre(id INTEGER AUTO_INCREMENT PRIMARY KEY NOT NULL, nom
 
 CREATE TABLE producto_sucursal(id INTEGER AUTO_INCREMENT PRIMARY KEY NOT NULL, id_producto INTEGER, id_sucursal INTEGER);
 
-CREATE TABLE sucursal(id INTEGER AUTO_INCREMENT PRIMARY KEY NOT NULL, nombre VARCHAR(30), calle VARCHAR(20), colonia VARCHAR(20), num_ext VARCHAR(10), num_int VARCHAR(10),  codigo_postal INTEGER, telefono CHAR(12), rfc VARCHAR(14), correo VARCHAR(50), passwd varchar(40), estado VARCHAR(50), municipio VARCHAR(50), pais VARCHAR(50), matriz BOOLEAN, supervisado_por INTEGER not null);
+CREATE TABLE sucursal(id INTEGER AUTO_INCREMENT PRIMARY KEY NOT NULL, nombre VARCHAR(30), calle VARCHAR(20), colonia VARCHAR(20), num_ext VARCHAR(10), num_int VARCHAR(10),  codigo_postal INTEGER, telefono CHAR(12), rfc VARCHAR(14), correo VARCHAR(50), passwd varchar(40), matriz BOOLEAN, supervisado_por INTEGER);
 
 CREATE TABLE repartidor(id INTEGER AUTO_INCREMENT PRIMARY KEY NOT NULL, id_sucursal INTEGER, nombre VARCHAR(30), a_paterno VARCHAR(30), a_materno VARCHAR(30), fecha_nacimiento DATE, correo VARCHAR(50), passwd VARCHAR(40), celular CHAR(15), calle VARCHAR(20), colonia VARCHAR(20), num_ext VARCHAR(10), num_int VARCHAR(10), codigo_postal INTEGER, rfc VARCHAR(14), curp VARCHAR(18), status BOOLEAN);
 

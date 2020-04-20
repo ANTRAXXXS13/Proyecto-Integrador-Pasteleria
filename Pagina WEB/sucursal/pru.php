@@ -1,6 +1,6 @@
 <?php 
             include("../conexion/conexion.php");
-            $query=mysqli_query($conexion,"select id, nombre from sucursal;");
+            $query=mysqli_query($conexion,"select * from sucursales_matriz;");
 ?>
 
 
@@ -40,9 +40,10 @@
                             <div class="form-row">
 
                                 <!--Apellido Paterno-->
-                                
+                                <div class="form-group input-group-sm col-md">
 
-                                <input type="text" class="form-control" id="rfc" name="rfc" placeholder="RFC" autocomplete="off" required oninvalid="this.setCustomValidity('Favor de llenar el campo')" oninput="setCustomValidity('')"/>
+                                     <input type="text" class="form-control" id="rfc" name="rfc" placeholder="RFC" autocomplete="off" required oninvalid="this.setCustomValidity('Favor de llenar el campo')" oninput="setCustomValidity('')"/>
+                                </div>     
                                         
                             </div>
 
@@ -252,17 +253,17 @@
                 </div> 
             </div> 
 
-<script type="text/javascript">
+    <script type="text/javascript">
     let mat = document.getElementById('matriz');
-mat.addEventListener("change", function(){
-    if (mat.value.toUpperCase() == 'NO') {
-        document.getElementById('q_matriz').hidden = false;
-    }else {
-        
-        document.getElementById('q_matriz').hidden  = true;
-    }
-});
-
+    mat.addEventListener("change", function(){
+        if (mat.value.toUpperCase() == 'NO') {
+            document.getElementById('q_matriz').hidden = false;
+        }else {
+            
+            document.getElementById('q_matriz').hidden  = true;
+        }
+    });
+    </script>
 
 </script>  
 </body>

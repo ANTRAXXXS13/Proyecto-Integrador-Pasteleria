@@ -13,6 +13,22 @@
 	}
 ?>
 <head>
+	<!--Modified Bootstrap-->
+	<link rel="stylesheet" href="css/bootstrap.min.css" />
+
+	<!--jquery-->
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+
+	<!--Datepicker Stylesheet-->
+	<link rel="stylesheet" href="css/bootstrap-datepicker.min.css">
+
+
+	<!-- Font Awesome CDN -->
+	<script src="https://kit.fontawesome.com/839392f4bf.js" crossorigin="anonymous"></script>
+
+	<!--Custom Stylesheet-->
+	<link rel="stylesheet" href="css/styles.css">
+
 	<style type="text/css">
 	
 		ul, ol{
@@ -45,7 +61,6 @@
 		.navbar-nav li:hover > ul {
 			display: block;
 		}
-
 
 	</style>
 </head>
