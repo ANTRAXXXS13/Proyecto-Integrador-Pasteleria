@@ -7,7 +7,7 @@
 		header("Location: ../index.php");
 	}else{
 		$idsuc = $_SESSION['id_sucursal'];
-		$query2=mysqli_query($conexion," select p.nombre as NombreProd, p.id as id, s.nombre as NombreSuc from producto p join sucursal as s join producto_sucursal as ps where ps.id_producto = p.id and s.id = '$idsuc';");
+		$query2=mysqli_query($conexion,"call mis_pasteles('$idsuc');");
 	}	
 ?>
 

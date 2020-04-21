@@ -44,7 +44,7 @@
                 exit();
             }
             else {
-                $sql = "SELECT * FROM sucursal WHERE correo = '$email'";
+                $sql = "call correo_sucursal('$email');";
                 $result = mysqli_query($conexion, $sql);
                 $resultCheck = mysqli_num_rows($result);
 

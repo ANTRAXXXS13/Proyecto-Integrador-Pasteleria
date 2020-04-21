@@ -12,6 +12,7 @@
 		$query4=mysqli_query($conexion,"select id, nombre from ingrediente where id_categoria_ingre = 1;");
 		$query5=mysqli_query($conexion,"select id, nombre from ingrediente where id_categoria_ingre = 2;");
 		$query6=mysqli_query($conexion,"select id, nombre from ingrediente where id_categoria_ingre = 3;");
+
 		$query7=mysqli_query($conexion,"select id, nombre from ingrediente where id_categoria_ingre = 4;");
 	}	
 ?>
@@ -139,7 +140,7 @@
 							<div class="form-row">
 								<?php while ($dato = mysqli_fetch_array($query7)) {?>	
 									<div  class="form-group col-md-3">										
-											<input name="topping" id="topping" type="checkbox"  value="<?php echo $dato['id'];?>"> <label><b> <?php echo $dato['nombre'];?> </b></label>
+											<input name="topping" id="topping" type="radio"  value="<?php echo $dato['id'];?>"> <label><b> <?php echo $dato['nombre'];?> </b></label>
 									</div>
 								<?php } ?>		
 							</div>
@@ -177,7 +178,7 @@
 
 								<?php while ($dato = mysqli_fetch_array($query4)) {?>	
 									<div  class="form-group col-md-4">										
-											<input name="masa" id="masa" type="checkbox"  value="<?php echo $dato['id'];?>"> <label><b> <?php echo $dato['nombre'];?> </b></label>
+											<input name="masa" id="masa" type="radio"  value="<?php echo $dato['id'];?>"> <label><b> <?php echo $dato['nombre'];?> </b></label>
 									</div>
 								<?php } ?>	
 							</div>
@@ -189,7 +190,7 @@
 							<div class="form-row">
 								<?php while ($dato = mysqli_fetch_array($query5)) {?>	
 									<div class="form-group col-md-3">										
-											<input name="relleno" id="relleno" type="checkbox"  value="<?php echo $dato['id'];?>"><label><b> <?php echo $dato['nombre'];?> </b></label>
+											<input name="relleno" id="relleno" type="radio"  value="<?php echo $dato['id'];?>"><label><b> <?php echo $dato['nombre'];?> </b></label>
 									</div>
 								<?php } ?>	
 							</div>
@@ -202,7 +203,7 @@
 
 								<?php while ($dato = mysqli_fetch_array($query6)) {?>	
 									<div class="form-group col-md-3">										
-											<input name="betun" id="betun" type="checkbox"  value="<?php echo $dato['id'];?>"> <label><b> <?php echo $dato['nombre'];?> </b></label>
+											<input name="betun" id="betun" type="radio"  value="<?php echo $dato['id'];?>"> <label><b> <?php echo $dato['nombre'];?> </b></label>
 									</div>
 								<?php } ?>
 							</div>

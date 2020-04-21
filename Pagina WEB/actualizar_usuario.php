@@ -8,6 +8,7 @@
 	}else{
 		$idusu = $_SESSION['id_usuario'];
 		$sql = "select nombre, a_paterno, a_materno, fecha_nacimiento, correo, passwd, celular, calle, colonia, num_ext, num_int, codigo_postal from usuario where id ='$idusu'";
+		$query1=mysqli_query($conexion,"select id, nombre from forma_pago;");
 		$resultado = $conexion->query($sql);
 		$row = $resultado->fetch_assoc();
 		$nombre = $row['nombre'];
@@ -70,9 +71,9 @@
 		<!-- ========================================================================================================-->
 		<!-- ============================= aqui comienza el bloque de datos personales ===============================-->
 		<!-- ========================================================================================================-->
-						<div class="form-group col-md-1">
+						<div class="form-group col-md-3">
 									</div>
-						<div class="form-group col-md-4">					
+						<div class="form-group col-md-6">					
 							<h6 class="card-title text-left text-info mb-1 mt-2"><b>DATOS PERSONALES</b></h6>				
 							<hr>		
 							<div class="needs-validation" novalidate>
@@ -137,95 +138,23 @@
 											*Es necesario completar este campo
 										</div>
 									</div>
-								</div>	
-								<div class="form-row">
-									<div class="form-group col-md-5"></div>
-									<!-- Boton de actualizar -->
-									<div class="form-group col-md-3">							
-									<button class="btn btn-success" name="actualizar1"> Actualizar </button>
-									</div>	
-									<div class="form-group col-md-4"></div>
-								</div>		
-								
+								</div>							
 							</div>			
 							<hr>				
 						</div>
+					</div>	
 		<!-- ========================================================================================================-->
 		<!-- ============================= aqui termina el bloque de datos personales ===============================-->
 		<!-- ========================================================================================================-->
-
-		<!-- ========================================================================================================-->
-		<!-- ============================= aqui comienza el bloque de contraseña =====================================-->
-		<!-- ========================================================================================================-->
-						<div class="form-group col-md-1">
-									</div>
-						<div class="form-group col-md-4">
-							<h6 class="card-title text-left text-info mb-1 mt-3"><b>CAMBIAR CONTRASEÑA</b></h6>
-							<hr>
-							<!-- Contraseña actual -->
-							<div class="form-row">
-								<div class="form-group col-md-3"></div>
-								<div class="form-group input-group col-md-6">
-									<input type="password"  class="form-control" id="contraseña_actual" name="contraseña_actual" placeholder="Contraseña Atual" required>
-									<div class="invalid-feedback">*Es necesario completar este campo</div>
-								</div>
-							</div>
-
-							<!-- Nueva Contraseña -->
-							<div class="form-row">
-								<div class="form-group col-md-3"></div>
-								<div class="form-group col-md-6">					
-									<input type="password" class="form-control" id="nueva_contraseña" name="nueva_contraseña" placeholder="Nueva Contraseña" required>
-									<div class="invalid-feedback">
-										*Es necesario completar este campo
-									</div>
-								</div>
-							</div>
-
-							<!-- Repetir Contraseña -->
-							<div class="form-row">
-								<div class="form-group col-md-3"></div>
-								<div class="form-group col-md-6">					
-									<input type="password" class="form-control" id="repetir_contraseña" name="repetir_contraseña" placeholder="Repetir Contraseña" required>
-									<div class="invalid-feedback">
-										*Es necesario completar este campo
-									</div>
-								</div>
-							</div>
-
-							<div class="form-row">
-								<div class="form-group col-md-5"></div>
-								<!-- Boton de actualizar 1 -->
-								<div class="form-group col-md-3">							
-								<button class="btn btn-success" name="actualizar3"> Actualizar </button>
-								</div>	
-								<div class="form-group col-md-4"></div>
-							</div>
 		
-							<hr>
-						</div>
-		<!-- ========================================================================================================-->
-		<!-- ============================= aqui termina el bloque de contraseña =====================================-->
-		<!-- ========================================================================================================-->
 
-					</div>
-	<!--**************************************************************************************************** -->
-	<!--*****************Aqui termina el bloque 1 ********************************************************** -->
-	<!--**************************************************************************************************** -->
-
-
-
-	<!--**************************************************************************************************** -->
-	<!--*****************Aqui comienza el bloque 2 ********************************************************** -->
-	<!--**************************************************************************************************** -->
-
-					<div class="form-row">
 		<!-- ========================================================================================================-->
 		<!-- ============================= aqui comieza el bloque de direccion ======================================-->
 		<!-- ========================================================================================================-->	
-						<div class="form-group col-md-1">
+					<div class="form-row">
+						<div class="form-group col-md-3">
 									</div>
-						<div class="form-group col-md-4">
+						<div class="form-group col-md-6">
 							<h6 class="card-title text-left text-info mb-1 mt-3"><b>DIRECCIÓN</b></h6>
 							<hr>
 
@@ -278,59 +207,51 @@
 								</div>
 
 							</div>
-							<div class="form-row">
-								<div class="form-group col-md-5"></div>
-								<!-- Boton de actualizar -->
-								<div class="form-group col-md-3">							
-								<button class="btn btn-success" name="actualizar2"> Actualizar </button>
-								</div>	
-								<div class="form-group col-md-4"></div>
-							</div>
 							<hr>
-	
 						</div>
+					</div>	
 		<!-- ========================================================================================================-->
 		<!-- ============================= aqui termina el bloque de direccion ======================================-->
 		<!-- ========================================================================================================-->
 
 
 
+					
+	
+
+			
+
 		<!-- ========================================================================================================-->
 		<!-- ============================= aqui comieza el bloque de forma de pago ==================================-->
 		<!-- ========================================================================================================-->	
-						<div class="form-group col-md-1">
+					<div class="form-row">
+						<div class="form-group col-md-3">
 									</div>
-						<div class="form-group col-md-4">
+						<div class="form-group col-md-6">
 							<h6 class="card-title text-left text-info mb-1 mt-3"><b>FORMA DE PAGO</b></h6>
 							<hr>
 
 
 							<div class="form-row">
-								<!-- Forma de pago efectivo-->
+								<!-- Forma de pago -->
+								<?php while ($dat = mysqli_fetch_array($query1)) {?>
 								<div class="form-group col-md-6">
-									<input type="radio"  id="efectivo" name="efectivo"> <label><b>Efectivo</b></label>
-									
+									 
+                                        <input type="radio"  id="forma_pago" name="forma_pago" value="<?php echo $dat['id'];?>"> <label><b><?php echo $dat['nombre'];?></b></label>
+                                     
 								</div>
-
-								<!-- Forma de pago tarjeta-->
-								<div class="form-group col-md-6">
-									<input type="radio"  id="tarjeta" name="tarjeta"> <label><b>Tarjeta débito</b></label>
-									
-								</div>
+								<?php } ?> 					
 							</div>
-
+						<div hidden="true" name="dat_tarj" id="dat_tarj" >
 							<div class="form-row">
-
 								<!-- Nombre del titular -->
 								<div class="form-group col-md-8">
-
 									<input type="text" class="form-control" id="nom_titular" name="nom_titular" placeholder="Nombre del titular" >
 														
 									<div class="invalid-feedback">
 										*Es necesario completar este campo
 									</div>
 								</div>
-
 								<!-- Mes / Año -->
 								<div class="form-group col-md-4">
 									<input type="week" class="form-control" id="mes_año" name="mes_año" placeholder="Mes/Año" >
@@ -362,23 +283,51 @@
 								
 								<hr>
 							</div>
-							<div class="form-row">
-									<div class="form-group col-md-4"></div>
-									<!-- Boton de actualizar -->
-									<div class="form-group col-md-3">							
-									<button class="btn btn-success" name="actualizar4"> Actualizar </button>
-									</div>	
-									<div class="form-group col-md-4"></div>
-								</div>
+						</div>
 							<hr>
 	
 						</div>
-					
+					</div>
 		<!-- ========================================================================================================-->
 		<!-- ============================= aqui termina el bloque de forma de pago ==================================-->
 		<!-- ========================================================================================================-->
 
-					</div>
+		<!-- ========================================================================================================-->
+		<!-- ============================= aqui comienza el bloque de contraseña =====================================-->
+		<!-- ========================================================================================================-->
+					<div class="form-row">	
+						<div class="form-group col-md-3">
+									</div>
+						<div class="form-group col-md-6">
+							<h6 class="card-title text-left text-info mb-1 mt-3"><b>CAMBIAR CONTRASEÑA</b></h6>
+							<hr>
+							<!-- Contraseña actual -->
+							<div class="form-row">
+								<div class="form-group col-md-3"></div>
+								<div class="form-group input-group col-md-6">
+									<input type="password"  class="form-control" id="contraseña_actual" name="contraseña_actual" placeholder="Contraseña Atual" required>
+									<div class="invalid-feedback">*Es necesario completar este campo</div>
+								</div>
+							</div>
+
+							
+
+							<div class="form-row">
+								<div class="form-group col-md-5"></div>
+								<!-- Boton de actualizar 1 -->
+								<div class="form-group col-md-3">							
+								<button class="btn btn-success" name="actualizar1"> Actualizar </button>
+								</div>	
+								<div class="form-group col-md-4"></div>
+							</div>
+		
+							<hr>
+						</div>
+					</div>	
+		<!-- ========================================================================================================-->
+		<!-- ============================= aqui termina el bloque de contraseña =====================================-->
+		<!-- ========================================================================================================-->
+					
 	<!--**************************************************************************************************** -->
 	<!--*****************Aqui termina el bloque 2 ********************************************************** -->
 	<!--**************************************************************************************************** -->
@@ -402,6 +351,19 @@
 
 		<!-- js para personalizar -->
 		<script src="js/main.js"></script>
+
+		    <script type="text/javascript">
+    let tar = document.getElementById('forma_pago');
+    tar.addEventListener("change", function(){
+        if (tar.value.toUpperCase() == 1) {
+            document.getElementById('dat_tarj').hidden = false;
+        }
+        if (tar.value.toUpperCase() === 2) {
+            document.getElementById('dat_tarj').hidden = true;
+        }
+    });
+    </script>
+
 
 
 	</body>

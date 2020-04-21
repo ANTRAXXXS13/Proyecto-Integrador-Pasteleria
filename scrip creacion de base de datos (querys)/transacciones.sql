@@ -4,12 +4,14 @@ insert into forma_pago(nombre)  values('EFECTIVO');
 commit;
 
 start transaction;
-insert into status_pedido(nombre)  values('ENTREGADO');
-insert into status_pedido(nombre)  values('PEDIDO');
-insert into status_pedido(nombre)  values('EN PROCESO DE ENTREGA');
+
+insert into status_pedido(nombre)  values('OREDEN LEVANTADA');
+insert into status_pedido(nombre)  values('FECHA APARTADA');
 insert into status_pedido(nombre)  values('EN PREPARACION');
-insert into status_pedido(nombre)  values('APARTADO');
+insert into status_pedido(nombre)  values('EN PROCESO DE ENTREGA');
+insert into status_pedido(nombre)  values('ENTREGADO');
 insert into status_pedido(nombre)  values('CANCELADO');
+
 commit;
 
 start transaction;

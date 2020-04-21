@@ -5,48 +5,15 @@
 	if (!isset($_SESSION['id_sucursal'])) {
 		header("Location: ../index.php");
 	}else{
-		$idusu = $_SESSION['id_sucursal'];
-		$sql = "select left(nombre,8) as nombre from sucursal where id ='$idusu'";
+		$idsuc = $_SESSION['id_sucursal'];
+		$sql = "select left(nombre,8) as nombre from sucursal where id ='$idsuc'";
 		$resultado = $conexion->query($sql);
 		$row = $resultado->fetch_assoc();
 		$nombre = $row['nombre'];
 	}
 ?>
 <head>
-	<style type="text/css">
 	
-		ul, ol{
-			list-style: none;
-		}
-
-		.nav li a {
-			background-color: #fa576f;
-			color: #fff;
-			text-decoration: none;
-			display: block; 
-			
-		}
-		 .nav li a:hover {
-		 	background-color: #434343
-		 }
-		.nav > li {
-			float: left;
-		}
-
-		.nav li ul {
-			display: none;
-			position: absolute;
-			min-width: 140px;
-		}
-
-		.nav li:hover > ul {
-			display: block;
-		}
-		.navbar-nav li:hover > ul {
-			display: block;
-		}
-
-	</style>
 <!-- Bootstrap CDN-->
 
 	<!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">-->
@@ -69,15 +36,6 @@
 	<!--Custom Stylesheet-->
 	<link rel="stylesheet" href="../css/styles.css">
 </head>
-
-
-
-
-
-
-
-
-
 
 <body>
 	<header>
@@ -104,7 +62,7 @@
 							<a class="nav-link" href="agregar_pasteles.php">AGREGAR PASTELES <span class="sr-only">(current)</span></a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="RastrearPedido.php">ÚLTIMOS PEDIDOS PEDIDOS</a>
+							<a class="nav-link" href="RastrearPedido.php">ÚLTIMOS PEDIDOS</a>
 					</li>
 				
 				</ul>
@@ -123,17 +81,17 @@
 				<div class="form-row">
 						<div class="form-group col-md-1"></div>
 						<div class="form-group col-md-4">		
-							<div id="header">
-								<ul class="nav">
-									
-									<li><a href="#"><?php echo $nombre;?>..</a>
-										<ul>
-											<li><a class="dropdown-item text-white" href="actualizar_sucursal.php">Perfil</a></li>
-											<li><a href="../conexion/salir.php">Salir</a></li>
-										</ul>
-									</li>
-								</ul>
+							<ul class="navbar-nav mx-auto">
+						
+						<li class="nav-item dropdown">
+							<a class="nav-link" href="#tienda" id="navbarDropdown" role="button" data-toggle="dropdown"><?php echo $nombre;?></a>
+							
+							<div class="dropdown-menu mt-2 mr-8 bg-primary " id="dropdown-menu" aria-labelledby="navbarDropdown">
+							<a class="dropdown-item text-white" href="actualizar_sucursal.php" >Mi perfil</a>
+							<a class="dropdown-item text-white" href="../conexion/salir.php">Salir</a>
 							</div>
+						</li>					
+					</ul>
 						</div>
 						<div class="form-group col-md-2"></div>
 					</div>
