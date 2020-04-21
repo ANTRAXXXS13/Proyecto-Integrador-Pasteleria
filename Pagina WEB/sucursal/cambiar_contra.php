@@ -30,11 +30,11 @@
 	<br>
 	<br>
 	<form method="POST" action="../conexion/act_suc.php" positio>
-		<div class="tab-pane" role="tabpanel" >
+		<div class="container" role="tabpanel" >
 			<div class="form-group col-md">
 				<div class="form-row">
 					<div class="form-group col-md-3"></div>
-					<div class="form-group col-md-6">
+					<div class="form-group col-md-6 my-5 align-middle" >
 						<h6 class="card-title text-left text-info mb-1 mt-3"><b>CAMBIAR CONTRASEÑA</b></h6>
 						<hr>
 											
@@ -72,15 +72,10 @@
 								<button class="btn btn-success" name="actualizar2"> Actualizar </button>
 							</div>	
 							<div class="form-group col-md-4"></div>
-						</div>		
+						</div>	
+						<div class="form-group col-md-3"></div>	
 						<hr>
 					</div>
-						<!-- ========================================================================================================-->
-						<!-- ============================= aqui termina el bloque de contraseña =====================================-->
-						<!-- ========================================================================================================-->
-					<div class="form-group col-md-4">
-					</div>
-
 				</div>
 			</div>	
 		</div>

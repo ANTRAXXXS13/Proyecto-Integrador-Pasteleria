@@ -7,21 +7,91 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Login de sucursal y registro</title>
-	<!--Modified Bootstrap-->
-		<link rel="stylesheet" href="../css/bootstrap.min.css" />
-		<!-- Font Awesome CDN -->
-		<script src="https://kit.fontawesome.com/839392f4bf.js" crossorigin="anonymous"></script>
-		<!--Custom Stylesheet-->
-		 <link rel="stylesheet" href="../css/custom.css" /> 
-		 <link rel="stylesheet" type="text/css" href="../css/bootstrap.css">
-		 
-		
+    <title>Login de sucursal y registro</title>
+    <!--Modified Bootstrap-->
+        <link rel="stylesheet" href="../css/bootstrap.min.css" />
+        <!-- Font Awesome CDN -->
+        <script src="https://kit.fontawesome.com/839392f4bf.js" crossorigin="anonymous"></script>
+        <!--Custom Stylesheet-->
+         <link rel="stylesheet" href="../css/custom.css" /> 
+         <link rel="stylesheet" type="text/css" href="../css/bootstrap.css">
+         
+        
 </head>
 <body>
-            <div class="form-group col-md">
-                <div class="form-row ">
-                    <div class="form-group input-group-sm col-md-6">
+     <?php 
+        include_once 'head_sucsin.php';
+    ?>
+    <br>
+    <br>
+    <br>
+    <br>
+        <div class="container">
+            <div class="col-md  ">
+                <h6 class="text-info"><small>ENTRA A TU CUENTA SUCURSAL</small></h6>  
+                            <hr>   
+                <div class="form-row">
+
+                    <div class="form-group input-group-sm col-md-8">
+                        <!--Body-->
+                        <div class="modal-body mb-1">
+
+                            <form class="login-form" action="../conexion/login_suc.php" method="POST">
+                                <!--Login: email-->
+                                <div class="form-row">
+                                    <div class="form-group input-group col-md">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text bg-light"> <i class="far fa-envelope text-info"></i></span>
+                                        </div>
+
+                                        <input type="email" id="correo1" name="correo1" class="form-control validate" placeholder="correo electrónico">
+
+                                        
+                                    </div>
+                                </div>
+
+                                <!--Login: password-->
+                                <div class="form-row">
+
+                                    <div class="form-group input-group col-md">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text bg-light"> <i class="fas fa-key text-info"></i></span>
+                                        </div>
+
+                                        <input type="password" class="form-control validate" id="passwd" name="passwd" placeholder="Contraseña" >
+                                        
+                                    </div>
+                                </div>
+
+                                <div class="text-center mt-2">
+                                <button class="btn btn-info" type="submit" id="ingresar" name="ingresar">Ingresar</button>
+                                </div>
+                            </form>
+                        </div>
+                        
+                        <!--Footer-->
+
+                        <div class="modal-footer">
+                            <div class="options text-center text-md-right mt-1">
+                                    
+                                    <p><a href="pagsin_hacer.php">Olvidé mi Contraseña</a></p>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row">
+                <div class="form-group input-group-sm col-md-8">
+                <hr><center>
+                <h6 class="text-info"><small>REGISTRA TU SUCURSAL</small></h6>  </center>
+                <hr>
+                <br>  
+                </div> 
+                </div>
+<!--            <=============================================================================================================-->
+                <div class="form-row">
+
+                    <div class="form-group input-group-sm col-md-8">
 	                    <form class="signup-form" action="../conexion/registro_suc.php" method="POST" oninput='pass1.setCustomValidity(pass1.value != pass.value ? "¡Las contraseñas no concuerdan!." : "")'>
 
                             <h6 class="text-info"><small>DATOS DE LA SUCURSAL</small></h6>  
@@ -35,16 +105,12 @@
                                     
                                 </div>
                             </div>
-
                             <!--Registro: Apellidos-->
                             <div class="form-row">
-
                                 <!--Apellido Paterno-->
                                 <div class="form-group input-group-sm col-md">
-
                                      <input type="text" class="form-control" id="rfc" name="rfc" placeholder="RFC" autocomplete="off" required oninvalid="this.setCustomValidity('Favor de llenar el campo')" oninput="setCustomValidity('')"/>
-                                </div>     
-                                        
+                                </div>            
                             </div>
 
                             <!--Registro: Fecha de nacimiento-->
@@ -193,65 +259,23 @@
                             </div>
                         </form>
                     </div>
-                   
-
-
-
-
-<!-- =============================================================================================================-->
-    <div class="modal-body mb-1">
-                    <!--Body-->
-                    <div class="modal-body mb-1">
-
-                        <form class="login-form" action="../conexion/login_suc.php" method="POST">
-                            <!--Login: email-->
-                            <div class="form-row">
-                                <div class="form-group input-group col-md">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text bg-light"> <i class="far fa-envelope text-info"></i></span>
-                                    </div>
-
-                                    <input type="email" id="correo1" name="correo1" class="form-control validate" placeholder="correo electrónico">
-
-                                    
-                                </div>
-                            </div>
-
-                            <!--Login: password-->
-                            <div class="form-row">
-
-                                <div class="form-group input-group col-md">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text bg-light"> <i class="fas fa-key text-info"></i></span>
-                                    </div>
-
-                                    <input type="password" class="form-control validate" id="passwd" name="passwd" placeholder="Contraseña" >
-                                    
-                                </div>
-                            </div>
-
-                            <div class="text-center mt-2">
-                            <button class="btn btn-info" type="submit" id="ingresar" name="ingresar">Ingresar</button>
-                            </div>
-                        </form>
-                    </div>
-                    
-                    <!--Footer-->
-
-                    <div class="modal-footer">
-                        <div class="options text-center text-md-right mt-1">
-                                
-                                <p><a href="pagsin_hacer.php">Olvidé mi Contraseña</a></p>
-                        </div>
-                        
-                    </div>
-
-                        
-
-
+                
                 </div>
-                </div> 
+        
             </div> 
+        </div>  
+        <br>
+        <br>
+        <br>
+    <?php 
+        include_once 'footer_suc.php';
+    ?>
+    
+    <?php 
+        include_once '../script_files.php';
+    ?>
+  
+
 
     <script type="text/javascript">
     let mat = document.getElementById('matriz');

@@ -54,15 +54,16 @@ end;
 // 
 
 delimiter //
-create procedure insert_sucursal (in _nombre varchar(30), in _calle varchar(20), in _colonia varchar(20), in _num_ext char(10), in _num_int VARCHAR(10), in codigo_postal INTEGER, in _telefono char(12), in _rfc char(20), in _correo varchar(50), in _passwd varchar(40), 
+create procedure insert_sucursal (in _nombre varchar(30), in _calle varchar(20), in _colonia varchar(20), in _num_ext char(10), in _num_int VARCHAR(10), in _codigo_postal INTEGER, in _telefono char(12), in _rfc char(20), in _correo varchar(50), in _passwd varchar(40), 
  in _matriz  boolean )
 begin
 insert into sucursal(nombre, calle, colonia, num_ext, num_int, codigo_postal, telefono, rfc, correo, passwd, matriz)
-values(_nombre, _calle, _colonia, _num_ext, num_int, codigo_postal, _telefono, _rfc, _correo,  sha1(_passwd), _matriz);
+values(_nombre, _calle, _colonia, _num_ext, _num_int, _codigo_postal, _telefono, _rfc, _correo,  sha1(_passwd), _matriz);
    update sucursal set supervisado_por = (select id from sucursal where correo = _correo);
 end;
 // 
-
+use proyectointegrador;
+call insert_sucursal('nlal', 'sdfvcalle', 'fsdfcolonia', '2', '25', 8521, '6392854', 'fwefewf', 'e@gmail',  'pass', 1);
 delimiter //
 create procedure insert_sucursal2 (in _nombre varchar(30), in _calle varchar(20), in _colonia varchar(20), in _num_ext char(10), in _num_int VARCHAR(10), in _codigo_postal INTEGER, in _telefono char(12), in _rfc char(20), in _correo varchar(50), in _passwd varchar(40), 
  in _matriz  boolean, _supervisado_por INTEGER )
@@ -129,7 +130,7 @@ end;
 delimiter //
 create procedure correo_sucursal (in _correo VARCHAR(50))
 begin
-	SELECT * FROM sucursal WHERE correo = _correo;
+	SELECT correo FROM sucursal WHERE correo = _correo;
 end;
 //  
 

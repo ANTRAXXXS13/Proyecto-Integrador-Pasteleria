@@ -5,6 +5,7 @@
 	if (!isset($_SESSION['id_usuario'])) {
 		header("Location: index.php");
 	}
+	
 ?>
 <!DOCTYPE html>
 <html>

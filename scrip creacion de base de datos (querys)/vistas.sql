@@ -13,6 +13,9 @@
 -- create view pastel_express as select * from producto where id_categoria_prod = 3;
 
 create view ultimo_pedido as SELECT * from pedido order by fecha_entrega;
+create view sucursales_matriz as select id, nombre from sucursal where matriz=1; 
+
+
 
 
 

@@ -1,12 +1,12 @@
 
-<?php include("css_files.php");?>
+<?php include("../css_files.php");?>
 
 <!-- Accordion -->
 <div class="fixed-bottom accordion"> 
     <div class="card  align-middle"> 
         <button class="collapsed rounded bg-secondary border-0 p-1" data-toggle="collapse"  data-target="#collapseOne"> 
             
-        <a class="btn btn-sm btn-primary float-left ml-1" href="sucursal/login_suc.php" role="button"><i class="fas fa-store"></i></a>
+        <a class="btn btn-sm btn-primary float-left ml-1" href="login_suc.php" role="button"><i class="fas fa-store"></i></a>
             <!-- Copyright -->
             <div class="footer-copyright text-center text-light">¿Problemas con tu pedido?
                 <a class="text-light text-right" href="#footer"> Haz clic aquí</a>
@@ -61,30 +61,19 @@
                                         </div>
                                 </div>
 
-                                
-                                
-
-
+                            
 
                             </div>                            
                             <!-- Grid column -->
-
-
-
 
                            <!-- Grid column -->
                            <div class="col-md-8 mt-md-0 mt-3">
                                         
                                 <h5 class="font-weight-bold text-uppercase mt-3 mb-4 pl-3">Reportar un problema</h5>
-
                                 <hr>
-                                
-                                <?php include("reportar_prob.php")?>
-                                
+                                <?php include("../reportar_prob.php")?>
                             </div>
 
-                            
-                                  
                             <!-- Grid column -->
  
                         </div>
@@ -119,8 +108,6 @@
                                 </p>
                             </div>
                             
-                              
-        
                         </div> 
                     </div> 
                
@@ -130,7 +117,7 @@
 </div>
 <!-- Footer -->   
 
-<?php include("script_files.php");?>	
+<?php include("../script_files.php");?>	
 
 
 <script> 

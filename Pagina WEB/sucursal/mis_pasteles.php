@@ -7,7 +7,7 @@
 		header("Location: ../index.php");
 	}else{
 		$idsuc = $_SESSION['id_sucursal'];
-		$query2=mysqli_query($conexion,"call mis_pasteles('$idsuc');");
+		$query2=mysqli_query($conexion," call mis_pasteles('$idsuc');");
 	}	
 ?>
 
@@ -15,11 +15,11 @@
 
 <html>
 <head>
-		<title>Agregar pasteles</title>
+		<title>Mis Pateles</title>
 		<meta charset="utf-8">
 
 		<!--Modified Bootstrap-->
-		<link rel="stylesheet" href=".//css/bootstrap.min.css" />
+		<link rel="stylesheet" href="../css/bootstrap.min.css" />
 		<!-- Font Awesome CDN -->
 		<script src="https://kit.fontawesome.com/839392f4bf.js" crossorigin="anonymous"></script>
 		<!--Custom Stylesheet-->
