@@ -4,7 +4,7 @@
 <!-- Accordion -->
 <div class="fixed-bottom accordion"> 
     <div class="card  align-middle"> 
-        <button class="collapsed rounded bg-secondary border-0 p-1" data-toggle="collapse"  data-target="#collapseOne"> 
+        <button class="collapsed rounded bg-secondary border-0 p-1" data-toggle="collapse"  data-target="#collapseTwo"> 
             
         <a class="btn btn-sm btn-primary float-left ml-1" href="login_suc.php" role="button"><i class="fas fa-store"></i></a>
             <!-- Copyright -->
@@ -17,7 +17,7 @@
         </button> 
 
             <!-- Accordion -->    
-             <div id="collapseOne" class="collapse px-0 bg-light text-info" data-parent=".accordion"> 
+             <div id="collapseTwo" class="collapse px-0 bg-light text-info" data-parent=".accordion"> 
          
                 <footer class="pt-4 mx-4 mt-1">
 

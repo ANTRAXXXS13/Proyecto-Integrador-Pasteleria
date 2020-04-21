@@ -1,16 +1,16 @@
 <?php
 	include("../conexion/conexion.php");
-	/*
+	
 	ob_start();
 	if (!isset($_SESSION['id_sucursal'])) {
 		header("Location: ../index.php");
-	}else{*/
+	}else{
 		$idsuc = $_SESSION['id_sucursal'];
 		$sql = "select left(nombre,8) as nombre from sucursal where id ='$idsuc'";
 		$resultado = $conexion->query($sql);
 		$row = $resultado->fetch_assoc();
 		$nombre = $row['nombre'];
-	/*}*/
+	}
 ?>
 <head>
 

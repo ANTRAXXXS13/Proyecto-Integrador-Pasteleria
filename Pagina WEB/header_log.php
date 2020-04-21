@@ -29,40 +29,6 @@
 	<!--Custom Stylesheet-->
 	<link rel="stylesheet" href="css/styles.css">
 
-	<style type="text/css">
-	
-		ul, ol{
-			list-style: none;
-		}
-
-		.nav li a {
-			background-color: #fa576f;
-			color: #fff;
-			text-decoration: none;
-			display: block; 
-			
-		}
-		 .nav li a:hover {
-		 	background-color: #434343
-		 }
-		.nav > li {
-			float: left;
-		}
-
-		.nav li ul {
-			display: none;
-			position: absolute;
-			min-width: 140px;
-		}
-
-		.nav li:hover > ul {
-			display: block;
-		}
-		.navbar-nav li:hover > ul {
-			display: block;
-		}
-
-	</style>
 </head>
 <body>
 	<header>
@@ -89,7 +55,7 @@
 				<div class="collapse navbar-collapse">
 					<!--lista de menu-->
 					<ul class="navbar-nav mx-auto">
-						<li class="nav-item dropdown"><a class="nav-link" href="tienda.php">PASTELES</a>
+						<li class="nav-item dropdown"><a class="nav-link" href="#tienda.php">PASTELES</a>
 							<ul class="dropdown-menu mt-2 mr-8 bg-primary" aria-labelledby="navbarDropdown">
 								<li>
 									<a class="dropdown-item text-white"  href="#">Express</a>
@@ -128,15 +94,17 @@
 						<div class="form-group col-md-1"></div>
 						<div class="form-group col-md-4">		
 							<div id="header">
-								<ul class="nav">
-									
-									<li><a href="#">BIENVENIDO </a>
-										<ul>
-											<li><a class="dropdown-item text-white" href="actualizar_usuario.php">Perfil</a></li>
-											<li><a href="conexion/salir.php">Salir</a></li>
-										</ul>
-									</li>
-								</ul>
+								<ul class="navbar-nav mx-auto">
+						
+							<li class="nav-item dropdown">
+								<a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"><?php echo $nombre;?></a>
+								
+								<div class="dropdown-menu mt-2 mr-8 bg-primary " id="dropdown-menu" aria-labelledby="navbarDropdown">
+								<a class="dropdown-item text-white" href="Actualizar_usuario.php" >Mi perfil</a>
+								<a class="dropdown-item text-white" href="../conexion/salir.php">Salir</a>
+								</div>
+							</li>					
+						</ul>
 							</div>
 						</div>
 					</div>

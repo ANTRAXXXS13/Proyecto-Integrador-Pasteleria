@@ -28,7 +28,7 @@
 					<ul class="navbar-nav mx-auto">
 						
 						<li class="nav-item dropdown">
-							<a class="nav-link" href="#tienda" id="navbarDropdown" role="button" data-toggle="dropdown">PASTELES</a>
+							<a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">PASTELES</a>
 							
 							<div class="dropdown-menu mt-2 mr-8 bg-primary " id="dropdown-menu" aria-labelledby="navbarDropdown">
 							<a class="dropdown-item text-white" href="#">Express</a>

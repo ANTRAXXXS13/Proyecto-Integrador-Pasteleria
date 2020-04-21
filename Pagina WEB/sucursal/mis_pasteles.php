@@ -25,8 +25,7 @@
 		<!--Custom Stylesheet-->
 		 <link rel="stylesheet" href="../css/custom.css" /> 
 		 <link rel="stylesheet" type="text/css" href="../css/bootstrap.css">
-		 
-		 <link rel="stylesheet" type="text/css" href="../css/utch.css">
+	
 	</head>
 <body >
 	<?php 
@@ -48,8 +47,7 @@
 			
 		</div>
 		<div class="row">
-			<?php 
-					while ($datos = mysqli_fetch_array($query2)) {?>
+			<?php while ($datos = mysqli_fetch_array($query2)) {?>
 			<div class="col-sm-6 col-md-3">
 				
 						<div class="card shadow p-0 mb-5 bg-white rounded">
@@ -92,9 +90,15 @@
 	</div>
 	<!-- /.container -->
 
+
 <?php 
-    include_once '../footer.php';
-?>	
+    include_once 'footer_suc.php';
+?>
+	
+
+	<?php 
+    include_once '../script_files.php';
+?>
 </body>
 </html>
 

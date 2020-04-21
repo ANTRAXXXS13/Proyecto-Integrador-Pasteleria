@@ -27,12 +27,13 @@
     <br>
     <br>
         <div class="container">
-            <div class="col-md  ">
-                <h6 class="text-info"><small>ENTRA A TU CUENTA SUCURSAL</small></h6>  
-                            <hr>   
+            <div class="col-md align-self-center ">
+                
                 <div class="form-row">
-
-                    <div class="form-group input-group-sm col-md-8">
+                    <div class=" col-md-2 "></div>
+                    <div class="form-group input-group-sm col-md-8 ">
+                        <h6 class="text-info"><small>ENTRA A TU CUENTA SUCURSAL</small></h6>  
+                            <hr>   
                         <!--Body-->
                         <div class="modal-body mb-1">
 
@@ -81,6 +82,7 @@
                     </div>
                 </div>
                 <div class="form-row">
+                    <div class=" col-md-2 "></div>
                 <div class="form-group input-group-sm col-md-8">
                 <hr><center>
                 <h6 class="text-info"><small>REGISTRA TU SUCURSAL</small></h6>  </center>
@@ -90,7 +92,7 @@
                 </div>
 <!--            <=============================================================================================================-->
                 <div class="form-row">
-
+                    <div class=" col-md-2 "></div>
                     <div class="form-group input-group-sm col-md-8">
 	                    <form class="signup-form" action="../conexion/registro_suc.php" method="POST" oninput='pass1.setCustomValidity(pass1.value != pass.value ? "¡Las contraseñas no concuerdan!." : "")'>
 

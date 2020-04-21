@@ -338,7 +338,15 @@
 		</form>		
 <!-- ========================================================================================================-->
 <!-- ============================= aqui termina el formulario ===============================================-->
-<!-- ========================================================================================================-->
+<!-- ========================================================================================================-->	<div class="options text-center text-md-center mt-1">
+            <p><a href="cambiar_contrausu.php">Cambiar contraseña</a></p>
+        </div> 
+        <br>
+        <br>
+        <?php 
+    	include_once 'footer.php';
+		?>
+	
 	
 		<!--Bootstrap js-->
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
