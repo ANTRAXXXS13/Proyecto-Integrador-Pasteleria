@@ -13,27 +13,18 @@
 ?>
 
 
+
 <html>
+
+<?php 
+    include_once 'css_files.php';
+?>
+	
 <body >
 
 	<div class="container">
 
-		<!--<div class="page-header">
-				<h1>Products
-				<div style="float: right; cursor: pointer;">
-					<span class="glyphicon glyphicon-shopping-cart my-cart-icon"><span class="badge badge-notify my-cart-badge"></span></span>
-				</div>
-				</h1>
-			</div>
-
-			<button type="addNewProduct" name="addNewProduct" id="addNewProduct">Add New Product</button> -->
-
-
-			<!-- HAY QYE CAMBIAR LOS DATOS DE CADA UNO DE LOS PRODUCTOS -->
-			<!-- 
-				<button class="btn btn-primary my-cart-btn" data-id="1" data-name="product 1" data-summary="summary 1" data-price="120" data-quantity="1" data-image="img/02.jpg">
-					Agregar al carrito
-				</button> -->
+		
 				
 		<div class="row m-5">
 			<div class="col-sm-12  text-center">
@@ -46,35 +37,36 @@
 		</div>
 		<div class="row">
 			<?php 
-					while ($datos = mysqli_fetch_array($query2)) {?>
+				while ($datos = mysqli_fetch_array($query2)) {
+			?>
 			<div class="col-sm-6 col-md-3">
 				
-						<div class="card shadow p-0 mb-5 bg-white rounded">
-							<img class="card-img-top img-fluid" src="img/foto_<?php echo $datos['id'];?>.jpg" >
-							<hr>
+				<div class="card shadow p-0 mb-5 bg-white rounded">
+					<img class="card-img-top img-fluid" src="img/foto_<?php echo $datos['id'];?>.jpg" >
+					<hr>
 
-							<div class="card-body">
-									
-								<h4 class="card-title"><?php echo $datos['nombre'];?> </h4>
-								<p class="card-text">
-									<small>Descripción:</small>
-									<br>
-									<?php echo $datos['descripcion'];?> 
-								</p>
-								<br>
+					<div class="card-body">
+							
+						<h4 class="card-title"><?php echo $datos['nombre'];?> </h4>
+						<p class="card-text">
+							<small>Descripción:</small>
+							<br>
+							<?php echo $datos['descripcion'];?> 
+						</p>
+						<br>
 
-								<select class="form-control form-control-sm">
-									<option><?php echo $datos['costo'];?></option>
-								</select>
-								
-								<br>
+						<select class="form-control form-control-sm">
+							<option><?php echo $datos['costo'];?></option>
+						</select>
+						
+						<br>
 
-								<div class="text-center">
-									<button class="btn btn-primary my-cart-btn" data-id="1" data-name="product 1" data-summary="summary 1" data-price="120" data-quantity="1" data-image="img/01.jpg">Agregar al carrito
-									</button>
-								</div>
-							</div>
-						</div>					
+						<div class="text-center">
+							<button class="btn btn-primary my-cart-btn" data-id="1" data-name="product 1" data-summary="summary 1" data-price="120" data-quantity="1" data-image="img/01.jpg">Agregar al carrito
+							</button>
+						</div>
+					</div>
+				</div>					
 				<!-- /.card -->
 			</div>
 			<?php } ?>	
@@ -89,12 +81,16 @@
 	</div>
 	<!-- /.container -->
 
+
+
 <?php 
     include_once 'footer.php';
 ?>
 	
 
-
+	<?php 
+    include_once 'script_files.php';
+?>
 	
 
 	

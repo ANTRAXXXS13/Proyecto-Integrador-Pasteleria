@@ -50,13 +50,7 @@
 
 
 					<!--búsqueda//este tiene que ser un form, pero dejemosolo para luego...-->
-					<form class="form-inline">
-						<input class="form-control" type="search" placeholder="Busca un pastel">
-								<button class="btn btn-info btn-sm rounded-circle ml-2" type="submit">
-									<i class="fas fa-search text-white"></i>	
-										
-								</button>	
-					</form>
+					<?php include ("barra_busqueda.php") ?>
 					<!--/búsqueda-->
 
 					<ul class="navbar-nav ml-3">
@@ -65,7 +59,6 @@
 						<li class="nav-item">
 							<a href="#" class="btn btn-outline btn-rounded p-2 mr-sm-2" id="btnModalLRForm" data-toggle="modal" data-target="#modalLRForm"><i class="fas fa-user text-white"></i></a>
 						</li>
-								
 								
 						<li class="nav-item">
 										

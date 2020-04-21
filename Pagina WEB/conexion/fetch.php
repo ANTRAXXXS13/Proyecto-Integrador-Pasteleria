@@ -4,7 +4,7 @@
  if(isset($_POST["id"]))  
  {  
     $output = '';  
-    $conexion = mysqli_connect("localhost", "root", "", "proyectointegrador");  
+    include_once 'conexion.php';  
 
     $query = "SELECT * FROM producto WHERE id='".$_POST["id"]."'";  
 

@@ -1,6 +1,3 @@
-    
-    
-
 $("#btnModalLRFormLRForm").on("click", function(){
     $("#modalLRForm").modal();
 });
@@ -14,3 +11,6 @@ $(function() {
     });
  });
 
+ $(function() {
+    $( ".accordion" ).accordion({collapsible: true});
+  });
