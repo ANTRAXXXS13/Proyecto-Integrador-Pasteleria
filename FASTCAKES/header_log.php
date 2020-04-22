@@ -101,7 +101,7 @@
 								
 								<div class="dropdown-menu mt-2 mr-8 bg-primary " id="dropdown-menu" aria-labelledby="navbarDropdown">
 								<a class="dropdown-item text-white" href="Actualizar_usuario.php" >Mi perfil</a>
-								<a class="dropdown-item text-white" href="../conexion/salir.php">Salir</a>
+								<a class="dropdown-item text-white" href="conexion/salir.php">Salir</a>
 								</div>
 							</li>					
 						</ul>

@@ -27,27 +27,26 @@
 					<!--lista de menu-->
 					<ul class="navbar-nav mx-auto">
 						
-						<li class="nav-item dropdown">
-							<a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">PASTELES</a>
-							
-							<div class="dropdown-menu mt-2 mr-8 bg-primary " id="dropdown-menu" aria-labelledby="navbarDropdown">
-							<a class="dropdown-item text-white" href="#">Express</a>
-							<a class="dropdown-item text-white" href="personalizados.php">Personalizados</a>
+						<li class="nav-item dropdown ">
+							<a class="nav-link dropdown-toggle mx-3" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">TIENDA</a>
+							<div class="dropdown-menu dropdown-primary ml-3 mt-2 bg-primary border-0" aria-labelledby="navbarDropdownMenuLink">
+
+		  
+							<a class="dropdown-item" href="#">Express</a>
+							<a class="dropdown-item" href="personalizados.php">Personalizados</a>
 							<div class="dropdown-divider"></div>
-							<a class="dropdown-item text-white" href="#">Descuentos</a>
+							<a class="dropdown-item text-white">Descuentos</a>
 							</div>
 						</li>
 
 						<li class="nav-item">
-							<a class="nav-link active" href="#tienda">TIENDA <span class="sr-only">(current)</span></a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href=rastrea.php>RASTREA TU PEDIDO</a>
+							<a class="nav-link mx-3" href=rastrea.php>RASTREA TU PEDIDO</a>
 						</li>
 					
 					</ul>
 					<!--/lista de menu-->
 
+					
 
 					<!--búsqueda//este tiene que ser un form, pero dejemosolo para luego...-->
 					<?php include ("barra_busqueda.php") ?>
@@ -71,3 +70,5 @@
  
 			</nav>
 	</header>
+
+	

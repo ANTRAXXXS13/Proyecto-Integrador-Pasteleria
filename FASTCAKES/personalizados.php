@@ -1,38 +1,39 @@
 <?php 
 		    include("conexion/conexion.php");
+			// si el usuario trata de escribir manuelmente admin.php 
+			// no podra ir porque lo retorna a aesta pagina
+			session_start();
+			ob_start();
+			if (isset($_SESSION['id_usuario'])) {
+				include_once 'header_log.php';	
+			}else{
+				include_once 'header.php';
+			}
 			$query=mysqli_query($conexion,"select id, nombre from forma;");
 			$query2=mysqli_query($conexion,"select id, nombre from tamaño;");
 ?>
 
 <!DOCTYPE html>
-<html>
-	<head>
-		<title>Actualizar Datos del Usuario</title>
-		<meta charset="utf-8">
-
-		<!--Modified Bootstrap-->
-		<link rel="stylesheet" href="css/bootstrap.min.css" />
-		<!-- Font Awesome CDN -->
-		<script src="https://kit.fontawesome.com/839392f4bf.js" crossorigin="anonymous"></script>
-		<!--Custom Stylesheet-->
-		 <link rel="stylesheet" href="css/custom.css" /> 
-		 <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
-		 <link rel="stylesheet" type="text/css" href="css/utch.css">
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>FASTCAKES - ¡Personaliza tu pastel!</title>
+		
+		<?php 
+    		include_once 'css_files.php';
+		?>
 	</head>
 	<body>
-<!-- ========================================================================================================-->
-<!-- ============================= aqui comienza el navegador ===============================================-->
-<!-- ========================================================================================================-->
-		
-	<section class="scroll" id="tienda">
-	
+
 		<?php 
 		
-			include_once 'header.php'
+			include_once 'header.php';
 
 		?>
 
-	</section>
+
 <!-- ========================================================================================================-->
 <!-- ============================= aqui termina el navegador ================================================-->
 <!-- ========================================================================================================-->
@@ -292,5 +293,17 @@
 
 
 
-	</body>
+		<?php 
+    include_once 'footer.php';
+?>
+	
+
+	<?php 
+    include_once 'script_files.php';
+?>
+	
+
+	
+	
+</body>
 </html>

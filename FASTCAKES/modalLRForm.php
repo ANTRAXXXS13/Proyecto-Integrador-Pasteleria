@@ -71,6 +71,7 @@
 
                     <div class="modal-footer">
                         <div class="options text-center text-md-right mt-1">
+                                
                                 <p><a href="pagsin_hacer.php">Olvidé mi Contraseña</a></p>
                         </div>
                         
@@ -275,7 +276,7 @@
                     <div class="modal-footer">
                         <div class="options text-center mt-1">
                                 
-                                <p>¿Repartidor? <a href="#">Regístrate acá</a></p>
+                                <p>¿Repartidor? <a class="text-muted">Regístrate acá</a></p>
                         </div>
                         
                     </div>

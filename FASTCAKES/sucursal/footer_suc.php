@@ -21,14 +21,11 @@
          
                 <footer class="pt-4 mx-4 mt-1">
 
-                    <!-- Footer Links -->
-                    <div class="text-center text-md-left mx-3 px-2">
-
-                        <!-- Grid row -->
-                        <div class="row">
+                    <!-- Grid row -->
+                       
 
                             <!-- Grid column -->
-                            <div class="col-md-4 mt-md-0 mt-3">
+                            <div class="col-md-6 mt-md-0 mt-3">
                                 <div class="mb-5">
                                     <!-- Content -->
                                     <h5 class="font-weight-bold text-uppercase mt-3 mb-4 pl-3">Quienes Somos</h5>
@@ -38,8 +35,8 @@
                                 </div>
                                 
 
-
-                                <div>
+                                <div class="row">
+                                <div class="col-md-6 mt-md-0 mt-3">
                                     <h5 class="font-weight-bold text-uppercase mt-5 mb-4 pl-3">Mapa de Sitio</h5>
                                     <hr>
                                         <div class="col-sm-6 float-left">
@@ -61,22 +58,11 @@
                                         </div>
                                 </div>
 
-                            
-
-                            </div>                            
-                            <!-- Grid column -->
-
-                           <!-- Grid column -->
-                           <div class="col-md-8 mt-md-0 mt-3">
-                                        
-                                <h5 class="font-weight-bold text-uppercase mt-3 mb-4 pl-3">Reportar un problema</h5>
-                                <hr>
-                                <?php include("../reportar_prob.php")?>
                             </div>
 
-                            <!-- Grid column -->
+                            
  
-                        </div>
+                      
                         <!-- Grid row -->
 
                     </div>
