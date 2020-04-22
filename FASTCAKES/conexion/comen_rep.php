@@ -7,21 +7,13 @@
 			$conexion -> query("call insert_comentario('$nombre','$correo', '$comentario');");
 			echo "<script>
                         alert('Se agrego correctamenete el comentario');
-                        window.location = '../reportar_prob.php';
+                        window.location = '../index.php';
                     </script>";
 	}else{
 			echo "<script>
                         alert('No agrego comentario');
-                        window.location = '../reportar_prob.php';
+                        window.location = '../index.php';
                     </script>";
 	}	
-	/*
-		$comen = "select correo from comentario where id ='$idusu'";
-		$resul = $conexion->query($pascon);
-		$row1 = $resul->fetch_assoc();
-		$contra = $row1['passwd'];	
-		if ($passwd === $contra) {
-		}
-		*/
 
 ?>
