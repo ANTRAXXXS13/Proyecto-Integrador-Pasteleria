@@ -1,0 +1,183 @@
+/*importando fonts de google fonts*/
+@import url('https://fonts.googleapis.com/css?family=Anton|Gugi|Lato|Roboto|Sofia|Lobster|Cabin|Noto+Sans&display=swap');
+
+
+:root {
+    
+    --roboto: "Roboto", sans-serif;
+    --gugi: "Gugi", cursive;
+    
+    --lobster: "Lobster", cursive;
+    --cabin: "Cabin", sans-serif;
+    --noto-san: "Noto San", sans-serif;
+
+    --blue: #007bff;
+    --indigo: #6610f2;
+    --purple: #6f42c1;
+    --pink: #e83e8c;
+    --red: #dc3545;
+    --orange: #fd7e14;
+    --yellow: #ffc107;
+    --green: #28a745;
+    --teal: #20c997;
+    --cyan: #17a2b8;
+    --white: #fff;
+    --gray: #6c757d;
+    --gray-dark: #343a40;
+    --primary: #fa576f;
+    --secondary: #11b8ab;
+    --success: #28a745;
+    --info: #9d6079;
+    --warning: #ffc107;
+    --danger: #dc3545;
+    --light: #f8f9fa;
+    --dark: #343a40;
+    
+    --font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Cabin", "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; 
+}
+
+
+
+/*Index*/
+
+
+/*
+body {
+    scroll-snap-type: y mandatory;
+}
+
+section .scroll {
+    scroll-snap-align: center;
+} */
+
+
+#index-brandname {
+    font-family: var(--lobster); 
+}
+
+.logo {
+    font-family: var(--lobster), sans-serif;
+}
+header .logo {
+    font-size: 1.5em;
+}
+
+.container .dropdown-toggle, 
+.container .dropdown-item {
+    font-size: 0.7em;
+}
+
+
+/*Barra de navegacion*/
+
+.navbar-nav .nav-link{
+    font-size: 0.85em;
+    font-weight: bold;
+    color: white !important;
+    letter-spacing: .15em;
+}
+
+.navbar-nav .nav-item .nav-link{
+    padding: 0em 1.3em;
+}
+
+
+
+/* Esto es en lo que nos aseguramos de tener las imagenes del mismo tamaño */
+.card-img-top {
+    height: 20vh !important;
+    object-fit: cover;
+}
+
+
+/*BARRA DE BUSQUEDA*/
+
+.form-control:focus {
+    box-shadow: none;
+  }
+  
+  .form-control-underlined {
+    border-width: 0;
+    border-bottom-width: 1px;
+    border-radius: 0;
+    padding-left: 0;
+  }
+
+  .form-control::placeholder {
+    font-size: 0.95rem;
+    color: #aaa;
+    font-style: italic;
+  }
+/*FOOTER - SOCIAL*/
+.social-icons
+{
+  padding-left:0;
+  margin-bottom:0;
+  list-style:none
+}
+.social-icons li
+{
+  display:inline-block;
+  margin-bottom:4px
+}
+.social-icons li.title
+{
+  margin-right:15px;
+  text-transform:uppercase;
+  color:#96a2b2;
+  font-weight:700;
+  font-size:13px
+}
+.social-icons a{
+  background-color:#eceeef;
+  color:#818a91;
+  font-size:16px;
+  display:inline-block;
+  line-height:44px;
+  width:44px;
+  height:44px;
+  text-align:center;
+  margin-right:8px;
+  border-radius:100%;
+  -webkit-transition:all .2s linear;
+  -o-transition:all .2s linear;
+  transition:all .2s linear
+}
+.social-icons a:active,.social-icons a:focus,.social-icons a:hover
+{
+  color:#fff;
+  background-color:#29aafe
+}
+.social-icons.size-sm a
+{
+  line-height:34px;
+  height:34px;
+  width:34px;
+  font-size:14px
+}
+.social-icons a.facebook:hover
+{
+  background-color:#3b5998
+}
+.social-icons a.twitter:hover
+{
+  background-color:#00aced
+}
+.social-icons a.linkedin:hover
+{
+  background-color:#007bb6
+}
+.social-icons a.dribbble:hover
+{
+  background-color:#ea4c89
+}
+@media (max-width:767px)
+{
+  .social-icons li.title
+  {
+    display:block;
+    margin-right:0;
+    font-weight:600
+  }
+}
