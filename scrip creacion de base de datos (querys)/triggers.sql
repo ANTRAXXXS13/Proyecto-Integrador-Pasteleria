@@ -5,6 +5,7 @@ begin
 end;
 //
 
+
 delimiter //
 CREATE trigger update_registro after insert on black_list for each row
 begin 

@@ -1,4 +1,4 @@
-<form action="" class="align-middle">
+<form action="">
     <div class="p-1 bg-light rounded rounded-pill shadow-md ">
         <div class="input-group">
             <input type="search" placeholder="Busca un pastel" aria-describedby="button-addon1" class="form-control form-control-sm border-0 bg-light ml-2">

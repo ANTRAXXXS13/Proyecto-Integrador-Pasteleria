@@ -2,7 +2,8 @@ create database proyectointegrador;
 use proyectointegrador;
 
 
-CREATE TABLE queja_aclaracione(id INTEGER AUTO_INCREMENT PRIMARY KEY NOT NULL, id_usuario INTEGER, comentario VARCHAR(500));
+CREATE TABLE queja_aclaracion(id INTEGER AUTO_INCREMENT PRIMARY KEY NOT NULL, nombre VARCHAR(100), correo VARCHAR(50),  comentario VARCHAR(500));
+
 
 CREATE TABLE tarjeta_debito(id INTEGER AUTO_INCREMENT PRIMARY KEY NOT NULL, id_usuario INTEGER, num_tarjeta CHAR(40), nombre_titular VARCHAR(90),fecha_vencimiento date, codigo_seguridad CHAR(40));
 

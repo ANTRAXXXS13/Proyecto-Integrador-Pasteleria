@@ -3,7 +3,6 @@ ALTER TABLE producto add foreign key(id_categoria_prod) references categoria_pro
 ALTER TABLE producto_sucursal add foreign key(id_producto) references producto(id), add foreign key(id_sucursal) references sucursal(id);
 ALTER TABLE pro_ing add foreign key(id_producto) references producto(id), add foreign key(id_ingrediente) references ingrediente(id);
 ALTER TABLE ingrediente add foreign key(id_categoria_ingre) references categoria_ingre(id);
-ALTER TABLE queja_aclaracione add foreign key(id_usuario) references usuario(id);
 ALTER TABLE tarjeta_debito add foreign key(id_usuario) references usuario(id);
 ALTER TABLE forma_pago add foreign key(id_usuario) references usuario(id);
 ALTER TABLE pedido_statuspedido add foreign KEY(id_pedido) references pedido(id), add foreign key(id_status_pedido) references status_pedido(id);

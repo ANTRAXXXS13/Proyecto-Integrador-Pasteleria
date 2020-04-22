@@ -34,7 +34,12 @@ end;
 //
 
 
-
+delimiter //
+create procedure insert_comentario(in _nombre VARCHAR(100), in _correo VARCHAR(50), in  _comentario VARCHAR(500))
+begin
+   insert into queja_aclaracion(nombre, correo, comentario) values(_nombre, _correo, _comentario);
+end;
+//
 
 -- =======================================================================================================================================================================
 -- =================================================================================== SUCURSAL ==========================================================================

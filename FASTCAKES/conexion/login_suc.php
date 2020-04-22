@@ -15,7 +15,7 @@
 			session_start();
 			ob_start();
 			$_SESSION['id_sucursal'] = $row["id"];
-			header("Location: ../sucursal/actualizar_sucursal.php"); // esto lo mandara a la pagina ya logeado
+			header("Location: ../sucursal/mis_pasteles.php"); // esto lo mandara a la pagina ya logeado
 		}else {
 			echo "<script>
 				alert('USUARIO O PASSWORD INCORRECTO');
